@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.project_csen_275.GardenControllerFX"
+      style="-fx-background-color: #f8f8f8;">
+    
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+            <Text style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #2e7d32;">Garden Simulator</Text>
+            <Text fx:id="statusText" style="-fx-font-size: 14px;">Welcome to your garden!</Text>
+            
+            <Separator>
+                <padding><Insets top="10" bottom="10"/></padding>
+            </Separator>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox alignment="CENTER">
+            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+            <GridPane fx:id="gardenGrid" hgap="12" vgap="12" alignment="CENTER" 
+                      style="-fx-background-color: #e0f2f1; -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #b2dfdb; -fx-border-radius: 10; -fx-border-width: 2;">
+                <padding><Insets top="15" right="15" bottom="15" left="20"/></padding>
+            </GridPane>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <VBox spacing="12" alignment="CENTER" style="-fx-background-color: #f0f7ff; -fx-border-color: #c5cae9; -fx-border-width: 1 0 0 0;">
+            <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+            
+            <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #e8f5e9; -fx-background-radius: 8; -fx-border-color: #c8e6c9; -fx-border-radius: 8; -fx-border-width: 1;">
+                <Label text="Selected Plant:" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="plantTypeComboBox" prefWidth="150" promptText="Choose a plant"/>
+                <Button text="Plant Selected" onAction="#onPlantSelected" style="-fx-base: #a5d6a7; -fx-font-weight: bold;"/>
+            </HBox>
+                    
+                    <HBox spacing="15" alignment="CENTER">
+                        <Button text="Update Garden" onAction="#onUpdate" style="-fx-base: #bbdefb;"/>
+                        <Button text="Water All" onAction="#onWaterAll" style="-fx-base: #90caf9;"/>
+                        <Button text="Add Bug" onAction="#onAddPest" style="-fx-base: #ffcc80;"/>
+                        <Button text="Remove Bugs" onAction="#onRemovePests" style="-fx-base: #ef9a9a;"/>
+                    </HBox>
+                    
+                    <Separator>
+                        <padding><Insets top="5" bottom="5"/></padding>
+                    </Separator>
+                    
+                    <HBox spacing="15" alignment="CENTER" style="-fx-padding: 12px; -fx-background-color: #e0f7fa; -fx-background-radius: 8; -fx-border-color: #b2ebf2; -fx-border-radius: 8; -fx-border-width: 1; -fx-border-width: 2;">
+                        <ToggleButton fx:id="automationToggle" text="▶️ Start Automation" onAction="#onToggleAutomation" 
+                                    style="-fx-base: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5;"/>
+                        <Label text="Automation will water plants and update garden automatically" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                    </HBox>
+                </VBox>
+    </bottom>
+    
+    <right>
+        <VBox spacing="10" alignment="TOP_CENTER" prefWidth="300" 
+              style="-fx-background-color: #f1f8e9; -fx-padding: 20; -fx-background-radius: 10 0 0 10; -fx-border-color: #dcedc8; -fx-border-width: 2 0 2 2; -fx-border-radius: 10 0 0 10;">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    <Label text="Garden Stats" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+                    <VBox fx:id="statsBox" spacing="5" alignment="TOP_LEFT" VBox.vgrow="ALWAYS">
+                        <Label text="Plants:"/>
+                        <Label fx:id="plantsCount" text="0" style="-fx-font-weight: bold;"/>
+                        <Label text="Water Level:"/>
+                        <Label fx:id="waterLevel" text="0%" style="-fx-font-weight: bold;"/>
+                        <Label text="Health:"/>
+                        <Label fx:id="healthLevel" text="0%" style="-fx-font-weight: bold;"/>
+                        <Label text="Fertilizer:"/>
+                        <Label fx:id="fertilizerLevel" text="0%" style="-fx-font-weight: bold;"/>
+                    </VBox>
+                    <Separator/>
+                    <Label text="Activity Log" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                    <TextArea fx:id="logTextArea" wrapText="true" editable="false" prefHeight="200" VBox.vgrow="ALWAYS"/>
+                </VBox>
+    </right>
+    
+</BorderPane>

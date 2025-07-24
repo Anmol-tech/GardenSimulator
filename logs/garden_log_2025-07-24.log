@@ -1,0 +1,86 @@
+02:06:58 ℹ️ [INFO] Garden application started
+02:08:50 ℹ️ [INFO] Garden application started
+02:16:38 ℹ️ [INFO] Garden application started
+02:16:56 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+02:16:56 ⚠️ [WARNING] Oh no! �🐜🦗 Bug infestation! 6 insects have appeared.
+02:16:59 ℹ️ [INFO] Watered Sunflower at position [0,0]
+02:16:59 ℹ️ [INFO] Watered Corn at position [1,0]
+02:16:59 ℹ️ [INFO] Watered Cherry at position [2,1]
+02:16:59 ℹ️ [INFO] Watered Pumpkin at position [2,4]
+02:17:02 ℹ️ [INFO] Watered Pumpkin at position [0,3]
+02:17:02 ℹ️ [INFO] Watered Cherry at position [2,1]
+02:17:05 ℹ️ [INFO] Watered Sunflower at position [0,4]
+02:17:05 ℹ️ [INFO] Watered Cherry at position [4,3]
+02:17:08 ℹ️ [INFO] Watered Pumpkin at position [0,3]
+02:17:11 ⚠️ [WARNING] Oh no! �🐜🦗 Bug infestation! 5 insects have appeared.
+02:18:29 ℹ️ [INFO] Garden application started
+02:18:36 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+02:18:36 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+02:18:39 ℹ️ [INFO] Watered Carrot at position [2,2]
+02:18:39 ℹ️ [INFO] Watered Corn at position [4,4]
+02:18:39 ℹ️ [INFO] Automatically planted Pumpkin at position [2,3]
+02:18:42 ℹ️ [INFO] Watered Carrot at position [0,4]
+02:18:42 ℹ️ [INFO] Watered Pumpkin at position [4,2]
+02:18:45 ℹ️ [INFO] Watered Pumpkin at position [2,3]
+02:18:45 ℹ️ [INFO] Watered Pumpkin at position [4,2]
+02:18:45 ℹ️ [INFO] Watered Pumpkin at position [4,3]
+02:18:48 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+02:18:48 ℹ️ [INFO] Watered Sunflower at position [3,4]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [0,4]
+02:18:51 ℹ️ [INFO] Watered Corn at position [3,1]
+02:18:51 ℹ️ [INFO] Watered Sunflower at position [4,1]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [0,0]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [0,0]
+02:18:51 ℹ️ [INFO] Watered Cherry at position [0,1]
+02:18:51 ℹ️ [INFO] Watered Cherry at position [0,1]
+02:18:51 ℹ️ [INFO] Watered Cherry at position [0,3]
+02:18:51 ℹ️ [INFO] Watered Cherry at position [0,3]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [0,4]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [0,4]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [1,0]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [1,0]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [1,1]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [1,1]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [1,4]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [1,4]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [2,2]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [2,2]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [2,3]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [2,3]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [3,0]
+02:18:51 ℹ️ [INFO] Watered Carrot at position [3,0]
+02:18:51 ℹ️ [INFO] Watered Corn at position [3,1]
+02:18:51 ℹ️ [INFO] Watered Corn at position [3,1]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [3,2]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [3,2]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [3,3]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [3,3]
+02:18:51 ℹ️ [INFO] Watered Sunflower at position [3,4]
+02:18:51 ℹ️ [INFO] Watered Sunflower at position [3,4]
+02:18:51 ℹ️ [INFO] Watered Sunflower at position [4,1]
+02:18:51 ℹ️ [INFO] Watered Sunflower at position [4,1]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [4,2]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [4,2]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [4,3]
+02:18:51 ℹ️ [INFO] Watered Pumpkin at position [4,3]
+02:18:51 ℹ️ [INFO] Watered Corn at position [4,4]
+02:18:51 ℹ️ [INFO] Watered Corn at position [4,4]
+02:18:51 ℹ️ [INFO] Perfect 🌸growing conditions today! 19 plants are thriving.
+02:18:54 ℹ️ [INFO] Watered Carrot at position [0,4]
+02:18:57 ℹ️ [INFO] Watered Carrot at position [0,4]
+02:23:13 ℹ️ [INFO] Garden application started
+02:25:19 ℹ️ [INFO] Garden application started
+02:25:58 ℹ️ [INFO] Garden application started
+02:26:50 ℹ️ [INFO] Garden application started
+02:28:12 ℹ️ [INFO] Garden application started
+02:30:44 ℹ️ [INFO] Garden application started
+02:31:03 ℹ️ [INFO] Garden application started
+02:32:08 ℹ️ [INFO] Garden application started
+02:32:20 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+02:32:20 ⚠️ [WARNING] Oh no! �🐜🦗 Bug infestation! 6 insects have appeared.
+02:32:23 ℹ️ [INFO] Watered Corn at position [1,0]
+02:32:23 ℹ️ [INFO] Watered Carrot at position [2,2]
+02:32:26 ℹ️ [INFO] Watered Carrot at position [0,3]
+02:32:29 ℹ️ [INFO] Watered Carrot at position [4,1]

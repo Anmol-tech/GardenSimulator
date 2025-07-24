@@ -23,7 +23,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.6</version>
+            <version>24.0.1</version>
         </dependency>
 
         <dependency>
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.project_csen_275/com.example.project_csen_275.HelloApplication
+                            <mainClass>com.example.project_csen_275/com.example.project_csen_275.GardenApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
