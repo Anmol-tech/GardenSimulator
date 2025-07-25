@@ -4,7 +4,6 @@ import com.example.project_csen_275.Models.Plants.*;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.StringConverter;
 import java.util.HashMap;
 import java.util.Map;
 

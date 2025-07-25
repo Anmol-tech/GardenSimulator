@@ -115,8 +115,9 @@ public class GardenControllerFX implements Initializable {
 
     private StackPane getStackPane(int r, int c) {
         StackPane cell = new StackPane();
-        cell.setMinSize(70, 70);
-        cell.setPrefSize(70, 70);
+        cell.setMinSize(100, 100);
+        cell.setPrefSize(100, 100);
+        cell.setMaxSize(100, 100);
         cell.setStyle("-fx-border-color: #555555; -fx-background-color: #e8e8d0;");
 
         cell.setOnMouseClicked(e -> {
@@ -293,8 +294,8 @@ public class GardenControllerFX implements Initializable {
 
                 Image plantImage = new Image(getClass().getResourceAsStream(imagePath));
                 ImageView imageView = new ImageView(plantImage);
-                imageView.setFitWidth(50);
-                imageView.setFitHeight(50);
+                imageView.setFitWidth(60);
+                imageView.setFitHeight(60);
 
                 // Special indicator for empty soil (NoPlant)
                 if (plant instanceof NoPlant) {
@@ -307,15 +308,15 @@ public class GardenControllerFX implements Initializable {
                 // Add visual indicator for health/pest status for living plants
                 if (!(plant instanceof NoPlant)) {
                     // Create a background for the health text
-                    Rectangle healthBg = new Rectangle(40, 20);
+                    Rectangle healthBg = new Rectangle(70, 24);
                     healthBg.setArcWidth(10);
                     healthBg.setArcHeight(10);
                     healthBg.setFill(Color.WHITE);
                     healthBg.setOpacity(0.9);
                     healthBg.setStroke(Color.DARKGRAY);
                     healthBg.setStrokeWidth(1.5);
-                    healthBg.setTranslateX(-15);
-                    healthBg.setTranslateY(-25);
+                    healthBg.setTranslateX(0);
+                    healthBg.setTranslateY(-38);
 
                     // Color based on health: green (good), yellow (medium), orange (low), red
                     // (pest)
@@ -336,28 +337,18 @@ public class GardenControllerFX implements Initializable {
                     Label healthLabel = new Label(healthPrefix + " " + plant.getHealth());
                     healthLabel.setTextFill(healthColor);
                     healthLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12px;");
-                    healthLabel.setTranslateX(-15);
-                    healthLabel.setTranslateY(-25);
+                    healthLabel.setTranslateX(0);
+                    healthLabel.setTranslateY(-38);
 
                     // Add moisture indicator with better visibility
-                    Rectangle moistureBg = new Rectangle(40, 20);
-                    moistureBg.setArcWidth(10);
-                    moistureBg.setArcHeight(10);
-                    moistureBg.setFill(Color.WHITE);
-                    moistureBg.setOpacity(0.9);
-                    moistureBg.setStroke(Color.DARKGRAY);
-                    moistureBg.setStrokeWidth(1.5);
-                    moistureBg.setTranslateX(-15);
-                    moistureBg.setTranslateY(25);
-
                     Label moistureLabel = new Label("💧 " + plant.getMoistureLevel());
                     moistureLabel.setTextFill(Color.DEEPSKYBLUE);
                     moistureLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12px;");
-                    moistureLabel.setTranslateX(-15);
-                    moistureLabel.setTranslateY(25);
+                    moistureLabel.setTranslateX(0);
+                    moistureLabel.setTranslateY(38);
 
                     // Add indicators to the cell, making sure they're on top of other elements
-                    cell.getChildren().addAll(healthBg, moistureBg);
+                    cell.getChildren().add(healthBg);
                     cell.getChildren().addAll(healthLabel, moistureLabel);
                 }
 
@@ -531,7 +522,7 @@ public class GardenControllerFX implements Initializable {
                         }
                     }
                 }
-                String pestMessage = "Oh no! �🐜🦗 Bug infestation! " + pestCount + " insects have appeared.";
+                String pestMessage = "Oh no! 🐜🦗 Bug infestation! " + pestCount + " insects have appeared.";
                 statusText.setText(pestMessage);
                 GardenLogger.warning(pestMessage);
                 break;
@@ -829,7 +820,8 @@ public class GardenControllerFX implements Initializable {
                             imageView.setFitWidth(20);
                             setText(item);
                             setGraphic(imageView);
-                        } else {
+                        } 
+                        else {
                             setText(item);
                             setGraphic(null);
                         }

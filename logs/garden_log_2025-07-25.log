@@ -1,0 +1,156 @@
+11:19:30 ℹ️ [INFO] Garden application started
+11:21:54 ℹ️ [INFO] Garden application started
+11:24:51 ℹ️ [INFO] Garden application started
+11:25:16 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:17 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:18 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:18 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:19 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:23 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:26 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:27 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:25:45 ℹ️ [INFO] Planted Carrot at position [1,1]
+11:28:56 ℹ️ [INFO] Garden application started
+11:29:28 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:29 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:30 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:30 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:31 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:32 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:33 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:33 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:34 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:35 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:35 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:36 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:36 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:37 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:38 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:38 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:39 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:39 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:40 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:40 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:41 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:41 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:41 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:42 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:42 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:42 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:42 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:43 ⚠️ [WARNING] Corn at position [0,0] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Pumpkin at position [0,2] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Carrot at position [0,3] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Carrot at position [0,4] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Corn at position [1,1] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Corn at position [1,2] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Cherry at position [1,3] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Cherry at position [2,0] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Sunflower at position [2,1] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Carrot at position [2,3] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Pumpkin at position [2,4] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Sunflower at position [3,1] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Pumpkin at position [3,3] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Pumpkin at position [4,0] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Carrot at position [4,2] died and was replaced with soil
+11:29:43 ⚠️ [WARNING] Sunflower at position [4,3] died and was replaced with soil
+11:29:43 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:43 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:43 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:43 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:48 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:49 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:49 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:49 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:49 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:49 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:49 ℹ️ [INFO] Garden updated! Plants have grown or changed.
+11:29:55 ℹ️ [INFO] Planted Carrot at position [0,0]
+11:29:59 ℹ️ [INFO] Planted Cherry at position [1,0]
+11:30:02 ℹ️ [INFO] Planted Pumpkin at position [2,0]
+11:30:06 ℹ️ [INFO] Planted Corn at position [3,0]
+11:30:10 ℹ️ [INFO] Planted Sunflower at position [4,0]
+11:30:14 ℹ️ [INFO] Planted Carrot at position [0,1]
+11:30:17 ℹ️ [INFO] Planted Cherry at position [1,1]
+11:30:21 ℹ️ [INFO] Planted Pumpkin at position [2,1]
+11:30:25 ℹ️ [INFO] Planted Pumpkin at position [2,2]
+11:30:28 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+11:30:29 ℹ️ [INFO] Planted Pumpkin at position [2,4]
+11:30:33 ℹ️ [INFO] Planted Corn at position [3,1]
+11:30:35 ℹ️ [INFO] Planted Corn at position [3,2]
+11:30:36 ℹ️ [INFO] Planted Corn at position [3,3]
+11:30:38 ℹ️ [INFO] Planted Corn at position [3,4]
+11:30:41 ℹ️ [INFO] Planted Sunflower at position [4,1]
+11:30:42 ℹ️ [INFO] Planted Sunflower at position [4,2]
+11:30:43 ℹ️ [INFO] Planted Sunflower at position [4,3]
+11:30:45 ℹ️ [INFO] Planted Sunflower at position [4,4]
+11:30:48 ℹ️ [INFO] Planted Cherry at position [1,2]
+11:30:51 ℹ️ [INFO] Planted Cherry at position [1,3]
+11:30:52 ℹ️ [INFO] Planted Cherry at position [1,4]
+11:30:56 ℹ️ [INFO] Planted Carrot at position [0,2]
+11:30:58 ℹ️ [INFO] Planted Carrot at position [0,3]
+11:31:00 ℹ️ [INFO] Planted Carrot at position [0,4]
+11:36:18 ℹ️ [INFO] Garden application started
+11:36:26 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+11:36:26 ℹ️ [INFO] Watered Corn at position [0,3]
+11:36:26 ℹ️ [INFO] Watered Corn at position [0,4]
+11:36:26 ℹ️ [INFO] Watered Carrot at position [1,1]
+11:36:26 ℹ️ [INFO] Watered Corn at position [1,3]
+11:36:26 ℹ️ [INFO] Watered Sunflower at position [2,0]
+11:36:26 ℹ️ [INFO] Watered Carrot at position [2,1]
+11:36:26 ℹ️ [INFO] Watered Cherry at position [2,2]
+11:36:26 ℹ️ [INFO] Watered Pumpkin at position [2,4]
+11:36:26 ℹ️ [INFO] Watered Corn at position [3,0]
+11:36:26 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+11:36:26 ℹ️ [INFO] Watered Carrot at position [3,2]
+11:36:26 ℹ️ [INFO] Watered Sunflower at position [3,3]
+11:36:26 ℹ️ [INFO] Watered Pumpkin at position [3,4]
+11:36:26 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+11:36:26 ℹ️ [INFO] Watered Cherry at position [4,3]
+11:36:26 ℹ️ [INFO] Watered Corn at position [4,4]
+11:36:26 🔔 [EVENT] It's raining!🌧️ 16 plants have been watered.
+11:36:32 ℹ️ [INFO] Watered Corn at position [0,4]
+11:36:35 ℹ️ [INFO] Watered Corn at position [1,3]
+11:36:35 ℹ️ [INFO] Watered Cherry at position [2,2]
+11:36:38 ℹ️ [INFO] Watered Corn at position [1,3]
+11:36:38 ℹ️ [INFO] Watered Cherry at position [2,2]
+11:36:41 ℹ️ [INFO] Watered Corn at position [4,4]
+11:36:41 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+11:36:44 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+11:36:44 ℹ️ [INFO] Automatically planted Sunflower at position [4,2]
+11:36:47 ℹ️ [INFO] Watered Corn at position [0,3]
+11:36:47 ℹ️ [INFO] Watered Pumpkin at position [2,4]
+11:36:50 ℹ️ [INFO] Watered Sunflower at position [2,0]
+11:36:50 ℹ️ [INFO] Watered Pumpkin at position [2,4]
+11:36:50 ℹ️ [INFO] Watered Cherry at position [4,3]
+11:36:53 ℹ️ [INFO] Watered Corn at position [1,3]
+11:36:53 ℹ️ [INFO] Watered Pumpkin at position [2,4]
+11:36:53 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+11:36:56 ℹ️ [INFO] Watered Corn at position [0,4]
+11:36:56 ℹ️ [INFO] Watered Carrot at position [1,1]
+11:36:56 ℹ️ [INFO] Watered Sunflower at position [2,0]
+11:36:56 ℹ️ [INFO] Watered Cherry at position [4,3]
+11:36:56 ℹ️ [INFO] Watered Corn at position [0,3]
+11:36:56 ℹ️ [INFO] Watered Corn at position [0,4]
+11:36:56 ℹ️ [INFO] Watered Carrot at position [1,1]
+11:36:56 ℹ️ [INFO] Watered Corn at position [1,3]
+11:36:56 ℹ️ [INFO] Watered Sunflower at position [2,0]
+11:36:56 ℹ️ [INFO] Watered Carrot at position [2,1]
+11:36:56 ℹ️ [INFO] Watered Cherry at position [2,2]
+11:36:56 ℹ️ [INFO] Watered Pumpkin at position [2,4]
+11:36:56 ℹ️ [INFO] Watered Corn at position [3,0]
+11:36:56 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+11:36:56 ℹ️ [INFO] Watered Carrot at position [3,2]
+11:36:56 ℹ️ [INFO] Watered Sunflower at position [3,3]
+11:36:56 ℹ️ [INFO] Watered Pumpkin at position [3,4]
+11:36:56 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+11:36:56 ℹ️ [INFO] Watered Sunflower at position [4,2]
+11:36:56 ℹ️ [INFO] Watered Cherry at position [4,3]
+11:36:56 ℹ️ [INFO] Watered Corn at position [4,4]
+11:36:56 🔔 [EVENT] It's raining!🌧️ 17 plants have been watered.
+11:36:59 ℹ️ [INFO] Watered Carrot at position [2,1]
+11:36:59 ℹ️ [INFO] Automatically planted Corn at position [1,0]
+11:37:02 ℹ️ [INFO] Watered Corn at position [0,4]
+11:37:02 ℹ️ [INFO] Watered Carrot at position [1,1]
+11:37:02 ℹ️ [INFO] Watered Corn at position [3,0]
+11:37:04 ℹ️ [INFO] Garden automation stopped
