@@ -5,6 +5,7 @@ public class Plant {
     private int health;
     private int moistureLevel;
     private boolean hasPest;
+    private String pestType;
     private String imageUrl;
 
     public Plant(String name, int health, int moistureLevel, boolean hasPest, String imageUrl) {
@@ -42,8 +43,17 @@ public class Plant {
         }
     }
 
+    /**
+     * Adds a specified amount of water to the plant's moisture level (no health restoration).
+     * @param amount water amount to add
+     */
+    public void addWater(int amount) {
+        moistureLevel = Math.min(moistureLevel + amount, 100);
+    }
+
     public void dryOut() {
-        moistureLevel = Math.max(0, moistureLevel - 3);
+        // Slow moisture drain to 1 per cycle
+        moistureLevel = Math.max(0, moistureLevel - 1);
         if (moistureLevel < 30) {
             health = Math.max(0, health - 2);
         }
@@ -62,11 +72,28 @@ public class Plant {
     }
 
     public boolean hasPest() {
-        return hasPest;
+        return pestType != null && !pestType.isEmpty();
     }
 
     public void setHasPest(boolean hasPest) {
-        this.hasPest = hasPest;
+        if (!hasPest) {
+            this.pestType = null;
+        }
+    }
+
+    /**
+     * Gets the specific pest type infesting this plant.
+     */
+    public String getPestType() {
+        return pestType;
+    }
+
+    /**
+     * Sets the pest type for this plant. Passing null or empty clears the pest.
+     */
+    public void setPestType(String pestType) {
+        this.pestType = pestType;
+        this.hasPest = (pestType != null && !pestType.isEmpty());
     }
 
     public String getImageUrl() {

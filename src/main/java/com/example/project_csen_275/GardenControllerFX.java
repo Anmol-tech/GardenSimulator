@@ -1,6 +1,7 @@
 package com.example.project_csen_275;
 
 import com.example.project_csen_275.Models.Garden;
+import com.example.project_csen_275.GardenSimulationAPI;
 import com.example.project_csen_275.Models.Plants.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -29,6 +30,9 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class GardenControllerFX implements Initializable {
     @FXML
@@ -40,7 +44,8 @@ public class GardenControllerFX implements Initializable {
 
     private final int ROWS = 5;
     private final int COLS = 5;
-    private final Garden garden = new Garden(ROWS, COLS);
+    private GardenSimulationAPI simApi;
+    private Garden garden;
     private PlantSelector plantSelector;
     private int selectedRow = -1;
     private int selectedCol = -1;
@@ -73,6 +78,10 @@ public class GardenControllerFX implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Initialize simulation API and garden from config
+        simApi = new GardenSimulationAPI(ROWS, COLS);
+        simApi.initializeGarden();
+        garden = simApi.getGarden();
         // Initialize the plant selector
         plantSelector = new PlantSelector();
 
@@ -387,28 +396,36 @@ public class GardenControllerFX implements Initializable {
             // Perform automatic update
             garden.updateGardenState();
 
-            // Consolidate automatic watering count for this cycle
+            // Consolidate automatic watering count
             int autoWaterCount = 0;
 
-            // Random watering of plants (10% chance for each plant)
-            for (int r = 0; r < ROWS; r++) {
-                for (int c = 0; c < COLS; c++) {
-                    Plant plant = garden.getPlant(r, c);
-                    if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(10) == 0) { // 10% chance
-                        garden.waterPlantSilently(r, c);
-                        autoWaterCount++;
-                        final int row = r;
-                        final int col = c;
-                        Platform.runLater(() -> {
-                            StackPane cell = (StackPane) getNodeByRowColumnIndex(row, col);
-                            WaterAnimation.playWaterAnimation(cell);
-                        });
+            // Random watering every 6 cycles (~18s)
+            if (automationCycleCount % 6 == 0) {
+                for (int r = 0; r < ROWS; r++) {
+                    for (int c = 0; c < COLS; c++) {
+                        Plant plant = garden.getPlant(r, c);
+                        // 25% chance to water each plant when triggered
+                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(4) == 0) {
+                            garden.waterPlantSilently(r, c);
+                            autoWaterCount++;
+                            final int row = r;
+                            final int col = c;
+                            Platform.runLater(() -> {
+                                StackPane cell = (StackPane) getNodeByRowColumnIndex(row, col);
+                                WaterAnimation.playWaterAnimation(cell);
+                            });
+                        }
                     }
                 }
             }
 
             // Accumulate watering for batch log
             waterBatchCount += autoWaterCount;
+
+            // Every 200 cycles (~10 minutes), water all plants
+            if (automationCycleCount % 200 == 0) {
+                Platform.runLater(this::onWaterAll);
+            }
 
             // Randomly plant new plants in empty soil (15% chance per cycle)
             if (random.nextInt(7) == 0) { // ~15% chance
@@ -496,46 +513,58 @@ public class GardenControllerFX implements Initializable {
                 GardenLogger.event(message);
                 break;
 
-            case 1: // Rainy day - all plants get watered
-                int rainWateredCount = 0;
+            case 1: // Rainy day - use API rain to water all plants with health regen
+                // Delegate to simulation API for rain
+                int rainCount = simApi.rain(0); // amount ignored in model; uses plant.water()
+                // Animate all watered cells
                 for (int r = 0; r < ROWS; r++) {
                     for (int c = 0; c < COLS; c++) {
                         Plant plant = garden.getPlant(r, c);
-
-                        // Only water and animate actual plants, not empty soil
                         if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                            garden.waterPlant(r, c);
-                            rainWateredCount++;
-
-                            // Add water animation with delay based on position
                             final int row = r;
                             final int col = c;
-                            StackPane cell = (StackPane) getNodeByRowColumnIndex(row, col);
-
-                            // Create a delayed animation for each cell
-                            Timeline delay = new Timeline(new KeyFrame(Duration.millis((r * COLS + c) * 80), e -> {
+                            Platform.runLater(() -> {
+                                StackPane cell = getNodeByRowColumnIndex(row, col);
                                 WaterAnimation.playWaterAnimation(cell);
-                            }));
-                            delay.play();
+                            });
                         }
                     }
                 }
-                String rainMessage = "It's raining!🌧️ " + rainWateredCount + " plants have been watered.";
+                String rainMessage = "It's raining! " + rainCount + " plants have been watered.";
                 statusText.setText(rainMessage);
                 GardenLogger.event(rainMessage);
                 break;
 
-            case 2: // Pest infestation - random pests appear
+            case 2: // Pest infestation - random pests appear based on vulnerabilities
                 int pestCount = 0;
+                // Track infestation summary (optional)
+                Map<String,Integer> infestSummary = new HashMap<>();
                 for (int r = 0; r < ROWS; r++) {
                     for (int c = 0; c < COLS; c++) {
-                        if (random.nextInt(3) == 0) { // 33% chance
-                            garden.getPlant(r, c).setHasPest(true);
-                            pestCount++;
+                        Plant plant = garden.getPlant(r, c);
+                        if (!(plant instanceof NoPlant) && random.nextInt(3) == 0) { // 33% chance
+                            // choose a pest from vulnerabilities
+                            List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
+                            if (!pests.isEmpty()) {
+                                String pest = pests.get(random.nextInt(pests.size()));
+                                plant.setPestType(pest);
+                                pestCount++;
+                                infestSummary.put(pest, infestSummary.getOrDefault(pest, 0) + 1);
+                            }
                         }
                     }
                 }
-                String pestMessage = "Oh no! 🐜🦗 Bug infestation! " + pestCount + " insects have appeared.";
+                // Build message listing pest types
+                StringBuilder msg = new StringBuilder("Oh no! Pest infestation: ");
+                msg.append(pestCount).append(" plants were infested");
+                if (!infestSummary.isEmpty()) {
+                    msg.append(" (");
+                    infestSummary.forEach((p, count) -> msg.append(p).append(" x").append(count).append(", "));
+                    // remove trailing comma and space
+                    msg.setLength(msg.length() - 2);
+                    msg.append(")");
+                }
+                String pestMessage = msg.toString();
                 statusText.setText(pestMessage);
                 GardenLogger.warning(pestMessage);
                 break;

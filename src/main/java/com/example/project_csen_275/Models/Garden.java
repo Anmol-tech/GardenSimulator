@@ -125,6 +125,30 @@ public class Garden {
     }
 
     /**
+     * Simulates rainfall by adding given amount of water to all plants.
+     * @param amount the water amount to add per plant
+     * @return number of plants watered
+     */
+    public int rain(int amount) {
+        int count = 0;
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[r].length; c++) {
+                Plant plant = grid[r][c];
+                if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                    plant.water(); // standard water + health regen
+                    wateredCount++;
+                    count++;
+                }
+            }
+        }
+        if (com.example.project_csen_275.GardenLogger.class != null) {
+            com.example.project_csen_275.GardenLogger.event(
+                "Rainfall: watered " + count + " plants.");
+        }
+        return count;
+    }
+
+    /**
      * Try to plant a new plant in an empty soil spot
      * 
      * @return true if a new plant was planted, false otherwise
@@ -195,6 +219,23 @@ public class Garden {
         }
 
         return false;
+    }
+
+    /**
+     * Clears all plants from the garden and resets stats.
+     */
+    public void clearGarden() {
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
+                grid[r][c] = new NoPlant();
+            }
+        }
+        deadPlantCount = 0;
+        plantedCount = 0;
+        wateredCount = 0;
+        if (com.example.project_csen_275.GardenLogger.class != null) {
+            com.example.project_csen_275.GardenLogger.info("Garden cleared for initialization");
+        }
     }
 
     // Add methods to get garden stats
