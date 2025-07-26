@@ -127,6 +127,53 @@ public class GardenSimulationAPI {
     }
 
     /**
+     * Triggers a parasite infestation by pest name across all vulnerable plants.
+     * @param pestName the name of the parasite to infest
+     * @return number of plants infested
+     */
+    public int parasite(String pestName) {
+        int count = 0;
+        int rows = garden.getRows();
+        int cols = garden.getCols();
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Plant plant = garden.getPlant(r, c);
+                if (!(plant instanceof com.example.project_csen_275.Models.Plants.NoPlant)
+                        && plant.getHealth() > 0) {
+                    List<String> vuln = DEFAULT_PARASITES.getOrDefault(plant.getName(), Collections.emptyList());
+                    if (vuln.contains(pestName)) {
+                        plant.setPestType(pestName);
+                        count++;
+                    }
+                }
+            }
+        }
+        GardenLogger.warning("Parasite '" + pestName + "' infested " + count + " plants.");
+        return count;
+    }
+
+    /**
+     * Logs a summary of the garden's current state (stats and plant-type counts).
+     */
+    public void getState() {
+        // Log header
+        GardenLogger.info("=== Garden State Summary ===");
+        // Core stats
+        GardenLogger.info("Temperature: " + garden.getCurrentTemperature() + "°F");
+        GardenLogger.info("Living Plants: " + garden.getLivePlantCount());
+        GardenLogger.info("Dead Plants: " + garden.getDeadPlantCount());
+        GardenLogger.info("Empty Soil: " + garden.getEmptySoilCount());
+        GardenLogger.info("Plants Planted (total): " + garden.getPlantedCount());
+        GardenLogger.info("Plants Watered (total): " + garden.getWateredCount());
+        // Per-type breakdown
+        Map<String, Integer> typeStats = garden.getPlantTypeStats();
+        StringBuilder sb = new StringBuilder("Plant counts by type: ");
+        typeStats.forEach((type, count) -> sb.append(type).append("=").append(count).append(", "));
+        if (sb.length() > 0) sb.setLength(sb.length() - 2);
+        GardenLogger.info(sb.toString());
+    }
+
+    /**
      * Provides the underlying Garden instance for further operations.
      * @return the Garden model
      */

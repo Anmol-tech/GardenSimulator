@@ -13,8 +13,8 @@ public class Garden {
     private int deadPlantCount = 0;
     private int plantedCount = 0;
     private int wateredCount = 0;
-    // Temperature tracking
-    private int currentTemperature = 0;
+    // Temperature tracking (default to ideal 70°F)
+    private int currentTemperature = 70;
 
     public Garden(int rows, int cols) {
         grid = new Plant[rows][cols];
@@ -165,14 +165,14 @@ public class Garden {
                     Plant plant = grid[r][c];
                     if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
                         plant.dryOut(); // Extra drying
-                        // Additional heat damage: -2 health
-                        plant.setHealth(Math.max(0, plant.getHealth() - 2));
+                        // Additional heat damage: -8 health
+                        plant.setHealth(Math.max(0, plant.getHealth() - 8));
                         affected++;
                     }
                 }
             }
             if (com.example.project_csen_275.GardenLogger.class != null) {
-                com.example.project_csen_275.GardenLogger.warning("Heat wave! " + affected + " plants dried out and took 2 damage due to high temperature (" + temp + "°F)");
+                com.example.project_csen_275.GardenLogger.warning("Heat wave! " + affected + " plants dried out and took 8 damage due to high temperature (" + temp + "°F)");
             }
         } else if (temp < 65) {
             // Cold stress: damage health

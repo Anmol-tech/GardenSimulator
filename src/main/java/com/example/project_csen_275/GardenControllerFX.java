@@ -81,6 +81,7 @@ public class GardenControllerFX implements Initializable {
     // Batch-water logging fields
     private int waterBatchCount = 0;
     private Timeline waterLogTimer;
+    private Timeline hourlyReportTimer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -114,6 +115,8 @@ public class GardenControllerFX implements Initializable {
         setupStatsUpdateTimer();
         // Setup batch logging of watering every 10 seconds
         setupWaterBatchLogTimer();
+        // Setup real-time hourly state reporting
+        setupHourlyReportTimer();
 
         // Add listener to attach panels when scene is available
         gardenGrid.sceneProperty().addListener((obs, oldScene, newScene) -> {
@@ -448,12 +451,19 @@ public class GardenControllerFX implements Initializable {
                 int row = random.nextInt(ROWS);
                 int col = random.nextInt(COLS);
                 Plant plant = garden.getPlant(row, col);
-                if (!plant.hasPest() && !(plant instanceof NoPlant)) {
-                    plant.setHasPest(true);
-                    Platform.runLater(() -> {
-                        statusText.setText("A pest appeared on " + plant.getName() + " at Row " + (row + 1)
-                                + ", Column " + (col + 1) + "!");
-                    });
+                if (!(plant instanceof NoPlant) && !plant.hasPest() && plant.getHealth() > 0) {
+                    // Choose a random pest from this plant's vulnerabilities
+                    List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
+                    if (!pests.isEmpty()) {
+                        String pestName = pests.get(random.nextInt(pests.size()));
+                        plant.setPestType(pestName);
+                        // Log the infestation event
+                        String logMsg = "Parasite '" + pestName + "' appeared on " + plant.getName() +
+                                         " at Row " + (row + 1) + ", Column " + (col + 1);
+                        GardenLogger.warning(logMsg);
+                        // Update UI status
+                        Platform.runLater(() -> statusText.setText(logMsg));
+                    }
                 }
             }
 
@@ -462,23 +472,21 @@ public class GardenControllerFX implements Initializable {
                 Platform.runLater(this::triggerRandomEvent);
             }
 
-            // Apply temperature stress penalty every 2 cycles
-            if (automationCycleCount % 2 == 0) {
-                int temp = garden.getCurrentTemperature();
-                if (temp < IDEAL_TEMP_LOWER) {
-                    int penaltyCount = 0;
-                    for (int r = 0; r < ROWS; r++) {
-                        for (int c = 0; c < COLS; c++) {
-                            Plant plant = garden.getPlant(r, c);
-                            if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                                int newH = Math.max(0, plant.getHealth() - 2);
-                                plant.setHealth(newH);
-                                penaltyCount++;
-                            }
+            // Apply frost stress penalty every cycle if below ideal
+            int temp = garden.getCurrentTemperature();
+            if (temp < IDEAL_TEMP_LOWER) {
+                int penaltyCount = 0;
+                for (int r = 0; r < ROWS; r++) {
+                    for (int c = 0; c < COLS; c++) {
+                        Plant plant = garden.getPlant(r, c);
+                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                            int newH = Math.max(0, plant.getHealth() - 2);
+                            plant.setHealth(newH);
+                            penaltyCount++;
                         }
                     }
-                    GardenLogger.warning(penaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)");
                 }
+                GardenLogger.warning(penaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)");
             }
             // Insulation cover effect: gradually restore temp to ideal
             if (insulationCoverActive && insulationCyclesLeft > 0) {
@@ -832,6 +840,15 @@ public class GardenControllerFX implements Initializable {
             }
         }));
         waterLogTimer.setCycleCount(Timeline.INDEFINITE);
+    }
+
+    /**
+     * Sets up a timer to log the garden state summary every real-time hour.
+     */
+    private void setupHourlyReportTimer() {
+        hourlyReportTimer = new Timeline(new KeyFrame(Duration.seconds(3600), e -> simApi.getState()));
+        hourlyReportTimer.setCycleCount(Timeline.INDEFINITE);
+        hourlyReportTimer.play();
     }
 
     private void setupComboBoxCellFactory() {
