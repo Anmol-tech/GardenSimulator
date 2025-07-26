@@ -33,6 +33,7 @@ public class Plant {
 
     public void water() {
         moistureLevel = Math.min(moistureLevel + 20, 100);
+        health = Math.min(health + 5, 100);
     }
 
     public void applyPestDamage() {

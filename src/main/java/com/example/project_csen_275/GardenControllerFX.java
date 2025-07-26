@@ -328,7 +328,7 @@ public class GardenControllerFX implements Initializable {
                     } else if (plant.getHealth() > 75) {
                         healthColor = Color.GREEN;
                     } else if (plant.getHealth() > 50) {
-                        healthColor = Color.YELLOW;
+                        healthColor = Color.GOLD;
                     } else {
                         healthColor = Color.ORANGE;
                     }
