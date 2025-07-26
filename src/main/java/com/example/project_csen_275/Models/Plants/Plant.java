@@ -103,4 +103,10 @@ public class Plant {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+    /**
+     * Sets the plant's health directly (0-100).
+     */
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }

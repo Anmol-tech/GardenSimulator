@@ -119,6 +119,14 @@ public class GardenSimulationAPI {
     }
 
     /**
+     * Simulates a temperature event in the garden.
+     * @param temp the temperature in °F
+     */
+    public void temperature(int temp) {
+        garden.temperature(temp);
+    }
+
+    /**
      * Provides the underlying Garden instance for further operations.
      * @return the Garden model
      */

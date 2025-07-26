@@ -13,6 +13,8 @@ public class Garden {
     private int deadPlantCount = 0;
     private int plantedCount = 0;
     private int wateredCount = 0;
+    // Temperature tracking
+    private int currentTemperature = 0;
 
     public Garden(int rows, int cols) {
         grid = new Plant[rows][cols];
@@ -146,6 +148,60 @@ public class Garden {
                 "Rainfall: watered " + count + " plants.");
         }
         return count;
+    }
+
+    /**
+     * Applies a temperature event to the garden, causing heat or cold stress.
+     * Plants above 90°F dry out once; below 60°F take 5 health damage.
+     * @param temp the temperature in °F
+     */
+    public void temperature(int temp) {
+        this.currentTemperature = temp;
+        int affected = 0;
+        if (temp > 75) {
+            // Heat stress: extra drying
+            for (int r = 0; r < grid.length; r++) {
+                for (int c = 0; c < grid[r].length; c++) {
+                    Plant plant = grid[r][c];
+                    if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                        plant.dryOut(); // Extra drying
+                        // Additional heat damage: -2 health
+                        plant.setHealth(Math.max(0, plant.getHealth() - 2));
+                        affected++;
+                    }
+                }
+            }
+            if (com.example.project_csen_275.GardenLogger.class != null) {
+                com.example.project_csen_275.GardenLogger.warning("Heat wave! " + affected + " plants dried out and took 2 damage due to high temperature (" + temp + "°F)");
+            }
+        } else if (temp < 65) {
+            // Cold stress: damage health
+            for (int r = 0; r < grid.length; r++) {
+                for (int c = 0; c < grid[r].length; c++) {
+                    Plant plant = grid[r][c];
+                    if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                        int newHealth = Math.max(0, plant.getHealth() - 2);
+                        plant.setHealth(newHealth);
+                        affected++;
+                    }
+                }
+            }
+            if (com.example.project_csen_275.GardenLogger.class != null) {
+                com.example.project_csen_275.GardenLogger.warning("Frost damage! " + affected + " plants lost health due to low temperature (" + temp + "°F)");
+            }
+        } else {
+            // Ideal temperature
+            if (com.example.project_csen_275.GardenLogger.class != null) {
+                com.example.project_csen_275.GardenLogger.event("Ideal temperature: " + temp + "°F. No stress applied.");
+            }
+        }
+    }
+
+    /**
+     * Gets the last applied temperature.
+     */
+    public int getCurrentTemperature() {
+        return currentTemperature;
     }
 
     /**

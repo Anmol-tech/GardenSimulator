@@ -1,0 +1,339 @@
+12:00:16 ℹ️ [INFO] Garden cleared for initialization
+12:00:16 ℹ️ [INFO] Planted Carrot at position [0,0]
+12:00:16 ℹ️ [INFO] Planted Cherry at position [0,1]
+12:00:16 ℹ️ [INFO] Planted Corn at position [0,2]
+12:00:16 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+12:00:16 ℹ️ [INFO] Planted Sunflower at position [0,4]
+12:00:16 ℹ️ [INFO] Planted Carrot at position [1,0]
+12:00:16 ℹ️ [INFO] Planted Cherry at position [1,1]
+12:00:16 ℹ️ [INFO] Planted Corn at position [1,2]
+12:00:16 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+12:00:16 ℹ️ [INFO] Planted Sunflower at position [1,4]
+12:00:16 ℹ️ [INFO] Planted Carrot at position [2,0]
+12:00:16 ℹ️ [INFO] Planted Cherry at position [2,1]
+12:00:16 ℹ️ [INFO] Planted Corn at position [2,2]
+12:00:16 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+12:00:16 ℹ️ [INFO] Planted Sunflower at position [2,4]
+12:00:16 ℹ️ [INFO] Planted Carrot at position [3,0]
+12:00:16 ℹ️ [INFO] Planted Cherry at position [3,1]
+12:00:16 ℹ️ [INFO] Planted Corn at position [3,2]
+12:00:16 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+12:00:16 ℹ️ [INFO] Planted Sunflower at position [3,4]
+12:00:16 ℹ️ [INFO] Planted Carrot at position [4,0]
+12:00:16 ℹ️ [INFO] Planted Cherry at position [4,1]
+12:00:16 ℹ️ [INFO] Planted Corn at position [4,2]
+12:00:16 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+12:00:16 ℹ️ [INFO] Planted Sunflower at position [4,4]
+12:00:16 ℹ️ [INFO] Garden initialized from config
+12:00:16 ℹ️ [INFO] Garden application started
+12:00:29 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+12:00:29 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+12:00:44 🔔 [EVENT] Rainfall: watered 25 plants.
+12:00:44 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:00:49 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:00:59 ⚠️ [WARNING] Oh no! Pest infestation: 5 plants were infested (caterpillar x1, locust x1, weevil x1, aphid x2)
+12:01:09 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:01:14 ⚠️ [WARNING] Oh no! Pest infestation: 11 plants were infested (locust x3, squashBug x2, bird x2, weevil x1, aphid x3)
+12:01:29 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:01:29 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:01:44 ⚠️ [WARNING] Sunflower at position [1,4] died and was replaced with soil
+12:01:44 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving.
+12:01:49 ℹ️ [INFO] Watered 12 plants in the last 10 seconds
+12:01:50 ℹ️ [INFO] Automatically planted Cherry at position [1,4]
+12:01:56 ⚠️ [WARNING] Carrot at position [4,0] died and was replaced with soil
+12:01:59 ℹ️ [INFO] A gardener visited! Removed 13 pests and watered 24 plants.
+12:02:02 ℹ️ [INFO] Automatically planted Cherry at position [4,0]
+12:02:09 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+12:02:14 ⚠️ [WARNING] Oh no! Pest infestation: 8 plants were infested (caterpillar x1, locust x2, squashBug x3, bird x1, aphid x1)
+12:02:19 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:02:23 ⚠️ [WARNING] Corn at position [2,2] died and was replaced with soil
+12:02:23 ℹ️ [INFO] Automatically planted Pumpkin at position [2,2]
+12:02:29 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:02:39 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:02:44 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:02:53 ⚠️ [WARNING] Carrot at position [3,0] died and was replaced with soil
+12:02:53 ⚠️ [WARNING] Corn at position [4,2] died and was replaced with soil
+12:02:56 ⚠️ [WARNING] Carrot at position [2,0] died and was replaced with soil
+12:02:56 ℹ️ [INFO] Automatically planted Sunflower at position [4,2]
+12:02:59 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:02:59 ℹ️ [INFO] Automatically planted Cherry at position [2,0]
+12:02:59 🔔 [EVENT] Rainfall: watered 24 plants.
+12:02:59 🔔 [EVENT] It's raining! 24 plants have been watered.
+12:03:14 ⚠️ [WARNING] Cherry at position [1,1] died and was replaced with soil
+12:03:14 ⚠️ [WARNING] Pumpkin at position [1,3] died and was replaced with soil
+12:03:14 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:03:17 ⚠️ [WARNING] Pumpkin at position [4,3] died and was replaced with soil
+12:03:19 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:03:23 ℹ️ [INFO] Automatically planted Sunflower at position [1,1]
+12:03:26 ℹ️ [INFO] Automatically planted Corn at position [4,3]
+12:03:29 ⚠️ [WARNING] Oh no! Pest infestation: 6 plants were infested (locust x2, squashBug x1, bird x1, weevil x1, aphid x1)
+12:03:39 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:03:44 ℹ️ [INFO] A gardener visited! Removed 7 pests and watered 23 plants.
+12:03:47 ℹ️ [INFO] Automatically planted Sunflower at position [1,3]
+12:03:49 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+12:03:59 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving.
+12:04:09 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:04:14 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:04:29 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+12:04:29 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving.
+12:04:32 ℹ️ [INFO] Automatically planted Pumpkin at position [3,0]
+12:04:44 🔔 [EVENT] Rainfall: watered 25 plants.
+12:04:44 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:04:49 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+12:04:59 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:05:09 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:05:14 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:05:19 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:05:29 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:05:39 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:05:44 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:05:59 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:05:59 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:06:14 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+12:06:19 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:06:29 🔔 [EVENT] Rainfall: watered 25 plants.
+12:06:29 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:06:39 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:06:44 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:06:49 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:06:59 🔔 [EVENT] Rainfall: watered 25 plants.
+12:06:59 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:07:09 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:07:14 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:07:29 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:07:29 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:07:44 ⚠️ [WARNING] Oh no! Pest infestation: 5 plants were infested (squashBug x1, weevil x2, aphid x2)
+12:07:49 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:07:59 🔔 [EVENT] Rainfall: watered 25 plants.
+12:07:59 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:08:09 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:08:14 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:08:19 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:08:29 🔔 [EVENT] Rainfall: watered 25 plants.
+12:08:29 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:08:39 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+12:08:44 🔔 [EVENT] Rainfall: watered 25 plants.
+12:08:44 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:08:56 ⚠️ [WARNING] Cherry at position [2,1] died and was replaced with soil
+12:08:56 ⚠️ [WARNING] Sunflower at position [3,4] died and was replaced with soil
+12:08:59 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+12:08:59 ⚠️ [WARNING] Pumpkin at position [0,3] died and was replaced with soil
+12:08:59 ⚠️ [WARNING] Cherry at position [4,0] died and was replaced with soil
+12:08:59 ℹ️ [INFO] A gardener visited! Removed 1 pests and watered 21 plants.
+12:09:11 ℹ️ [INFO] Automatically planted Cherry at position [0,3]
+12:09:14 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 22 plants.
+12:09:19 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:09:29 ℹ️ [INFO] Automatically planted Carrot at position [2,1]
+12:09:29 🔔 [EVENT] Rainfall: watered 23 plants.
+12:09:29 🔔 [EVENT] It's raining! 23 plants have been watered.
+12:09:39 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:09:44 ⚠️ [WARNING] Oh no! Pest infestation: 8 plants were infested (locust x2, squashBug x3, bird x1, weevil x2)
+12:09:49 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:09:56 ℹ️ [INFO] Automatically planted Cherry at position [3,4]
+12:09:59 ℹ️ [INFO] A gardener visited! Removed 8 pests and watered 24 plants.
+12:10:09 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+12:10:14 ℹ️ [INFO] Automatically planted Pumpkin at position [4,0]
+12:10:14 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+12:10:29 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+12:10:29 🔔 [EVENT] Watered 25 plants!
+12:10:29 ⚠️ [WARNING] Oh no! Pest infestation: 7 plants were infested (locust x2, squashBug x1, bird x1, weevil x1, aphid x2)
+12:10:44 🔔 [EVENT] Rainfall: watered 25 plants.
+12:10:44 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:10:49 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:10:59 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:11:09 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:11:14 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:11:19 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:11:20 ⚠️ [WARNING] Sunflower at position [0,4] died and was replaced with soil
+12:11:29 ⚠️ [WARNING] Cherry at position [3,1] died and was replaced with soil
+12:11:29 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:11:35 ⚠️ [WARNING] Cherry at position [0,1] died and was replaced with soil
+12:11:39 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+12:11:44 ⚠️ [WARNING] Pumpkin at position [3,3] died and was replaced with soil
+12:11:44 ⚠️ [WARNING] Sunflower at position [4,4] died and was replaced with soil
+12:11:44 ⚠️ [WARNING] Oh no! Pest infestation: 8 plants were infested (caterpillar x1, locust x1, squashBug x1, bird x3, aphid x2)
+12:11:47 ⚠️ [WARNING] Corn at position [1,2] died and was replaced with soil
+12:11:59 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+12:11:59 ℹ️ [INFO] Automatically planted Pumpkin at position [1,2]
+12:11:59 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+12:12:11 ℹ️ [INFO] Garden automation stopped
+12:34:16 ℹ️ [INFO] Garden cleared for initialization
+12:34:16 ℹ️ [INFO] Planted Carrot at position [0,0]
+12:34:16 ℹ️ [INFO] Planted Cherry at position [0,1]
+12:34:16 ℹ️ [INFO] Planted Corn at position [0,2]
+12:34:16 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+12:34:16 ℹ️ [INFO] Planted Sunflower at position [0,4]
+12:34:16 ℹ️ [INFO] Planted Carrot at position [1,0]
+12:34:16 ℹ️ [INFO] Planted Cherry at position [1,1]
+12:34:16 ℹ️ [INFO] Planted Corn at position [1,2]
+12:34:16 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+12:34:16 ℹ️ [INFO] Planted Sunflower at position [1,4]
+12:34:16 ℹ️ [INFO] Planted Carrot at position [2,0]
+12:34:16 ℹ️ [INFO] Planted Cherry at position [2,1]
+12:34:16 ℹ️ [INFO] Planted Corn at position [2,2]
+12:34:16 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+12:34:16 ℹ️ [INFO] Planted Sunflower at position [2,4]
+12:34:16 ℹ️ [INFO] Planted Carrot at position [3,0]
+12:34:16 ℹ️ [INFO] Planted Cherry at position [3,1]
+12:34:16 ℹ️ [INFO] Planted Corn at position [3,2]
+12:34:16 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+12:34:16 ℹ️ [INFO] Planted Sunflower at position [3,4]
+12:34:16 ℹ️ [INFO] Planted Carrot at position [4,0]
+12:34:16 ℹ️ [INFO] Planted Cherry at position [4,1]
+12:34:16 ℹ️ [INFO] Planted Corn at position [4,2]
+12:34:16 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+12:34:16 ℹ️ [INFO] Planted Sunflower at position [4,4]
+12:34:16 ℹ️ [INFO] Garden initialized from config
+12:34:16 ℹ️ [INFO] Garden application started
+12:34:22 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+12:34:22 🔔 [EVENT] Ideal temperature: 63°F. No stress applied.
+12:34:22 🔔 [EVENT] Chilly day! Temperature dropped to 63°F.
+12:34:25 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+12:34:37 🔔 [EVENT] Ideal temperature: 79°F. No stress applied.
+12:34:37 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+12:34:40 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+12:34:42 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+12:34:52 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, caterpillar x1)
+12:35:02 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:35:07 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:35:22 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:35:22 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:35:37 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:35:42 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:35:52 🔔 [EVENT] Ideal temperature: 79°F. No stress applied.
+12:35:52 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+12:36:01 ⚠️ [WARNING] Carrot at position [2,0] died and was replaced with soil
+12:36:02 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+12:36:07 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (58°F)
+12:36:07 🔔 [EVENT] Chilly day! Temperature dropped to 58°F.
+12:36:10 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (58°F)
+12:36:10 🔔 [EVENT] Ideal temperature: 63°F. No stress applied.
+12:36:12 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:36:13 ℹ️ [INFO] Automatically planted Carrot at position [2,0]
+12:36:13 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+12:36:22 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (squashBug x1, aphid x2)
+12:36:25 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+12:36:28 ⚠️ [WARNING] Corn at position [1,2] died and was replaced with soil
+12:36:31 ℹ️ [INFO] Automatically planted Cherry at position [1,2]
+12:36:32 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:36:37 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:36:52 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:36:52 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (bird x1, aphid x1)
+12:37:07 ℹ️ [INFO] A gardener visited! Removed 4 pests and watered 25 plants.
+12:37:12 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:37:22 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (bird x1)
+12:37:32 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+12:37:37 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:37:42 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+12:37:52 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (squashBug x1, aphid x2)
+12:37:58 ℹ️ [INFO] Garden automation stopped
+12:46:28 ℹ️ [INFO] Garden cleared for initialization
+12:46:28 ℹ️ [INFO] Planted Carrot at position [0,0]
+12:46:28 ℹ️ [INFO] Planted Cherry at position [0,1]
+12:46:28 ℹ️ [INFO] Planted Corn at position [0,2]
+12:46:28 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+12:46:28 ℹ️ [INFO] Planted Sunflower at position [0,4]
+12:46:28 ℹ️ [INFO] Planted Carrot at position [1,0]
+12:46:28 ℹ️ [INFO] Planted Cherry at position [1,1]
+12:46:28 ℹ️ [INFO] Planted Corn at position [1,2]
+12:46:28 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+12:46:28 ℹ️ [INFO] Planted Sunflower at position [1,4]
+12:46:28 ℹ️ [INFO] Planted Carrot at position [2,0]
+12:46:28 ℹ️ [INFO] Planted Cherry at position [2,1]
+12:46:28 ℹ️ [INFO] Planted Corn at position [2,2]
+12:46:28 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+12:46:28 ℹ️ [INFO] Planted Sunflower at position [2,4]
+12:46:28 ℹ️ [INFO] Planted Carrot at position [3,0]
+12:46:28 ℹ️ [INFO] Planted Cherry at position [3,1]
+12:46:28 ℹ️ [INFO] Planted Corn at position [3,2]
+12:46:28 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+12:46:28 ℹ️ [INFO] Planted Sunflower at position [3,4]
+12:46:28 ℹ️ [INFO] Planted Carrot at position [4,0]
+12:46:28 ℹ️ [INFO] Planted Cherry at position [4,1]
+12:46:28 ℹ️ [INFO] Planted Corn at position [4,2]
+12:46:28 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+12:46:28 ℹ️ [INFO] Planted Sunflower at position [4,4]
+12:46:28 ℹ️ [INFO] Garden initialized from config
+12:46:28 ℹ️ [INFO] Garden application started
+12:46:44 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+12:46:44 🔔 [EVENT] Ideal temperature: 64°F. No stress applied.
+12:46:44 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover engaged for 6 cycles.
+12:46:47 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+12:46:59 🔔 [EVENT] Rainfall: watered 25 plants.
+12:46:59 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:47:02 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+12:47:04 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:47:14 🔔 [EVENT] Ideal temperature: 84°F. No stress applied.
+12:47:14 🔔 [EVENT] It's a sunny day! Temperature rose to 84°F, plants are drying faster.
+12:47:24 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+12:47:29 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+12:47:44 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+12:47:44 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:47:59 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+12:48:01 ℹ️ [INFO] Garden automation stopped
+12:55:51 ℹ️ [INFO] Garden cleared for initialization
+12:55:51 ℹ️ [INFO] Planted Carrot at position [0,0]
+12:55:51 ℹ️ [INFO] Planted Cherry at position [0,1]
+12:55:51 ℹ️ [INFO] Planted Corn at position [0,2]
+12:55:51 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+12:55:51 ℹ️ [INFO] Planted Sunflower at position [0,4]
+12:55:51 ℹ️ [INFO] Planted Carrot at position [1,0]
+12:55:51 ℹ️ [INFO] Planted Cherry at position [1,1]
+12:55:51 ℹ️ [INFO] Planted Corn at position [1,2]
+12:55:51 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+12:55:51 ℹ️ [INFO] Planted Sunflower at position [1,4]
+12:55:51 ℹ️ [INFO] Planted Carrot at position [2,0]
+12:55:51 ℹ️ [INFO] Planted Cherry at position [2,1]
+12:55:51 ℹ️ [INFO] Planted Corn at position [2,2]
+12:55:51 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+12:55:51 ℹ️ [INFO] Planted Sunflower at position [2,4]
+12:55:51 ℹ️ [INFO] Planted Carrot at position [3,0]
+12:55:51 ℹ️ [INFO] Planted Cherry at position [3,1]
+12:55:51 ℹ️ [INFO] Planted Corn at position [3,2]
+12:55:51 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+12:55:51 ℹ️ [INFO] Planted Sunflower at position [3,4]
+12:55:51 ℹ️ [INFO] Planted Carrot at position [4,0]
+12:55:51 ℹ️ [INFO] Planted Cherry at position [4,1]
+12:55:51 ℹ️ [INFO] Planted Corn at position [4,2]
+12:55:51 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+12:55:51 ℹ️ [INFO] Planted Sunflower at position [4,4]
+12:55:51 ℹ️ [INFO] Garden initialized from config
+12:55:51 ℹ️ [INFO] Garden application started
+12:56:03 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+12:56:03 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (57°F)
+12:56:03 🔔 [EVENT] Chilly day! Temp dropped to 57°F. Insulation cover engaged for 6 cycles.
+12:56:06 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (62°F)
+12:56:09 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (62°F)
+12:56:09 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+12:56:18 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (62°F)
+12:56:18 🔔 [EVENT] Chilly day! Temp dropped to 62°F. Insulation cover engaged for 6 cycles.
+12:56:21 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (62°F)
+12:56:21 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+12:56:23 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+12:56:33 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (squashBug x1)
+12:56:36 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+12:56:43 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+12:56:48 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (caterpillar x1, squashBug x1, weevil x1)
+12:57:03 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+12:57:03 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (61°F)
+12:57:03 🔔 [EVENT] Chilly day! Temp dropped to 61°F. Insulation cover engaged for 6 cycles.
+12:57:06 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+12:57:18 🔔 [EVENT] Rainfall: watered 25 plants.
+12:57:18 🔔 [EVENT] It's raining! 25 plants have been watered.
+12:57:21 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+12:57:23 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:57:33 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 2 damage due to high temperature (78°F)
+12:57:33 🔔 [EVENT] It's a sunny day! Temperature rose to 78°F, plants are drying faster.
+12:57:42 ⚠️ [WARNING] Pumpkin at position [3,3] died and was replaced with soil
+12:57:43 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+12:57:45 ⚠️ [WARNING] Carrot at position [2,0] died and was replaced with soil
+12:57:48 ⚠️ [WARNING] Frost damage! 23 plants lost health due to low temperature (59°F)
+12:57:48 🔔 [EVENT] Chilly day! Temp dropped to 59°F. Insulation cover engaged for 6 cycles.
+12:57:51 ⚠️ [WARNING] 23 plants took -2 health due to low temperature (59°F)
+12:57:51 ⚠️ [WARNING] Frost damage! 23 plants lost health due to low temperature (64°F)
+12:57:53 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+12:57:54 ⚠️ [WARNING] Cherry at position [3,1] died and was replaced with soil
+12:57:54 ⚠️ [WARNING] Pumpkin at position [4,3] died and was replaced with soil
+12:57:54 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+12:57:57 ℹ️ [INFO] Automatically planted Sunflower at position [3,3]
+12:58:02 ℹ️ [INFO] Garden automation stopped

@@ -50,6 +50,11 @@ public class GardenControllerFX implements Initializable {
     private int selectedRow = -1;
     private int selectedCol = -1;
     private final Random random = new Random();
+    // Temperature regulation
+    private static final int IDEAL_TEMP_LOWER = 65;
+    private static final int IDEAL_TEMP_UPPER = 75;
+    private boolean insulationCoverActive = false;
+    private int insulationCyclesLeft = 0;
 
     // Stats display
     private VBox statsPanel;
@@ -58,6 +63,7 @@ public class GardenControllerFX implements Initializable {
     private Text emptyPlotsText = new Text("Empty Soil: 0");
     private Text plantedText = new Text("Plants Planted: 0");
     private Text wateredText = new Text("Plants Watered: 0");
+    private Text temperatureText = new Text("Temperature: 0°F");
     private Timeline statsUpdateTimer;
 
     // Log display
@@ -437,8 +443,8 @@ public class GardenControllerFX implements Initializable {
                 }
             }
 
-            // Random pest addition (5% chance)
-            if (random.nextInt(20) == 0) { // 5% chance
+            // Random pest addition (approx 2% chance)
+            if (random.nextInt(50) == 0) { // ~2% chance
                 int row = random.nextInt(ROWS);
                 int col = random.nextInt(COLS);
                 Plant plant = garden.getPlant(row, col);
@@ -454,6 +460,38 @@ public class GardenControllerFX implements Initializable {
             // Every 5 cycles, trigger a random event
             if (automationCycleCount % 5 == 0) {
                 Platform.runLater(this::triggerRandomEvent);
+            }
+
+            // Apply temperature stress penalty every 2 cycles
+            if (automationCycleCount % 2 == 0) {
+                int temp = garden.getCurrentTemperature();
+                if (temp < IDEAL_TEMP_LOWER) {
+                    int penaltyCount = 0;
+                    for (int r = 0; r < ROWS; r++) {
+                        for (int c = 0; c < COLS; c++) {
+                            Plant plant = garden.getPlant(r, c);
+                            if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                                int newH = Math.max(0, plant.getHealth() - 2);
+                                plant.setHealth(newH);
+                                penaltyCount++;
+                            }
+                        }
+                    }
+                    GardenLogger.warning(penaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)");
+                }
+            }
+            // Insulation cover effect: gradually restore temp to ideal
+            if (insulationCoverActive && insulationCyclesLeft > 0) {
+                int currentTemp = garden.getCurrentTemperature();
+                if (currentTemp < IDEAL_TEMP_LOWER) {
+                    int newTemp = Math.min(currentTemp + 5, IDEAL_TEMP_LOWER);
+                    garden.temperature(newTemp);
+                }
+                insulationCyclesLeft--;
+                if (insulationCyclesLeft == 0) {
+                    insulationCoverActive = false;
+                    GardenLogger.event("Insulation cover effect ended – temperature regulation normal.");
+                }
             }
 
             // Update UI
@@ -499,18 +537,33 @@ public class GardenControllerFX implements Initializable {
 
     private void triggerRandomEvent() {
         // Generate a random event in the garden
-        int eventType = random.nextInt(5); // 5 different event types
+        int eventType = random.nextInt(6); // 6 different event types (add chilly day)
 
         switch (eventType) {
-            case 0: // Sunny day - water evaporates faster
+            case 0: // Sunny day - extra drying and temperature rise
                 for (int r = 0; r < ROWS; r++) {
                     for (int c = 0; c < COLS; c++) {
                         garden.getPlant(r, c).dryOut(); // Extra drying
                     }
                 }
-                String message = "It's a ☀️sunny day! Plants are drying faster.";
+                // Increase temperature above ideal range (e.g., 76-85°F)
+                int sunnyTemp = IDEAL_TEMP_UPPER + 1 + random.nextInt(10); // 76 to 85
+                garden.temperature(sunnyTemp);
+                String message = "It's a sunny day! Temperature rose to " + sunnyTemp + "°F, plants are drying faster.";
                 statusText.setText(message);
                 GardenLogger.event(message);
+                break;
+            case 5: // Chilly day - temperature drop and insulation cover
+                // Drop temperature below ideal range (e.g., 55-64°F)
+                int coldTemp = IDEAL_TEMP_LOWER - 1 - random.nextInt(10); // 55 to 64
+                garden.temperature(coldTemp);
+                // Activate insulation to recover over next cycles
+                insulationCoverActive = true;
+                insulationCyclesLeft = 6;
+                String chillMsg = "Chilly day! Temp dropped to " + coldTemp + "°F. " +
+                                  "Insulation cover engaged for " + insulationCyclesLeft + " cycles.";
+                statusText.setText(chillMsg);
+                GardenLogger.event(chillMsg);
                 break;
 
             case 1: // Rainy day - use API rain to water all plants with health regen
@@ -542,7 +595,8 @@ public class GardenControllerFX implements Initializable {
                 for (int r = 0; r < ROWS; r++) {
                     for (int c = 0; c < COLS; c++) {
                         Plant plant = garden.getPlant(r, c);
-                        if (!(plant instanceof NoPlant) && random.nextInt(3) == 0) { // 33% chance
+                        // 10% chance per plant
+                        if (!(plant instanceof NoPlant) && random.nextInt(10) == 0) {
                             // choose a pest from vulnerabilities
                             List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
                             if (!pests.isEmpty()) {
@@ -659,13 +713,18 @@ public class GardenControllerFX implements Initializable {
         wateredText.setText("💧 Plants Watered: 0");
         wateredText.setFill(Color.DEEPSKYBLUE);
         wateredText.setFont(Font.font("Arial", FontWeight.BOLD, 13));
+        // Add temperature indicator
+        temperatureText.setText("Temperature: 0°F");
+        temperatureText.setFill(Color.DARKBLUE);
+        temperatureText.setFont(Font.font("Arial", FontWeight.BOLD, 13));
 
         statsPanel.getChildren().addAll(
                 livePlantsText,
                 deadPlantsText,
                 emptyPlotsText,
                 plantedText,
-                wateredText);
+                wateredText,
+                temperatureText);
 
         // Set up the log panel
         setupLogPanel();
@@ -758,6 +817,8 @@ public class GardenControllerFX implements Initializable {
         emptyPlotsText.setText("Empty Soil: " + emptyCount);
         plantedText.setText("Plants Planted: " + plantedCount);
         wateredText.setText("Plants Watered: " + wateredCount);
+        // Update temperature display
+        temperatureText.setText("Temperature: " + garden.getCurrentTemperature() + "°F");
     }
 
     /**
