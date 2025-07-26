@@ -67,6 +67,9 @@ public class GardenControllerFX implements Initializable {
     private boolean isAutomationRunning = false;
     private final int AUTO_UPDATE_INTERVAL = 3; // seconds
     private int automationCycleCount = 0;
+    // Batch-water logging fields
+    private int waterBatchCount = 0;
+    private Timeline waterLogTimer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,6 +97,8 @@ public class GardenControllerFX implements Initializable {
 
         // Set up stats update timer
         setupStatsUpdateTimer();
+        // Setup batch logging of watering every 10 seconds
+        setupWaterBatchLogTimer();
 
         // Add listener to attach panels when scene is available
         gardenGrid.sceneProperty().addListener((obs, oldScene, newScene) -> {
@@ -321,7 +326,7 @@ public class GardenControllerFX implements Initializable {
                     // Color based on health: green (good), yellow (medium), orange (low), red
                     // (pest)
                     Color healthColor;
-                    String healthPrefix = "❤️";
+                    String healthPrefix = "♥";
                     if (plant.hasPest()) {
                         healthColor = Color.RED;
                         healthPrefix = "🐛"; // Bug emoji for pests
@@ -382,13 +387,16 @@ public class GardenControllerFX implements Initializable {
             // Perform automatic update
             garden.updateGardenState();
 
+            // Consolidate automatic watering count for this cycle
+            int autoWaterCount = 0;
+
             // Random watering of plants (10% chance for each plant)
             for (int r = 0; r < ROWS; r++) {
                 for (int c = 0; c < COLS; c++) {
-                    // Only consider watering actual plants, not empty soil
                     Plant plant = garden.getPlant(r, c);
                     if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(10) == 0) { // 10% chance
-                        garden.waterPlant(r, c);
+                        garden.waterPlantSilently(r, c);
+                        autoWaterCount++;
                         final int row = r;
                         final int col = c;
                         Platform.runLater(() -> {
@@ -398,6 +406,9 @@ public class GardenControllerFX implements Initializable {
                     }
                 }
             }
+
+            // Accumulate watering for batch log
+            waterBatchCount += autoWaterCount;
 
             // Randomly plant new plants in empty soil (15% chance per cycle)
             if (random.nextInt(7) == 0) { // ~15% chance
@@ -442,6 +453,7 @@ public class GardenControllerFX implements Initializable {
     @FXML
     public void onToggleAutomation() {
         if (isAutomationRunning) {
+            waterLogTimer.stop();
             // Stop automation
             automationTimer.stop();
             isAutomationRunning = false;
@@ -452,6 +464,7 @@ public class GardenControllerFX implements Initializable {
             statusText.setText(message);
             GardenLogger.info(message);
         } else {
+            waterLogTimer.play();
             // Start automation
             automationTimer.play();
             isAutomationRunning = true;
@@ -716,6 +729,19 @@ public class GardenControllerFX implements Initializable {
         emptyPlotsText.setText("Empty Soil: " + emptyCount);
         plantedText.setText("Plants Planted: " + plantedCount);
         wateredText.setText("Plants Watered: " + wateredCount);
+    }
+
+    /**
+     * Sets up a timer to log total waterings in batch every 10 seconds.
+     */
+    private void setupWaterBatchLogTimer() {
+        waterLogTimer = new Timeline(new KeyFrame(Duration.seconds(10), e -> {
+            if (waterBatchCount > 0) {
+                GardenLogger.info("Watered " + waterBatchCount + " plants in the last 10 seconds");
+                waterBatchCount = 0;
+            }
+        }));
+        waterLogTimer.setCycleCount(Timeline.INDEFINITE);
     }
 
     private void setupComboBoxCellFactory() {

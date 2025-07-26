@@ -80,11 +80,15 @@ public class Garden {
         if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
             plant.water();
             wateredCount++;
-            // Return the plant name for logging
-            if (com.example.project_csen_275.GardenLogger.class != null) {
-                com.example.project_csen_275.GardenLogger
-                        .info("Watered " + plant.getName() + " at position [" + row + "," + col + "]");
-            }
+        }
+    }
+
+    // Silent watering without logging, for automated batch operations
+    public void waterPlantSilently(int row, int col) {
+        Plant plant = grid[row][col];
+        if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
+            plant.water();
+            wateredCount++;
         }
     }
 
@@ -96,7 +100,10 @@ public class Garden {
                     // Only update living plants
                     if (!(plant instanceof NoPlant)) {
                         plant.dryOut();
-                        plant.applyPestDamage();
+                        // Apply pest damage only 50% of the time when a pest is present
+                        if (plant.hasPest() && random.nextInt(2) == 0) {
+                            plant.applyPestDamage();
+                        }
 
                         // Convert dead plants to empty soil (NoPlant)
                         if (plant.getHealth() <= 0) {

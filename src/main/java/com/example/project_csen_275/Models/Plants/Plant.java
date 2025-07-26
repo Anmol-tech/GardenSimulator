@@ -43,9 +43,9 @@ public class Plant {
     }
 
     public void dryOut() {
-        moistureLevel = Math.max(0, moistureLevel - 5);
+        moistureLevel = Math.max(0, moistureLevel - 3);
         if (moistureLevel < 30) {
-            health = Math.max(0, health - 5);
+            health = Math.max(0, health - 2);
         }
     }
 

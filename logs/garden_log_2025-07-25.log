@@ -1377,3 +1377,371 @@
 18:38:26 ℹ️ [INFO] Automatically planted Sunflower at position [4,1]
 18:38:29 ℹ️ [INFO] Watered Sunflower at position [2,1]
 18:38:32 ⚠️ [WARNING] Sunflower at position [1,3] died and was replaced with soil
+19:03:26 ℹ️ [INFO] Garden application started
+19:03:36 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:03:36 ℹ️ [INFO] Watered Corn at position [0,0]
+19:03:36 ℹ️ [INFO] Watered Sunflower at position [0,1]
+19:03:36 ℹ️ [INFO] Watered Cherry at position [0,3]
+19:03:36 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:03:36 ℹ️ [INFO] Watered Cherry at position [1,4]
+19:03:36 ℹ️ [INFO] Watered Carrot at position [2,0]
+19:03:36 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:03:36 ℹ️ [INFO] Watered Sunflower at position [3,2]
+19:03:36 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:03:36 ℹ️ [INFO] Watered Sunflower at position [3,4]
+19:03:36 ℹ️ [INFO] Watered Cherry at position [4,0]
+19:03:36 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:03:36 ℹ️ [INFO] Watered Carrot at position [4,2]
+19:03:36 ℹ️ [INFO] Watered Carrot at position [4,4]
+19:03:36 🔔 [EVENT] It's raining!🌧️ 14 plants have been watered.
+19:03:39 ℹ️ [INFO] Watered 2 plants this cycle
+19:03:45 ℹ️ [INFO] Watered 1 plants this cycle
+19:03:45 ℹ️ [INFO] Automatically planted Pumpkin at position [3,1]
+19:03:48 ℹ️ [INFO] Watered 4 plants this cycle
+19:03:51 ℹ️ [INFO] Watered 3 plants this cycle
+19:03:51 ℹ️ [INFO] Watered Corn at position [0,0]
+19:03:51 ℹ️ [INFO] Watered Sunflower at position [0,1]
+19:03:51 ℹ️ [INFO] Watered Cherry at position [0,3]
+19:03:51 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:03:51 ℹ️ [INFO] Watered Cherry at position [1,4]
+19:03:51 ℹ️ [INFO] Watered Carrot at position [2,0]
+19:03:51 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:03:51 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:03:51 ℹ️ [INFO] Watered Sunflower at position [3,2]
+19:03:51 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:03:51 ℹ️ [INFO] Watered Sunflower at position [3,4]
+19:03:51 ℹ️ [INFO] Watered Cherry at position [4,0]
+19:03:51 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:03:51 ℹ️ [INFO] Watered Carrot at position [4,2]
+19:03:51 ℹ️ [INFO] Watered Carrot at position [4,4]
+19:03:51 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 15 plants.
+19:03:57 ℹ️ [INFO] Watered 1 plants this cycle
+19:04:00 ℹ️ [INFO] Watered 2 plants this cycle
+19:04:06 ℹ️ [INFO] Watered Corn at position [0,0]
+19:04:06 ℹ️ [INFO] Watered Sunflower at position [0,1]
+19:04:06 ℹ️ [INFO] Watered Cherry at position [0,3]
+19:04:06 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:04:06 ℹ️ [INFO] Watered Cherry at position [1,4]
+19:04:06 ℹ️ [INFO] Watered Carrot at position [2,0]
+19:04:06 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:04:06 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:04:06 ℹ️ [INFO] Watered Sunflower at position [3,2]
+19:04:06 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:04:06 ℹ️ [INFO] Watered Sunflower at position [3,4]
+19:04:06 ℹ️ [INFO] Watered Cherry at position [4,0]
+19:04:06 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:04:06 ℹ️ [INFO] Watered Carrot at position [4,2]
+19:04:06 ℹ️ [INFO] Watered Carrot at position [4,4]
+19:04:06 🔔 [EVENT] It's raining!🌧️ 15 plants have been watered.
+19:04:09 ℹ️ [INFO] Watered 3 plants this cycle
+19:04:12 ℹ️ [INFO] Watered 1 plants this cycle
+19:04:12 ℹ️ [INFO] Automatically planted Sunflower at position [2,1]
+19:04:18 ℹ️ [INFO] Watered 1 plants this cycle
+19:04:21 ℹ️ [INFO] Watered Corn at position [0,0]
+19:04:21 ℹ️ [INFO] Watered Sunflower at position [0,1]
+19:04:21 ℹ️ [INFO] Watered Cherry at position [0,3]
+19:04:21 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:04:21 ℹ️ [INFO] Watered Cherry at position [1,4]
+19:04:21 ℹ️ [INFO] Watered Carrot at position [2,0]
+19:04:21 ℹ️ [INFO] Watered Sunflower at position [2,1]
+19:04:21 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:04:21 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:04:21 ℹ️ [INFO] Watered Sunflower at position [3,2]
+19:04:21 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:04:21 ℹ️ [INFO] Watered Sunflower at position [3,4]
+19:04:21 ℹ️ [INFO] Watered Cherry at position [4,0]
+19:04:21 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:04:21 ℹ️ [INFO] Watered Carrot at position [4,2]
+19:04:21 ℹ️ [INFO] Watered Carrot at position [4,4]
+19:04:21 🔔 [EVENT] It's raining!🌧️ 16 plants have been watered.
+19:04:24 ℹ️ [INFO] Watered 3 plants this cycle
+19:04:24 ℹ️ [INFO] Automatically planted Carrot at position [1,3]
+19:04:27 ℹ️ [INFO] Watered 3 plants this cycle
+19:04:30 ℹ️ [INFO] Watered 2 plants this cycle
+19:16:59 ℹ️ [INFO] Garden application started
+19:17:05 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:17:05 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:17:08 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:08 ℹ️ [INFO] Automatically planted Carrot at position [3,2]
+19:17:11 ℹ️ [INFO] Watered 2 plants this cycle
+19:17:14 ℹ️ [INFO] Watered 2 plants this cycle
+19:17:14 ℹ️ [INFO] Automatically planted Carrot at position [1,4]
+19:17:17 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:17 ℹ️ [INFO] Automatically planted Cherry at position [4,4]
+19:17:20 ℹ️ [INFO] Watered 3 plants this cycle
+19:17:20 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:17:23 ℹ️ [INFO] Watered 3 plants this cycle
+19:17:29 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:32 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:32 ℹ️ [INFO] Automatically planted Pumpkin at position [2,2]
+19:17:35 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:35 ℹ️ [INFO] Watered Sunflower at position [0,1]
+19:17:35 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:17:35 ℹ️ [INFO] Watered Corn at position [1,0]
+19:17:35 ℹ️ [INFO] Watered Corn at position [1,1]
+19:17:35 ℹ️ [INFO] Watered Cherry at position [1,3]
+19:17:35 ℹ️ [INFO] Watered Carrot at position [1,4]
+19:17:35 ℹ️ [INFO] Watered Cherry at position [2,1]
+19:17:35 ℹ️ [INFO] Watered Pumpkin at position [2,2]
+19:17:35 ℹ️ [INFO] Watered Cherry at position [2,3]
+19:17:35 ℹ️ [INFO] Watered Corn at position [2,4]
+19:17:35 ℹ️ [INFO] Watered Cherry at position [3,0]
+19:17:35 ℹ️ [INFO] Watered Corn at position [3,1]
+19:17:35 ℹ️ [INFO] Watered Carrot at position [3,2]
+19:17:35 ℹ️ [INFO] Watered Sunflower at position [3,4]
+19:17:35 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:17:35 ℹ️ [INFO] Watered Corn at position [4,2]
+19:17:35 ℹ️ [INFO] Watered Carrot at position [4,3]
+19:17:35 ℹ️ [INFO] Watered Cherry at position [4,4]
+19:17:35 ℹ️ [INFO] A gardener visited! Removed 1 pests and watered 18 plants.
+19:17:38 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:41 ℹ️ [INFO] Watered 3 plants this cycle
+19:17:44 ℹ️ [INFO] Watered 2 plants this cycle
+19:17:47 ℹ️ [INFO] Watered 2 plants this cycle
+19:17:50 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:50 ℹ️ [INFO] Automatically planted Corn at position [4,0]
+19:17:50 ℹ️ [INFO] Watered Sunflower at position [0,1]
+19:17:50 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:17:50 ℹ️ [INFO] Watered Corn at position [1,0]
+19:17:50 ℹ️ [INFO] Watered Corn at position [1,1]
+19:17:50 ℹ️ [INFO] Watered Cherry at position [1,3]
+19:17:50 ℹ️ [INFO] Watered Carrot at position [1,4]
+19:17:50 ℹ️ [INFO] Watered Cherry at position [2,1]
+19:17:50 ℹ️ [INFO] Watered Pumpkin at position [2,2]
+19:17:50 ℹ️ [INFO] Watered Cherry at position [2,3]
+19:17:50 ℹ️ [INFO] Watered Corn at position [2,4]
+19:17:50 ℹ️ [INFO] Watered Cherry at position [3,0]
+19:17:50 ℹ️ [INFO] Watered Corn at position [3,1]
+19:17:50 ℹ️ [INFO] Watered Carrot at position [3,2]
+19:17:50 ℹ️ [INFO] Watered Sunflower at position [3,4]
+19:17:50 ℹ️ [INFO] Watered Corn at position [4,0]
+19:17:50 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:17:50 ℹ️ [INFO] Watered Corn at position [4,2]
+19:17:50 ℹ️ [INFO] Watered Carrot at position [4,3]
+19:17:50 ℹ️ [INFO] Watered Cherry at position [4,4]
+19:17:50 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 19 plants.
+19:17:53 ℹ️ [INFO] Watered 1 plants this cycle
+19:17:56 ℹ️ [INFO] Watered 4 plants this cycle
+19:18:02 ℹ️ [INFO] Watered 2 plants this cycle
+19:18:05 ℹ️ [INFO] Watered 2 plants this cycle
+19:18:05 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:18:08 ℹ️ [INFO] Watered 2 plants this cycle
+19:18:11 ℹ️ [INFO] Watered 3 plants this cycle
+19:20:29 ℹ️ [INFO] Garden application started
+19:20:35 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:20:35 ℹ️ [INFO] Watered Sunflower at position [0,0]
+19:20:35 ℹ️ [INFO] Watered Carrot at position [0,1]
+19:20:35 ℹ️ [INFO] Watered Cherry at position [0,2]
+19:20:35 ℹ️ [INFO] Watered Corn at position [0,3]
+19:20:35 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:20:35 ℹ️ [INFO] Watered Sunflower at position [1,0]
+19:20:35 ℹ️ [INFO] Watered Carrot at position [1,1]
+19:20:35 ℹ️ [INFO] Watered Carrot at position [1,3]
+19:20:35 ℹ️ [INFO] Watered Corn at position [1,4]
+19:20:35 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+19:20:35 ℹ️ [INFO] Watered Cherry at position [2,4]
+19:20:35 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:20:35 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:20:35 ℹ️ [INFO] Watered Cherry at position [3,2]
+19:20:35 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:20:35 ℹ️ [INFO] Watered Carrot at position [4,0]
+19:20:35 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:20:35 ℹ️ [INFO] Watered Cherry at position [4,2]
+19:20:35 ℹ️ [INFO] Watered Sunflower at position [4,3]
+19:20:35 ℹ️ [INFO] Watered Corn at position [4,4]
+19:20:35 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 20 plants.
+19:20:45 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:20:50 ℹ️ [INFO] Watered Sunflower at position [0,0]
+19:20:50 ℹ️ [INFO] Watered Carrot at position [0,1]
+19:20:50 ℹ️ [INFO] Watered Cherry at position [0,2]
+19:20:50 ℹ️ [INFO] Watered Corn at position [0,3]
+19:20:50 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:20:50 ℹ️ [INFO] Watered Sunflower at position [1,0]
+19:20:50 ℹ️ [INFO] Watered Carrot at position [1,1]
+19:20:50 ℹ️ [INFO] Watered Carrot at position [1,3]
+19:20:50 ℹ️ [INFO] Watered Corn at position [1,4]
+19:20:50 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+19:20:50 ℹ️ [INFO] Watered Cherry at position [2,4]
+19:20:50 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:20:50 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:20:50 ℹ️ [INFO] Watered Cherry at position [3,2]
+19:20:50 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:20:50 ℹ️ [INFO] Watered Carrot at position [4,0]
+19:20:50 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:20:50 ℹ️ [INFO] Watered Cherry at position [4,2]
+19:20:50 ℹ️ [INFO] Watered Sunflower at position [4,3]
+19:20:50 ℹ️ [INFO] Watered Corn at position [4,4]
+19:20:50 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 20 plants.
+19:20:55 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:21:05 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [0,0]
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [0,0]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [0,1]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [0,1]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [0,2]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [0,2]
+19:21:05 ℹ️ [INFO] Watered Corn at position [0,3]
+19:21:05 ℹ️ [INFO] Watered Corn at position [0,3]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [1,0]
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [1,0]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [1,1]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [1,1]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [1,3]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [1,3]
+19:21:05 ℹ️ [INFO] Watered Corn at position [1,4]
+19:21:05 ℹ️ [INFO] Watered Corn at position [1,4]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [2,4]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [2,4]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [3,2]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [3,2]
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [4,0]
+19:21:05 ℹ️ [INFO] Watered Carrot at position [4,0]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:21:05 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [4,2]
+19:21:05 ℹ️ [INFO] Watered Cherry at position [4,2]
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [4,3]
+19:21:05 ℹ️ [INFO] Watered Sunflower at position [4,3]
+19:21:05 ℹ️ [INFO] Watered Corn at position [4,4]
+19:21:05 ℹ️ [INFO] Watered Corn at position [4,4]
+19:21:05 ℹ️ [INFO] Perfect 🌸growing conditions today! 20 plants are thriving.
+19:21:15 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:21:20 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:21:25 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:21:29 ℹ️ [INFO] Automatically planted Carrot at position [2,2]
+19:21:35 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+19:21:35 ℹ️ [INFO] Watered Sunflower at position [0,0]
+19:21:35 ℹ️ [INFO] Watered Carrot at position [0,1]
+19:21:35 ℹ️ [INFO] Watered Cherry at position [0,2]
+19:21:35 ℹ️ [INFO] Watered Corn at position [0,3]
+19:21:35 ℹ️ [INFO] Watered Carrot at position [0,4]
+19:21:35 ℹ️ [INFO] Watered Sunflower at position [1,0]
+19:21:35 ℹ️ [INFO] Watered Carrot at position [1,1]
+19:21:35 ℹ️ [INFO] Watered Carrot at position [1,3]
+19:21:35 ℹ️ [INFO] Watered Corn at position [1,4]
+19:21:35 ℹ️ [INFO] Watered Pumpkin at position [2,0]
+19:21:35 ℹ️ [INFO] Watered Carrot at position [2,2]
+19:21:35 ℹ️ [INFO] Watered Cherry at position [2,4]
+19:21:35 ℹ️ [INFO] Watered Pumpkin at position [3,0]
+19:21:35 ℹ️ [INFO] Watered Pumpkin at position [3,1]
+19:21:35 ℹ️ [INFO] Watered Cherry at position [3,2]
+19:21:35 ℹ️ [INFO] Watered Sunflower at position [3,3]
+19:21:35 ℹ️ [INFO] Watered Carrot at position [4,0]
+19:21:35 ℹ️ [INFO] Watered Pumpkin at position [4,1]
+19:21:35 ℹ️ [INFO] Watered Cherry at position [4,2]
+19:21:35 ℹ️ [INFO] Watered Sunflower at position [4,3]
+19:21:35 ℹ️ [INFO] Watered Corn at position [4,4]
+19:21:35 🔔 [EVENT] It's raining!🌧️ 21 plants have been watered.
+19:21:45 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:23:44 ℹ️ [INFO] Garden application started
+19:23:52 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:23:52 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:24:02 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:24:07 ℹ️ [INFO] Perfect 🌸growing conditions today! 17 plants are thriving.
+19:24:12 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:24:22 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:24:22 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 17 plants.
+19:24:28 ℹ️ [INFO] Automatically planted Carrot at position [4,2]
+19:24:32 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:24:34 ℹ️ [INFO] Automatically planted Pumpkin at position [0,4]
+19:24:37 ℹ️ [INFO] Perfect 🌸growing conditions today! 19 plants are thriving.
+19:24:42 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:24:52 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:24:52 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 19 plants.
+19:24:58 ⚠️ [WARNING] A pest has appeared on Corn at Row 4, Column 1!
+19:25:02 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:25:04 ℹ️ [INFO] Automatically planted Corn at position [0,1]
+19:25:07 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:25:12 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:25:19 ℹ️ [INFO] Automatically planted Sunflower at position [2,1]
+19:25:22 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:25:22 🔔 [EVENT] It's raining!🌧️ 21 plants have been watered.
+19:25:31 ⚠️ [WARNING] Corn at position [3,0] died and was replaced with soil
+19:25:32 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:25:37 ℹ️ [INFO] Automatically planted Corn at position [1,1]
+19:25:37 ⚠️ [WARNING] Oh no! 🐜🦗 Bug infestation! 7 insects have appeared.
+19:25:42 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:25:52 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:25:52 🔔 [EVENT] It's raining!🌧️ 21 plants have been watered.
+19:26:02 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:26:07 ℹ️ [INFO] Automatically planted Sunflower at position [4,3]
+19:26:07 🔔 [EVENT] It's raining!🌧️ 22 plants have been watered.
+19:26:10 ⚠️ [WARNING] Sunflower at position [0,0] died and was replaced with soil
+19:26:10 ⚠️ [WARNING] Corn at position [1,3] died and was replaced with soil
+19:26:10 ⚠️ [WARNING] Sunflower at position [2,0] died and was replaced with soil
+19:26:10 ⚠️ [WARNING] Sunflower at position [2,1] died and was replaced with soil
+19:26:12 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:26:13 ⚠️ [WARNING] Carrot at position [2,4] died and was replaced with soil
+19:26:19 ℹ️ [INFO] Automatically planted Pumpkin at position [2,1]
+19:26:22 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:26:22 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 18 plants.
+19:26:28 ℹ️ [INFO] Automatically planted Sunflower at position [3,3]
+19:26:32 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+19:49:37 ℹ️ [INFO] Garden application started
+19:49:46 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:49:46 ℹ️ [INFO] Perfect 🌸growing conditions today! 20 plants are thriving.
+19:49:50 ⚠️ [WARNING] A pest has appeared on Sunflower at Row 1, Column 4!
+19:49:56 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:50:01 🔔 [EVENT] It's raining!🌧️ 20 plants have been watered.
+19:50:06 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:50:07 ℹ️ [INFO] Automatically planted Pumpkin at position [0,4]
+19:50:13 ℹ️ [INFO] Automatically planted Corn at position [2,4]
+19:50:16 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+19:50:16 ℹ️ [INFO] Automatically planted Cherry at position [0,2]
+19:50:16 ℹ️ [INFO] A gardener visited! Removed 1 pests and watered 23 plants.
+19:50:26 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:50:31 ℹ️ [INFO] Perfect 🌸growing conditions today! 23 plants are thriving.
+19:50:36 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:50:46 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:50:46 ⚠️ [WARNING] Oh no! 🐜🦗 Bug infestation! 9 insects have appeared.
+19:50:56 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+19:51:01 ⚠️ [WARNING] Oh no! 🐜🦗 Bug infestation! 11 insects have appeared.
+19:51:06 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:51:16 ℹ️ [INFO] Watered 12 plants in the last 10 seconds
+19:51:16 ⚠️ [WARNING] Oh no! 🐜🦗 Bug infestation! 6 insects have appeared.
+19:51:22 ℹ️ [INFO] Automatically planted Pumpkin at position [2,2]
+19:51:26 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:51:31 ℹ️ [INFO] A gardener visited! Removed 18 pests and watered 24 plants.
+19:51:36 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:51:46 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:51:46 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 24 plants.
+19:51:56 ℹ️ [INFO] Watered 15 plants in the last 10 seconds
+19:51:58 ℹ️ [INFO] Automatically planted Carrot at position [1,0]
+19:52:01 ⚠️ [WARNING] Oh no! 🐜🦗 Bug infestation! 9 insects have appeared.
+19:52:06 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:52:16 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:52:16 ℹ️ [INFO] A gardener visited! Removed 11 pests and watered 25 plants.
+19:52:26 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:52:31 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+19:52:36 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:52:46 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+19:52:46 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+19:52:56 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+19:53:01 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:53:06 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:53:16 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:53:16 ⚠️ [WARNING] Oh no! 🐜🦗 Bug infestation! 9 insects have appeared.
+19:53:26 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:53:31 ⚠️ [WARNING] Oh no! 🐜🦗 Bug infestation! 15 insects have appeared.
+19:53:36 ℹ️ [INFO] Watered 13 plants in the last 10 seconds
+19:53:46 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:53:46 ⚠️ [WARNING] Corn at position [2,4] died and was replaced with soil
+19:53:46 ℹ️ [INFO] A gardener visited! Removed 19 pests and watered 24 plants.
+19:53:49 ℹ️ [INFO] Automatically planted Pumpkin at position [2,4]
+19:53:56 ℹ️ [INFO] Watered 12 plants in the last 10 seconds
+19:54:01 🔔 [EVENT] It's a ☀️sunny day! Plants are drying faster.
+19:54:06 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+19:54:16 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:54:16 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving.
+19:56:02 ℹ️ [INFO] Garden application started
+20:00:37 ℹ️ [INFO] Garden application started
