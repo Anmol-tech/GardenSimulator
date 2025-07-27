@@ -6,12 +6,21 @@ import com.example.project_csen_275.Models.Plants.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Separator;
 import javafx.scene.control.ToggleButton;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -50,6 +59,17 @@ public class GardenControllerFX implements Initializable {
     private int selectedRow = -1;
     private int selectedCol = -1;
     private final Random random = new Random();
+    
+    // Thread pool for background operations
+    private final ExecutorService gardenExecutor = Executors.newFixedThreadPool(3, new ThreadFactory() {
+        private final AtomicInteger threadCount = new AtomicInteger(1);
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread thread = new Thread(r, "GardenThread-" + threadCount.getAndIncrement());
+            thread.setDaemon(true); // Don't prevent JVM shutdown
+            return thread;
+        }
+    });
     // Temperature regulation
     private static final int IDEAL_TEMP_LOWER = 65;
     private static final int IDEAL_TEMP_UPPER = 75;
@@ -83,57 +103,96 @@ public class GardenControllerFX implements Initializable {
     private Timeline waterLogTimer;
     private Timeline hourlyReportTimer;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Initialize simulation API and garden from config
-        simApi = new GardenSimulationAPI(ROWS, COLS);
-        simApi.initializeGarden();
-        garden = simApi.getGarden();
-        // Initialize the plant selector
-        plantSelector = new PlantSelector();
-
-        // Set up the combo box with the same items as in the plant selector
-        plantTypeComboBox.getItems().addAll(plantSelector.getComboBox().getItems());
-        plantTypeComboBox.setValue("Empty");
-
-        // Set up cell factory to show plant images in dropdown
-        setupComboBoxCellFactory();
-
-        // Initialize automation timer
-        setupAutomationTimer();
-
-        // Make sure automation button is properly styled from the start with high
-        // visibility
-        automationToggle.setText("▶️ START AUTOMATION");
-        automationToggle.setStyle(
-                "-fx-base: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5;");
-
-        // Create stats panel
-        setupStatsPanel();
-
-        // Set up stats update timer
-        setupStatsUpdateTimer();
-        // Setup batch logging of watering every 10 seconds
-        setupWaterBatchLogTimer();
-        // Setup real-time hourly state reporting
-        setupHourlyReportTimer();
-
-        // Add listener to attach panels when scene is available
-        gardenGrid.sceneProperty().addListener((obs, oldScene, newScene) -> {
-            if (newScene != null) {
-                Platform.runLater(this::attachPanelsToRoot);
+    /**
+     * Handles exceptions in a centralized manner
+     * @param ex The exception to handle
+     * @param message A user-friendly message to display
+     */
+    private void handleException(Throwable ex, String message) {
+        // Log the error
+        GardenLogger.error(message + " - Error: " + ex.getMessage());
+        
+        // Show error dialog on the JavaFX thread
+        Platform.runLater(() -> {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Garden Application Error");
+            alert.setHeaderText(message);
+            alert.setContentText("Error details: " + ex.getMessage());
+            alert.showAndWait();
+            
+            // Update status
+            statusText.setText("Error: " + message);
+        });
+    }
+    
+    /**
+     * Submits a task to the thread pool with proper exception handling
+     */
+    private <T> void submitTask(Runnable task, String errorMessage) {
+        gardenExecutor.submit(() -> {
+            try {
+                task.run();
+            } catch (Exception ex) {
+                handleException(ex, errorMessage);
             }
         });
+    }
 
-        // Initialize the garden grid
-        for (int r = 0; r < ROWS; r++) {
-            for (int c = 0; c < COLS; c++) {
-                StackPane cell = getStackPane(r, c);
-                gardenGrid.add(cell, c, r);
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            // Initialize simulation API and garden from config
+            simApi = new GardenSimulationAPI(ROWS, COLS);
+            simApi.initializeGarden();
+            garden = simApi.getGarden();
+            // Initialize the plant selector
+            plantSelector = new PlantSelector();
+
+            // Set up the combo box with the same items as in the plant selector
+            plantTypeComboBox.getItems().addAll(plantSelector.getComboBox().getItems());
+            plantTypeComboBox.setValue("Empty");
+
+            // Set up cell factory to show plant images in dropdown
+            setupComboBoxCellFactory();
+
+            // Initialize automation timer
+            setupAutomationTimer();
+
+            // Make sure automation button is properly styled from the start with high
+            // visibility
+            automationToggle.setText("▶️ START AUTOMATION");
+            automationToggle.setStyle(
+                    "-fx-base: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5;");
+
+            // Create stats panel
+            setupStatsPanel();
+
+            // Set up stats update timer
+            setupStatsUpdateTimer();
+            // Setup batch logging of watering every 10 seconds
+            setupWaterBatchLogTimer();
+            // Setup real-time hourly state reporting
+            setupHourlyReportTimer();
+
+            // Add listener to attach panels when scene is available
+            gardenGrid.sceneProperty().addListener((obs, oldScene, newScene) -> {
+                if (newScene != null) {
+                    Platform.runLater(this::attachPanelsToRoot);
+                }
+            });
+
+            // Initialize the garden grid
+            for (int r = 0; r < ROWS; r++) {
+                for (int c = 0; c < COLS; c++) {
+                    StackPane cell = getStackPane(r, c);
+                    gardenGrid.add(cell, c, r);
+                }
             }
+            updateGrid();
+            updateStats();
+        } catch (Exception ex) {
+            handleException(ex, "Failed to initialize garden application");
         }
-        updateGrid();
-        updateStats();
     }
 
     private StackPane getStackPane(int r, int c) {
@@ -169,46 +228,98 @@ public class GardenControllerFX implements Initializable {
 
     @FXML
     public void onUpdate() {
-        garden.updateGardenState();
-        String message = "Garden updated! Plants have grown or changed.";
-        statusText.setText(message);
-        GardenLogger.info(message);
-        updateGrid();
-        updateStats();
+        try {
+            // Update status first
+            String message = "Garden updating...";
+            statusText.setText(message);
+            
+            // Run the garden update in a background thread
+            gardenExecutor.submit(() -> {
+                try {
+                    // Perform the garden update operation
+                    garden.updateGardenState();
+                    
+                    // Update UI on JavaFX thread when complete
+                    Platform.runLater(() -> {
+                        try {
+                            String successMessage = "Garden updated! Plants have grown or changed.";
+                            statusText.setText(successMessage);
+                            GardenLogger.info(successMessage);
+                            updateGrid();
+                            updateStats();
+                        } catch (Exception ex) {
+                            handleException(ex, "Error updating UI after garden update");
+                        }
+                    });
+                } catch (Exception ex) {
+                    handleException(ex, "Error updating garden state");
+                }
+            });
+        } catch (Exception ex) {
+            handleException(ex, "Failed to start garden update");
+        }
     }
 
     @FXML
     public void onWaterAll() {
-        int wateredCount = 0;
-
-        for (int r = 0; r < ROWS; r++) {
-            for (int c = 0; c < COLS; c++) {
-                Plant plant = garden.getPlant(r, c);
-
-                // Only water and animate actual plants, not empty soil
-                if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                    garden.waterPlant(r, c);
-                    wateredCount++;
-
-                    // Add water animation with delay based on position
-                    final int row = r;
-                    final int col = c;
-                    StackPane cell = (StackPane) getNodeByRowColumnIndex(row, col);
-
-                    // Create a delayed animation for each cell
-                    Timeline delay = new Timeline(new KeyFrame(Duration.millis((r * COLS + c) * 80), e -> {
-                        WaterAnimation.playWaterAnimation(cell);
-                    }));
-                    delay.play();
+        try {
+            // Show watering in progress status
+            statusText.setText("Watering plants in progress...");
+            
+            // Create and submit watering task
+            gardenExecutor.submit(() -> {
+                try {
+                    // Track plants to water for animations
+                    final java.util.List<int[]> plantsToWater = new java.util.ArrayList<>();
+                    final java.util.concurrent.atomic.AtomicInteger wateredCount = new java.util.concurrent.atomic.AtomicInteger(0);
+                    
+                    // First pass - identify plants and water them (fast operation)
+                    for (int r = 0; r < ROWS; r++) {
+                        for (int c = 0; c < COLS; c++) {
+                            Plant plant = garden.getPlant(r, c);
+                            
+                            // Only water actual plants, not empty soil
+                            if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                                garden.waterPlant(r, c);
+                                wateredCount.incrementAndGet();
+                                plantsToWater.add(new int[]{r, c});
+                            }
+                        }
+                    }
+                    
+                    // Update UI on JavaFX thread
+                    Platform.runLater(() -> {
+                        try {
+                            // Play animations with proper timing
+                            for (int i = 0; i < plantsToWater.size(); i++) {
+                                int[] pos = plantsToWater.get(i);
+                                StackPane cell = (StackPane) getNodeByRowColumnIndex(pos[0], pos[1]);
+                                
+                                // Create a delayed animation for each cell
+                                final int index = i;  // For closure
+                                Timeline delay = new Timeline(new KeyFrame(Duration.millis(index * 80), event -> {
+                                    WaterAnimation.playWaterAnimation(cell);
+                                }));
+                                delay.play();
+                            }
+                            
+                            // Update status and UI
+                            String message = "Watered " + wateredCount.get() + " plants!";
+                            statusText.setText(message);
+                            GardenLogger.event(message);
+                            updateGrid();
+                            updateStats();
+                        } catch (Exception ex) {
+                            handleException(ex, "Error updating UI after watering");
+                        }
+                    });
+                } catch (Exception ex) {
+                    handleException(ex, "Error during watering operation");
                 }
-            }
+            });
+        } catch (Exception ex) {
+            handleException(ex, "Failed to start watering operation");
         }
-
-        String message = "Watered " + wateredCount + " plants!";
-        statusText.setText(message);
-        GardenLogger.event(message);
-        updateGrid();
-        updateStats();
     }
 
     @FXML
@@ -260,17 +371,49 @@ public class GardenControllerFX implements Initializable {
 
     @FXML
     public void onAddPest() {
-        // Add pest to a random plant
-        int row = random.nextInt(ROWS);
-        int col = random.nextInt(COLS);
-        Plant plant = garden.getPlant(row, col);
-        plant.setHasPest(true);
-        String message = "A pest has appeared on " + plant.getName() + " at Row " + (row + 1) + ", Column " + (col + 1)
-                + "!";
-        statusText.setText(message);
-        GardenLogger.warning(message);
-        updateGrid();
-        updateStats();
+        try {
+            // Add pest to a random plant
+            int row = random.nextInt(ROWS);
+            int col = random.nextInt(COLS);
+            Plant plant = garden.getPlant(row, col);
+            
+            // Only add pest if plant exists and is alive
+            if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                plant.setHasPest(true);
+                String message = "A pest has appeared on " + plant.getName() + " at Row " + (row + 1) + ", Column " + (col + 1)
+                        + "!";
+                statusText.setText(message);
+                GardenLogger.warning(message);
+            } else {
+                // If no suitable plant found, try again with another position
+                for (int attempts = 0; attempts < 10; attempts++) {
+                    row = random.nextInt(ROWS);
+                    col = random.nextInt(COLS);
+                    plant = garden.getPlant(row, col);
+                    
+                    if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                        plant.setHasPest(true);
+                        String message = "A pest has appeared on " + plant.getName() + " at Row " + (row + 1) + 
+                                ", Column " + (col + 1) + "!";
+                        statusText.setText(message);
+                        GardenLogger.warning(message);
+                        break;
+                    }
+                    
+                    // If we couldn't find any suitable plants after multiple attempts
+                    if (attempts == 9) {
+                        statusText.setText("No suitable plants found for pest infestation!");
+                        GardenLogger.warning("Attempted to add pest but no suitable plants found");
+                    }
+                }
+            }
+            
+            // Update UI
+            updateGrid();
+            updateStats();
+        } catch (Exception ex) {
+            handleException(ex, "Error adding pest to garden");
+        }
     }
 
     @FXML
@@ -397,121 +540,249 @@ public class GardenControllerFX implements Initializable {
     }
 
     private void setupAutomationTimer() {
-        // Create a timeline for automatic garden updates
-        automationTimer = new Timeline(new KeyFrame(Duration.seconds(AUTO_UPDATE_INTERVAL), event -> {
+        try {
+            // Create a timeline for automatic garden updates
+            automationTimer = new Timeline(new KeyFrame(Duration.seconds(AUTO_UPDATE_INTERVAL), e -> handleAutomationUpdate()));
+    
+            // Set cycle count to indefinite to run forever
+            automationTimer.setCycleCount(Timeline.INDEFINITE);
+        } catch (Exception ex) {
+            handleException(ex, "Failed to set up automation timer");
+        }
+    }
+    
+    /**
+     * Handle a single automation update cycle with error handling and multithreading
+     */
+    private void handleAutomationUpdate() {
+        try {
             // Increment cycle count
             automationCycleCount++;
+            
+            // Use thread pool to handle garden update in background
+            gardenExecutor.submit(() -> {
+                try {
+                    // Perform automatic update
+                    garden.updateGardenState();
+                    
+                    // Track plants that need water animations
+                    final java.util.List<int[]> plantsToWater = new java.util.ArrayList<>();
+                    int autoWaterCount = 0;
+                    
+                    // Random watering every 6 cycles (~18s)
+                    if (automationCycleCount % 6 == 0) {
+                        for (int r = 0; r < ROWS; r++) {
+                            for (int c = 0; c < COLS; c++) {
+                                try {
+                                    Plant plant = garden.getPlant(r, c);
+                                    // 25% chance to water each plant when triggered
+                                    if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(4) == 0) {
+                                        garden.waterPlantSilently(r, c);
+                                        autoWaterCount++;
+                                        plantsToWater.add(new int[]{r, c});
+                                    }
+                                } catch (Exception ex) {
+                                    GardenLogger.error("Error processing plant at " + r + "," + c + ": " + ex.getMessage());
+                                }
+                            }
+                        }
+                        
+                        // Capture water count for closure
+                        final int waterCount = autoWaterCount;
+                        
+                        // Update batch count
+                        synchronized (this) {
+                            waterBatchCount += waterCount;
+                        }
+                        
+                        // Update UI on JavaFX thread
+                        Platform.runLater(() -> {
+                            try {
+                                // Play water animations for all watered plants
+                                for (int[] pos : plantsToWater) {
+                                    try {
+                                        StackPane cell = (StackPane) getNodeByRowColumnIndex(pos[0], pos[1]);
+                                        if (cell != null) {
+                                            WaterAnimation.playWaterAnimation(cell);
+                                        }
+                                    } catch (Exception ex) {
+                                        // Log but continue with other animations
+                                        GardenLogger.error("Animation error: " + ex.getMessage());
+                                    }
+                                }
+                            } catch (Exception ex) {
+                                handleException(ex, "Error during automation watering animations");
+                            }
+                        });
+                    }
+                    
+                    // Every 200 cycles (~10 minutes), water all plants
+                    if (automationCycleCount % 200 == 0) {
+                        Platform.runLater(this::onWaterAll);
+                    }
 
-            // Perform automatic update
-            garden.updateGardenState();
-
-            // Consolidate automatic watering count
-            int autoWaterCount = 0;
-
-            // Random watering every 6 cycles (~18s)
-            if (automationCycleCount % 6 == 0) {
-                for (int r = 0; r < ROWS; r++) {
-                    for (int c = 0; c < COLS; c++) {
-                        Plant plant = garden.getPlant(r, c);
-                        // 25% chance to water each plant when triggered
-                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(4) == 0) {
-                            garden.waterPlantSilently(r, c);
-                            autoWaterCount++;
-                            final int row = r;
-                            final int col = c;
-                            Platform.runLater(() -> {
-                                StackPane cell = (StackPane) getNodeByRowColumnIndex(row, col);
-                                WaterAnimation.playWaterAnimation(cell);
-                            });
+                    // Randomly plant new plants in empty soil (15% chance per cycle)
+                    if (random.nextInt(7) == 0) { // ~15% chance
+                        try {
+                            boolean planted = garden.plantRandomPlant();
+                            if (planted) {
+                                Platform.runLater(() -> {
+                                    statusText.setText("A new plant has been planted in an empty spot!");
+                                });
+                            }
+                        } catch (Exception ex) {
+                            GardenLogger.error("Error planting random plant: " + ex.getMessage());
                         }
                     }
-                }
-            }
-
-            // Accumulate watering for batch log
-            waterBatchCount += autoWaterCount;
-
-            // Every 200 cycles (~10 minutes), water all plants
-            if (automationCycleCount % 200 == 0) {
-                Platform.runLater(this::onWaterAll);
-            }
-
-            // Randomly plant new plants in empty soil (15% chance per cycle)
-            if (random.nextInt(7) == 0) { // ~15% chance
-                boolean planted = garden.plantRandomPlant();
-                if (planted) {
+                    
+                    // Handle pest addition (approx 2% chance)
+                    handleAutomationPests();
+                    
+                    // Apply temperature effects
+                    handleAutomationTemperature();
+                    
+                    // Every 5 cycles, trigger a random event
+                    if (automationCycleCount % 5 == 0) {
+                        Platform.runLater(this::triggerRandomEvent);
+                    }
+                    
+                    // Update UI
                     Platform.runLater(() -> {
-                        statusText.setText("A new plant has been planted in an empty spot!");
+                        try {
+                            updateGrid();
+                            updateStats();
+                        } catch (Exception ex) {
+                            GardenLogger.error("Error updating UI in automation: " + ex.getMessage());
+                        }
                     });
+                } catch (Exception ex) {
+                    handleException(ex, "Automation update failed");
                 }
-            }
-
+            });
+        } catch (Exception ex) {
+            handleException(ex, "Failed to submit automation update task");
+        }
+    }
+    
+    /**
+     * Handle pest addition during automation with proper error handling
+     */
+    private void handleAutomationPests() {
+        try {
             // Random pest addition (approx 2% chance)
             if (random.nextInt(50) == 0) { // ~2% chance
                 int row = random.nextInt(ROWS);
                 int col = random.nextInt(COLS);
                 Plant plant = garden.getPlant(row, col);
                 if (!(plant instanceof NoPlant) && !plant.hasPest() && plant.getHealth() > 0) {
-                    // Choose a random pest from this plant's vulnerabilities
-                    List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
-                    if (!pests.isEmpty()) {
-                        String pestName = pests.get(random.nextInt(pests.size()));
-                        plant.setPestType(pestName);
-                        // Log the infestation event
-                        String logMsg = "Parasite '" + pestName + "' appeared on " + plant.getName() +
-                                         " at Row " + (row + 1) + ", Column " + (col + 1);
-                        GardenLogger.warning(logMsg);
-                        // Update UI status
-                        Platform.runLater(() -> statusText.setText(logMsg));
+                    try {
+                        // Choose a random pest from this plant's vulnerabilities
+                        List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
+                        if (!pests.isEmpty()) {
+                            String pestName = pests.get(random.nextInt(pests.size()));
+                            plant.setPestType(pestName);
+                            
+                            // Store information for logging on UI thread
+                            final String finalPestName = pestName;
+                            final String plantName = plant.getName();
+                            final int finalRow = row;
+                            final int finalCol = col;
+                            
+                            // Execute UI updates on the JavaFX application thread
+                            Platform.runLater(() -> {
+                                try {
+                                    // Log the infestation event
+                                    String logMsg = "Parasite '" + finalPestName + "' appeared on " + plantName +
+                                                 " at Row " + (finalRow + 1) + ", Column " + (finalCol + 1);
+                                    GardenLogger.warning(logMsg);
+                                    
+                                    // Update UI status
+                                    statusText.setText(logMsg);
+                                } catch (Exception e) {
+                                    // Handle any exceptions in the UI thread
+                                    handleException(e, "Error updating UI after pest infestation");
+                                }
+                            });
+                        }
+                    } catch (Exception ex) {
+                        final String errorMsg = "Error adding pest: " + ex.getMessage();
+                        Platform.runLater(() -> GardenLogger.error(errorMsg));
                     }
                 }
             }
-
-            // Every 5 cycles, trigger a random event
-            if (automationCycleCount % 5 == 0) {
-                Platform.runLater(this::triggerRandomEvent);
-            }
-
+        } catch (Exception ex) {
+            final String errorMsg = "Error handling pests in automation: " + ex.getMessage();
+            Platform.runLater(() -> GardenLogger.error(errorMsg));
+        }
+    }
+    
+    /**
+     * Handle temperature effects during automation with proper error handling
+     */
+    private void handleAutomationTemperature() {
+        try {
             // Apply frost stress penalty every cycle if below ideal
-            int temp = garden.getCurrentTemperature();
+            final int temp = garden.getCurrentTemperature();
             if (temp < IDEAL_TEMP_LOWER) {
                 int penaltyCount = 0;
                 for (int r = 0; r < ROWS; r++) {
                     for (int c = 0; c < COLS; c++) {
-                        Plant plant = garden.getPlant(r, c);
-                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                            int newH = Math.max(0, plant.getHealth() - 2);
-                            plant.setHealth(newH);
-                            penaltyCount++;
+                        try {
+                            Plant plant = garden.getPlant(r, c);
+                            if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                                int newH = Math.max(0, plant.getHealth() - 2);
+                                plant.setHealth(newH);
+                                penaltyCount++;
+                            }
+                        } catch (Exception ex) {
+                            final String errorMsg = "Error applying temperature effect to plant at " + 
+                                r + "," + c + ": " + ex.getMessage();
+                            Platform.runLater(() -> GardenLogger.error(errorMsg));
                         }
                     }
                 }
-                GardenLogger.warning(penaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)");
+                final int finalPenaltyCount = penaltyCount;
+                Platform.runLater(() -> GardenLogger.warning(finalPenaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)"));
             }
+            
             // Insulation cover effect: gradually restore temp to ideal
             if (insulationCoverActive && insulationCyclesLeft > 0) {
-                int currentTemp = garden.getCurrentTemperature();
-                if (currentTemp < IDEAL_TEMP_LOWER) {
-                    int newTemp = Math.min(currentTemp + 5, IDEAL_TEMP_LOWER);
-                    garden.temperature(newTemp);
-                }
-                insulationCyclesLeft--;
-                if (insulationCyclesLeft == 0) {
-                    insulationCoverActive = false;
-                    GardenLogger.event("Insulation cover effect ended – temperature regulation normal.");
+                try {
+                    final int currentTemp = garden.getCurrentTemperature();
+                    if (currentTemp < IDEAL_TEMP_LOWER) {
+                        final int newTemp = Math.min(currentTemp + 5, IDEAL_TEMP_LOWER);
+                        
+                        // First, update the temperature value without UI updates (thread-safe)
+                        garden.setTemperature(newTemp);
+                        
+                        // Then schedule the UI updates on the JavaFX thread
+                        final int tempToSet = newTemp;
+                        Platform.runLater(() -> {
+                            try {
+                                // Call temperature again on the FX thread to trigger UI updates
+                                garden.temperature(tempToSet);
+                            } catch (Exception e) {
+                                GardenLogger.error("Error setting temperature in FX thread: " + e.getMessage());
+                            }
+                        });
+                    }
+                    insulationCyclesLeft--;
+                    if (insulationCyclesLeft == 0) {
+                        insulationCoverActive = false;
+                        Platform.runLater(() -> GardenLogger.event("Insulation cover effect ended – temperature regulation normal."));
+                    }
+                } catch (Exception ex) {
+                    final String errorMsg = "Error applying insulation effect: " + ex.getMessage();
+                    Platform.runLater(() -> GardenLogger.error(errorMsg));
                 }
             }
-
-            // Update UI
-            Platform.runLater(() -> {
-                updateGrid();
-                updateStats();
-            });
-        }));
-
-        // Set cycle count to indefinite to run forever
-        automationTimer.setCycleCount(Timeline.INDEFINITE);
+        } catch (Exception ex) {
+            final String errorMsg = "Error handling temperature in automation: " + ex.getMessage();
+            Platform.runLater(() -> GardenLogger.error(errorMsg));
+        }
     }
+    
+    // This duplicate method was removed
 
     @FXML
     public void onToggleAutomation() {
@@ -787,7 +1058,7 @@ public class GardenControllerFX implements Initializable {
         // Create styled clear logs button
         clearLogsButton = new Button("🗑️ Clear Logs");
         clearLogsButton.setStyle("-fx-base: #ffcc80; -fx-font-weight: bold;");
-        clearLogsButton.setOnAction(e -> {
+        clearLogsButton.setOnAction(_ -> {
             GardenLogger.clearLogs();
             GardenLogger.info("Logs cleared");
         });
@@ -803,7 +1074,7 @@ public class GardenControllerFX implements Initializable {
      * Set up a timer to periodically update the stats
      */
     private void setupStatsUpdateTimer() {
-        statsUpdateTimer = new Timeline(new KeyFrame(Duration.seconds(2), event -> updateStats()));
+        statsUpdateTimer = new Timeline(new KeyFrame(Duration.seconds(2), _ -> updateStats()));
         statsUpdateTimer.setCycleCount(Timeline.INDEFINITE);
         statsUpdateTimer.play();
     }
@@ -833,7 +1104,7 @@ public class GardenControllerFX implements Initializable {
      * Sets up a timer to log total waterings in batch every 10 seconds.
      */
     private void setupWaterBatchLogTimer() {
-        waterLogTimer = new Timeline(new KeyFrame(Duration.seconds(10), e -> {
+        waterLogTimer = new Timeline(new KeyFrame(Duration.seconds(10), _ -> {
             if (waterBatchCount > 0) {
                 GardenLogger.info("Watered " + waterBatchCount + " plants in the last 10 seconds");
                 waterBatchCount = 0;
@@ -846,13 +1117,37 @@ public class GardenControllerFX implements Initializable {
      * Sets up a timer to log the garden state summary every real-time hour.
      */
     private void setupHourlyReportTimer() {
-        hourlyReportTimer = new Timeline(new KeyFrame(Duration.seconds(3600), e -> simApi.getState()));
+        hourlyReportTimer = new Timeline(new KeyFrame(Duration.seconds(3600), _ -> simApi.getState()));
         hourlyReportTimer.setCycleCount(Timeline.INDEFINITE);
         hourlyReportTimer.play();
     }
 
+    /**
+     * Clean up resources when the application is closing
+     * Should be called when the application is about to close
+     */
+    public void cleanup() {
+        try {
+            // Shutdown the thread pool gracefully
+            gardenExecutor.shutdown();
+            GardenLogger.info("Garden application thread pool shutdown initiated");
+            
+            // Allow time for tasks to complete
+            if (!gardenExecutor.awaitTermination(3, java.util.concurrent.TimeUnit.SECONDS)) {
+                gardenExecutor.shutdownNow();
+                GardenLogger.warning("Garden application forced thread pool shutdown");
+            }
+        } catch (InterruptedException ex) {
+            gardenExecutor.shutdownNow();
+            Thread.currentThread().interrupt();
+            GardenLogger.error("Garden application cleanup interrupted: " + ex.getMessage());
+        } catch (Exception ex) {
+            GardenLogger.error("Error during garden application cleanup: " + ex.getMessage());
+        }
+    }
+    
     private void setupComboBoxCellFactory() {
-        plantTypeComboBox.setCellFactory(param -> new javafx.scene.control.ListCell<>() {
+        plantTypeComboBox.setCellFactory(_ -> new javafx.scene.control.ListCell<>() {
             private final ImageView imageView = new ImageView();
 
             @Override
@@ -888,18 +1183,14 @@ public class GardenControllerFX implements Initializable {
                                 break;
                         }
 
-                        if (plant != null) {
-                            String imagePath = "assests/Tiles/" + plant.getImageUrl();
-                            Image image = new Image(getClass().getResourceAsStream(imagePath));
-                            imageView.setImage(image);
-                            imageView.setFitHeight(20);
-                            imageView.setFitWidth(20);
-                            setText(item);
-                            setGraphic(imageView);
-                        } else {
-                            setText(item);
-                            setGraphic(null);
-                        }
+                        // Plant will never be null here since we assign a NoPlant as default
+                        String imagePath = "assests/Tiles/" + plant.getImageUrl();
+                        Image image = new Image(getClass().getResourceAsStream(imagePath));
+                        imageView.setImage(image);
+                        imageView.setFitHeight(20);
+                        imageView.setFitWidth(20);
+                        setText(item);
+                        setGraphic(imageView);
                     } catch (Exception e) {
                         setText(item);
                         setGraphic(null);
@@ -945,19 +1236,14 @@ public class GardenControllerFX implements Initializable {
                                 break;
                         }
 
-                        if (plant != null) {
-                            String imagePath = "assests/Tiles/" + plant.getImageUrl();
-                            Image image = new Image(getClass().getResourceAsStream(imagePath));
-                            imageView.setImage(image);
-                            imageView.setFitHeight(20);
-                            imageView.setFitWidth(20);
-                            setText(item);
-                            setGraphic(imageView);
-                        } 
-                        else {
-                            setText(item);
-                            setGraphic(null);
-                        }
+                        // Plant will never be null here since we assign a NoPlant as default
+                        String imagePath = "assests/Tiles/" + plant.getImageUrl();
+                        Image image = new Image(getClass().getResourceAsStream(imagePath));
+                        imageView.setImage(image);
+                        imageView.setFitHeight(20);
+                        imageView.setFitWidth(20);
+                        setText(item);
+                        setGraphic(imageView);
                     } catch (Exception e) {
                         setText(item);
                         setGraphic(null);

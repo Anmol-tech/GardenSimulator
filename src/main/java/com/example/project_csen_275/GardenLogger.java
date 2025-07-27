@@ -1,5 +1,6 @@
 package com.example.project_csen_275;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -86,17 +87,20 @@ public class GardenLogger {
         }
 
         // Create the formatted message with emoji
-        String formattedMessage = timestamp + " " + emoji + "[" + level + "] " + message;
+        final String formattedMessage = timestamp + " " + emoji + "[" + level + "] " + message;
 
-        // Add to the beginning of the list so newest logs are at top
-        logs.add(0, formattedMessage);
+        // Update the UI on the JavaFX application thread
+        Platform.runLater(() -> {
+            // Add to the beginning of the list so newest logs are at top
+            logs.add(0, formattedMessage);
+            
+            // Keep the list at a reasonable size
+            if (logs.size() > MAX_LOGS) {
+                logs.remove(logs.size() - 1);
+            }
+        });
 
-        // Keep the list at a reasonable size
-        if (logs.size() > MAX_LOGS) {
-            logs.remove(logs.size() - 1);
-        }
-
-        // Also print to console for debugging
+        // Also print to console for debugging (safe to do on any thread)
         System.out.println(formattedMessage);
 
         // Write to log file
@@ -118,7 +122,7 @@ public class GardenLogger {
      * Clear all logs
      */
     public static void clearLogs() {
-        logs.clear();
+        Platform.runLater(() -> logs.clear());
     }
 
     /**

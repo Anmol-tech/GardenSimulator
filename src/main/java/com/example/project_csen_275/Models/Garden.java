@@ -172,7 +172,17 @@ public class Garden {
                 }
             }
             if (com.example.project_csen_275.GardenLogger.class != null) {
-                com.example.project_csen_275.GardenLogger.warning("Heat wave! " + affected + " plants dried out and took 8 damage due to high temperature (" + temp + "°F)");
+                if (javafx.application.Platform.isFxApplicationThread()) {
+                    // We're on the FX thread, safe to update UI
+                    com.example.project_csen_275.GardenLogger.warning("Heat wave! " + affected + " plants dried out and took 8 damage due to high temperature (" + temp + "°F)");
+                } else {
+                    // We're not on FX thread, use Platform.runLater
+                    final int finalAffected = affected;
+                    final int finalTemp = temp;
+                    javafx.application.Platform.runLater(() -> {
+                        com.example.project_csen_275.GardenLogger.warning("Heat wave! " + finalAffected + " plants dried out and took 8 damage due to high temperature (" + finalTemp + "°F)");
+                    });
+                }
             }
         } else if (temp < 65) {
             // Cold stress: damage health
@@ -187,14 +197,42 @@ public class Garden {
                 }
             }
             if (com.example.project_csen_275.GardenLogger.class != null) {
-                com.example.project_csen_275.GardenLogger.warning("Frost damage! " + affected + " plants lost health due to low temperature (" + temp + "°F)");
+                if (javafx.application.Platform.isFxApplicationThread()) {
+                    // We're on the FX thread, safe to update UI
+                    com.example.project_csen_275.GardenLogger.warning("Frost damage! " + affected + " plants lost health due to low temperature (" + temp + "°F)");
+                } else {
+                    // We're not on FX thread, use Platform.runLater
+                    final int finalAffected = affected;
+                    final int finalTemp = temp;
+                    javafx.application.Platform.runLater(() -> {
+                        com.example.project_csen_275.GardenLogger.warning("Frost damage! " + finalAffected + " plants lost health due to low temperature (" + finalTemp + "°F)");
+                    });
+                }
             }
         } else {
             // Ideal temperature
             if (com.example.project_csen_275.GardenLogger.class != null) {
-                com.example.project_csen_275.GardenLogger.event("Ideal temperature: " + temp + "°F. No stress applied.");
+                if (javafx.application.Platform.isFxApplicationThread()) {
+                    // We're on the FX thread, safe to update UI
+                    com.example.project_csen_275.GardenLogger.event("Ideal temperature: " + temp + "°F. No stress applied.");
+                } else {
+                    // We're not on FX thread, use Platform.runLater
+                    final int finalTemp = temp;
+                    javafx.application.Platform.runLater(() -> {
+                        com.example.project_csen_275.GardenLogger.event("Ideal temperature: " + finalTemp + "°F. No stress applied.");
+                    });
+                }
             }
         }
+    }
+    
+    /**
+     * Updates temperature value without logging or UI updates.
+     * Safe to call from any thread.
+     * @param temp the new temperature value
+     */
+    public void setTemperature(int temp) {
+        this.currentTemperature = temp;
     }
 
     /**
