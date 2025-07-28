@@ -6,6 +6,7 @@ public class Plant {
     private int moistureLevel;
     private boolean hasPest;
     private String pestType;
+    private int pestHealth;
     private String imageUrl;
 
     public Plant(String name, int health, int moistureLevel, boolean hasPest, String imageUrl) {
@@ -52,7 +53,7 @@ public class Plant {
     }
 
     public void dryOut() {
-        // Slow moisture drain to 1 per cycle
+        // Drain moisture by 1 per cycle
         moistureLevel = Math.max(0, moistureLevel - 1);
         if (moistureLevel < 30) {
             health = Math.max(0, health - 2);
@@ -94,6 +95,29 @@ public class Plant {
     public void setPestType(String pestType) {
         this.pestType = pestType;
         this.hasPest = (pestType != null && !pestType.isEmpty());
+        // Initialize pest health when setting a new pest
+        if (hasPest) {
+            this.pestHealth = 20;
+        } else {
+            this.pestHealth = 0;
+        }
+    }
+    /**
+     * Gets current pest health.
+     */
+    public int getPestHealth() {
+        return pestHealth;
+    }
+    /**
+     * Sets current pest health.
+     */
+    public void setPestHealth(int health) {
+        this.pestHealth = health;
+        // Clear pest if health drops to zero
+        if (health <= 0) {
+            this.pestType = null;
+            this.hasPest = false;
+        }
     }
 
     public String getImageUrl() {

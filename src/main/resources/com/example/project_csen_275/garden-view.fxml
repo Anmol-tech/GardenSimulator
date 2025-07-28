@@ -44,7 +44,7 @@
                     <HBox spacing="15" alignment="CENTER">
                         <Button text="Update Garden" onAction="#onUpdate" style="-fx-base: #bbdefb;"/>
                         <Button text="Water All" onAction="#onWaterAll" style="-fx-base: #90caf9;"/>
-                        <Button text="Add Bug" onAction="#onAddPest" style="-fx-base: #ffcc80;"/>
+                        <Button text="Add Pests" onAction="#onAddPest" style="-fx-base: #ffcc80;"/>
                         <Button text="Remove Bugs" onAction="#onRemovePests" style="-fx-base: #ef9a9a;"/>
                     </HBox>
                     

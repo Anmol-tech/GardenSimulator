@@ -78,4 +78,37 @@ public class WaterAnimation {
         // Play the timeline
         timeline.play();
     }
+
+    /**
+     * Show pest spray animation with green droplets on the specified cell.
+     */
+    public static void playPestSprayAnimation(StackPane cell) {
+        // Create spray indicator
+        Text sprayText = new Text("💧💦");
+        sprayText.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        sprayText.setFill(Color.LIMEGREEN);
+        sprayText.setTranslateX(10);
+        sprayText.setTranslateY(-10);
+
+        // Create background for better visibility
+        Rectangle background = new Rectangle(30, 30);
+        background.setFill(Color.WHITE);
+        background.setOpacity(0.5);
+        background.setArcWidth(10);
+        background.setArcHeight(10);
+        background.setTranslateX(10);
+        background.setTranslateY(-10);
+
+        // Add to cell
+        cell.getChildren().addAll(background, sprayText);
+
+        // Build animation
+        Timeline timeline = new Timeline(
+            new KeyFrame(Duration.ZERO, e -> { sprayText.setOpacity(0); background.setOpacity(0); }),
+            new KeyFrame(Duration.millis(100), e -> { sprayText.setOpacity(1); background.setOpacity(0.5); }),
+            new KeyFrame(Duration.millis(DISPLAY_DURATION - 200), e -> { sprayText.setOpacity(0); background.setOpacity(0); }),
+            new KeyFrame(Duration.millis(DISPLAY_DURATION), e -> { cell.getChildren().removeAll(background, sprayText); })
+        );
+        timeline.play();
+    }
 }

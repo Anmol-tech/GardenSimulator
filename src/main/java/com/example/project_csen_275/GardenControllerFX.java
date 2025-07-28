@@ -59,6 +59,12 @@ public class GardenControllerFX implements Initializable {
     private int selectedRow = -1;
     private int selectedCol = -1;
     private final Random random = new Random();
+    // Pest spray defense
+    private boolean sprayPending = false;
+    private boolean sprayActive = false;
+    private int sprayCyclesLeft = 0;
+    private static final int SPRAY_INITIAL_DMG = 8;
+    private static final int SPRAY_SUBSEQUENT_DMG = 3;
     
     // Thread pool for background operations
     private final ExecutorService gardenExecutor = Executors.newFixedThreadPool(3, new ThreadFactory() {
@@ -372,40 +378,32 @@ public class GardenControllerFX implements Initializable {
     @FXML
     public void onAddPest() {
         try {
-            // Add pest to a random plant
-            int row = random.nextInt(ROWS);
-            int col = random.nextInt(COLS);
-            Plant plant = garden.getPlant(row, col);
-            
-            // Only add pest if plant exists and is alive
-            if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                plant.setHasPest(true);
-                String message = "A pest has appeared on " + plant.getName() + " at Row " + (row + 1) + ", Column " + (col + 1)
-                        + "!";
-                statusText.setText(message);
-                GardenLogger.warning(message);
-            } else {
-                // If no suitable plant found, try again with another position
-                for (int attempts = 0; attempts < 10; attempts++) {
-                    row = random.nextInt(ROWS);
-                    col = random.nextInt(COLS);
-                    plant = garden.getPlant(row, col);
-                    
-                    if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                        plant.setHasPest(true);
-                        String message = "A pest has appeared on " + plant.getName() + " at Row " + (row + 1) + 
-                                ", Column " + (col + 1) + "!";
-                        statusText.setText(message);
-                        GardenLogger.warning(message);
-                        break;
-                    }
-                    
-                    // If we couldn't find any suitable plants after multiple attempts
-                    if (attempts == 9) {
-                        statusText.setText("No suitable plants found for pest infestation!");
-                        GardenLogger.warning("Attempted to add pest but no suitable plants found");
+            // Add a specific pest to a random vulnerable plant
+            boolean added = false;
+            for (int attempts = 0; attempts < 10 && !added; attempts++) {
+                int row = random.nextInt(ROWS);
+                int col = random.nextInt(COLS);
+                Plant plant = garden.getPlant(row, col);
+                if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && !plant.hasPest()) {
+                    // Pick a random pest based on vulnerability
+                    List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
+                    if (!pests.isEmpty()) {
+                        String pestName = pests.get(random.nextInt(pests.size()));
+                        plant.setPestType(pestName);
+                        // Schedule spray next cycle
+                        sprayPending = true;
+                        String msg = "Parasite '" + pestName + "' added to " + plant.getName() +
+                                     " at Row " + (row + 1) + ", Column " + (col + 1);
+                        statusText.setText(msg);
+                        GardenLogger.warning(msg);
+                        added = true;
                     }
                 }
+            }
+            if (!added) {
+                String noMsg = "No suitable plants found for pest infestation!";
+                statusText.setText(noMsg);
+                GardenLogger.warning(noMsg);
             }
             
             // Update UI
@@ -433,6 +431,10 @@ public class GardenControllerFX implements Initializable {
         String message = "Removed " + count + " pests from the garden!";
         statusText.setText(message);
         GardenLogger.event(message);
+        // Stop any ongoing or scheduled pest sprays
+        sprayPending = false;
+        sprayActive = false;
+        sprayCyclesLeft = 0;
         updateGrid();
         updateStats();
     }
@@ -518,6 +520,27 @@ public class GardenControllerFX implements Initializable {
                     cell.getChildren().addAll(healthLabel, moistureLabel);
                 }
 
+                if (plant.hasPest()) {
+                    // Show pest health overlay
+                    Rectangle pestBg = new Rectangle(50, 18);
+                    pestBg.setArcWidth(8);
+                    pestBg.setArcHeight(8);
+                    pestBg.setFill(Color.WHITE);
+                    pestBg.setStroke(Color.RED);
+                    pestBg.setStrokeWidth(1.5);
+                    pestBg.setOpacity(0.9);
+                    pestBg.setTranslateX(0);
+                    pestBg.setTranslateY(-55);
+
+                    Label pestLabel = new Label("P: " + plant.getPestHealth());
+                    pestLabel.setTextFill(Color.RED);
+                    pestLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 10px;");
+                    pestLabel.setTranslateX(0);
+                    pestLabel.setTranslateY(-55);
+
+                    cell.getChildren().addAll(pestBg, pestLabel);
+                }
+
                 cell.getChildren().add(imageView);
 
                 // Highlight selected cell
@@ -564,74 +587,84 @@ public class GardenControllerFX implements Initializable {
                 try {
                     // Perform automatic update
                     garden.updateGardenState();
-                    
-                    // Track plants that need water animations
-                    final java.util.List<int[]> plantsToWater = new java.util.ArrayList<>();
+
+                    // Count of plants auto-watered this cycle
                     int autoWaterCount = 0;
-                    
+                    // If a pest was just added last cycle, schedule spray
+                    if (sprayPending) {
+                        sprayActive = true;
+                        sprayCyclesLeft = 5;
+                        sprayPending = false;
+                        String deployMsg = "Deploying Anti-pest spray for " + sprayCyclesLeft + " cycles!";
+                        // Update UI and log on JavaFX thread
+                        Platform.runLater(() -> {
+                            statusText.setText(deployMsg);
+                            GardenLogger.event(deployMsg);
+                        });
+                    }
+
+                    // Execute spray if active, collect positions to animate after UI update
+                    java.util.List<int[]> sprayedPositions = new java.util.ArrayList<>();
+                    if (sprayActive && sprayCyclesLeft > 0) {
+                        for (int r = 0; r < ROWS; r++) {
+                            for (int c = 0; c < COLS; c++) {
+                                Plant plant = garden.getPlant(r, c);
+                                if (plant.hasPest()) {
+                                    int dmg = sprayCyclesLeft == 5 ? SPRAY_INITIAL_DMG : SPRAY_SUBSEQUENT_DMG;
+                                    int newPestHealth = plant.getPestHealth() - dmg;
+                                    plant.setPestHealth(newPestHealth);
+                                    sprayedPositions.add(new int[]{r, c});
+                                }
+                            }
+                        }
+                        sprayCyclesLeft--;
+                        if (sprayCyclesLeft == 0) {
+                            sprayActive = false;
+                            final String endMsg = "Pest spray ended.";
+                            Platform.runLater(() -> {
+                                statusText.setText(endMsg);
+                                GardenLogger.event(endMsg);
+                            });
+                        }
+                    }
+
                     // Random watering every 6 cycles (~18s)
                     if (automationCycleCount % 6 == 0) {
                         for (int r = 0; r < ROWS; r++) {
                             for (int c = 0; c < COLS; c++) {
-                                try {
-                                    Plant plant = garden.getPlant(r, c);
-                                    // 25% chance to water each plant when triggered
-                                    if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(4) == 0) {
-                                        garden.waterPlantSilently(r, c);
-                                        autoWaterCount++;
-                                        plantsToWater.add(new int[]{r, c});
-                                    }
-                                } catch (Exception ex) {
-                                    GardenLogger.error("Error processing plant at " + r + "," + c + ": " + ex.getMessage());
+                                Plant plant = garden.getPlant(r, c);
+                                if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(4) == 0) {
+                                    garden.waterPlantSilently(r, c);
+                                    autoWaterCount++;
+                                    final int row = r;
                                 }
                             }
                         }
-                        
-                        // Capture water count for closure
-                        final int waterCount = autoWaterCount;
-                        
-                        // Update batch count
-                        synchronized (this) {
-                            waterBatchCount += waterCount;
-                        }
-                        
-                        // Update UI on JavaFX thread
-                        Platform.runLater(() -> {
-                            try {
-                                // Play water animations for all watered plants
-                                for (int[] pos : plantsToWater) {
-                                    try {
-                                        StackPane cell = (StackPane) getNodeByRowColumnIndex(pos[0], pos[1]);
-                                        if (cell != null) {
-                                            WaterAnimation.playWaterAnimation(cell);
-                                        }
-                                    } catch (Exception ex) {
-                                        // Log but continue with other animations
-                                        GardenLogger.error("Animation error: " + ex.getMessage());
-                                    }
-                                }
-                            } catch (Exception ex) {
-                                handleException(ex, "Error during automation watering animations");
-                            }
-                        });
-                    }
-                    
-                    // Every 200 cycles (~10 minutes), water all plants
-                    if (automationCycleCount % 200 == 0) {
-                        Platform.runLater(this::onWaterAll);
                     }
 
-                    // Randomly plant new plants in empty soil (15% chance per cycle)
-                    if (random.nextInt(7) == 0) { // ~15% chance
-                        try {
-                            boolean planted = garden.plantRandomPlant();
-                            if (planted) {
-                                Platform.runLater(() -> {
-                                    statusText.setText("A new plant has been planted in an empty spot!");
-                                });
+                    // Accumulate watering for batch log
+                    waterBatchCount += autoWaterCount;
+
+                    // Random pest addition (approx 2% chance)
+                    if (random.nextInt(50) == 0) { // ~2% chance
+                        int row = random.nextInt(ROWS);
+                        int col = random.nextInt(COLS);
+                        Plant plant = garden.getPlant(row, col);
+                        if (!(plant instanceof NoPlant) && !plant.hasPest() && plant.getHealth() > 0) {
+                            // Choose a random pest from this plant's vulnerabilities
+                            List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
+                            if (!pests.isEmpty()) {
+                                String pestName = pests.get(random.nextInt(pests.size()));
+                                plant.setPestType(pestName);
+                                // Schedule pest spray next cycle
+                                sprayPending = true;
+                                // Log the infestation event
+                                String logMsg = "Parasite '" + pestName + "' appeared on " + plant.getName() +
+                                                 " at Row " + (row + 1) + ", Column " + (col + 1);
+                                GardenLogger.warning(logMsg);
+                                // Update UI status
+                                Platform.runLater(() -> statusText.setText(logMsg));
                             }
-                        } catch (Exception ex) {
-                            GardenLogger.error("Error planting random plant: " + ex.getMessage());
                         }
                     }
                     
@@ -646,11 +679,18 @@ public class GardenControllerFX implements Initializable {
                         Platform.runLater(this::triggerRandomEvent);
                     }
                     
-                    // Update UI
+                    // Update UI, then play pest spray animations for this cycle
                     Platform.runLater(() -> {
                         try {
                             updateGrid();
                             updateStats();
+                            // Play pest spray animation on sprayed positions
+                            for (int[] pos : sprayedPositions) {
+                                StackPane cell = getNodeByRowColumnIndex(pos[0], pos[1]);
+                                if (cell != null) {
+                                    WaterAnimation.playPestSprayAnimation(cell);
+                                }
+                            }
                         } catch (Exception ex) {
                             GardenLogger.error("Error updating UI in automation: " + ex.getMessage());
                         }
@@ -898,6 +938,8 @@ public class GardenControllerFX implements Initializable {
                     msg.append(")");
                 }
                 String pestMessage = msg.toString();
+                // Schedule pest spray next cycle
+                sprayPending = true;
                 statusText.setText(pestMessage);
                 GardenLogger.warning(pestMessage);
                 break;
