@@ -39,6 +39,9 @@
                 <Label text="Selected Plant:" style="-fx-font-weight: bold;"/>
                 <ComboBox fx:id="plantTypeComboBox" prefWidth="150" promptText="Choose a plant"/>
                 <Button text="Plant Selected" onAction="#onPlantSelected" style="-fx-base: #a5d6a7; -fx-font-weight: bold;"/>
+                <Label text="Trigger Event:" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="eventComboBox" prefWidth="150" promptText="Choose an event"/>
+                <Button text="Trigger Event" onAction="#onTriggerEvent" style="-fx-base: #ffd54f; -fx-font-weight: bold;"/>
             </HBox>
                     
                     <HBox spacing="15" alignment="CENTER">

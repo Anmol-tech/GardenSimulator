@@ -50,6 +50,11 @@ public class GardenControllerFX implements Initializable {
     private ComboBox<String> plantTypeComboBox;
     @FXML
     private Text statusText;
+    @FXML
+    private ComboBox<String> eventComboBox;
+
+    // For manual event triggering
+    private int forcedEventType = -1;
 
     private final int ROWS = 5;
     private final int COLS = 5;
@@ -157,6 +162,13 @@ public class GardenControllerFX implements Initializable {
             // Set up the combo box with the same items as in the plant selector
             plantTypeComboBox.getItems().addAll(plantSelector.getComboBox().getItems());
             plantTypeComboBox.setValue("Empty");
+            
+            // Set up the event dropdown for manual triggering
+            eventComboBox.getItems().addAll(
+                "Sunny Day", "Rainy Day", "Pest Infestation",
+                "Perfect Growth", "Gardener Visit", "Chilly Day"
+            );
+            eventComboBox.setValue("Sunny Day");
 
             // Set up cell factory to show plant images in dropdown
             setupComboBoxCellFactory();
@@ -437,6 +449,32 @@ public class GardenControllerFX implements Initializable {
         sprayCyclesLeft = 0;
         updateGrid();
         updateStats();
+    }
+
+    @FXML
+    public void onTriggerEvent() {
+        try {
+            String selected = eventComboBox.getValue();
+            if (selected == null) {
+                statusText.setText("Please select an event first.");
+                return;
+            }
+            switch (selected) {
+                case "Sunny Day": forcedEventType = 0; break;
+                case "Rainy Day": forcedEventType = 1; break;
+                case "Pest Infestation": forcedEventType = 2; break;
+                case "Perfect Growth": forcedEventType = 3; break;
+                case "Gardener Visit": forcedEventType = 4; break;
+                case "Chilly Day": forcedEventType = 5; break;
+                default:
+                    statusText.setText("Unknown event: " + selected);
+                    return;
+            }
+            // Trigger the chosen event immediately
+            triggerRandomEvent();
+        } catch (Exception ex) {
+            handleException(ex, "Error triggering event");
+        }
     }
 
     private void updateGrid() {
@@ -855,8 +893,14 @@ public class GardenControllerFX implements Initializable {
     }
 
     private void triggerRandomEvent() {
-        // Generate a random event in the garden
-        int eventType = random.nextInt(6); // 6 different event types (add chilly day)
+        // Determine event type: forcedEventType if set, else random
+        int eventType;
+        if (forcedEventType >= 0) {
+            eventType = forcedEventType;
+            forcedEventType = -1;
+        } else {
+            eventType = random.nextInt(6); // 6 different event types (add chilly day)
+        }
 
         switch (eventType) {
             case 0: // Sunny day - extra drying and temperature rise
