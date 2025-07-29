@@ -116,14 +116,16 @@ public class GardenControllerFX implements Initializable {
 
     // Stats display
     private VBox statsPanel;
-    private Text livePlantsText = new Text("Living Plants: 0");
-    private Text deadPlantsText = new Text("Dead Plants: 0");
-    private Text emptyPlotsText = new Text("Empty Soil: 0");
-    private Text plantedText = new Text("Plants Planted: 0");
-    private Text wateredText = new Text("Plants Watered: 0");
+    private Text livePlantsText = new Text("🌿 Living Plants: 0");
+    private Text deadPlantsText = new Text("�� Dead Plants: 0");
+    private Text emptyPlotsText = new Text("🌱 Empty Soil: 0");
+    private Text plantedText = new Text("🪴 Plants Planted: 0");
+    private Text wateredText = new Text("💧 Plants Watered: 0");
     private Text temperatureText = new Text("Temperature: 0°F");
-    private Text gameTimeText = new Text("Day 1, 6:00 AM");
-    private Text sessionTimeText = new Text("Session: 0h 0m");
+    @FXML
+    private Text gameTimeText;
+    @FXML
+    private Text sessionTimeText;
     private GardenTimer gardenTimer;
     private Timeline statsUpdateTimer;
 
