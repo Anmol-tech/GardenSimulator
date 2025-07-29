@@ -1,0 +1,1576 @@
+19:25:51 ℹ️ [INFO] Garden cleared for initialization
+19:25:51 ℹ️ [INFO] Planted Carrot at position [0,0]
+19:25:51 ℹ️ [INFO] Planted Cherry at position [0,1]
+19:25:51 ℹ️ [INFO] Planted Corn at position [0,2]
+19:25:51 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+19:25:51 ℹ️ [INFO] Planted Sunflower at position [0,4]
+19:25:51 ℹ️ [INFO] Planted Carrot at position [1,0]
+19:25:51 ℹ️ [INFO] Planted Cherry at position [1,1]
+19:25:51 ℹ️ [INFO] Planted Corn at position [1,2]
+19:25:51 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+19:25:51 ℹ️ [INFO] Planted Sunflower at position [1,4]
+19:25:51 ℹ️ [INFO] Planted Carrot at position [2,0]
+19:25:51 ℹ️ [INFO] Planted Cherry at position [2,1]
+19:25:51 ℹ️ [INFO] Planted Corn at position [2,2]
+19:25:51 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+19:25:51 ℹ️ [INFO] Planted Sunflower at position [2,4]
+19:25:51 ℹ️ [INFO] Planted Carrot at position [3,0]
+19:25:51 ℹ️ [INFO] Planted Cherry at position [3,1]
+19:25:51 ℹ️ [INFO] Planted Corn at position [3,2]
+19:25:51 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+19:25:51 ℹ️ [INFO] Planted Sunflower at position [3,4]
+19:25:51 ℹ️ [INFO] Planted Carrot at position [4,0]
+19:25:51 ℹ️ [INFO] Planted Cherry at position [4,1]
+19:25:51 ℹ️ [INFO] Planted Corn at position [4,2]
+19:25:51 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+19:25:51 ℹ️ [INFO] Planted Sunflower at position [4,4]
+19:25:51 ℹ️ [INFO] Garden initialized from config
+19:25:51 ℹ️ [INFO] Garden application started
+19:25:55 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:25:55 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, weevil x1, aphid x1)
+19:25:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:26:10 🔔 [EVENT] Pest spray ended.
+19:26:10 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+19:26:10 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+19:26:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:26:13 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (64°F)
+19:26:13 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:26:15 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:26:16 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:26:25 ⚠️ [WARNING] Parasite 'caterpillar' appeared on Carrot at Row 4, Column 1
+19:26:25 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+19:26:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:26:34 ⚠️ [WARNING] Parasite 'bird' appeared on Cherry at Row 2, Column 2
+19:26:35 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:26:37 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:26:40 ℹ️ [INFO] A gardener visited! Removed 1 pests and watered 25 plants.
+19:26:49 🔔 [EVENT] Pest spray ended.
+19:26:55 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:26:55 ⚠️ [WARNING] Parasite 'caterpillar' appeared on Carrot at Row 4, Column 1
+19:26:55 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (81°F)
+19:26:55 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+19:26:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:27:10 🔔 [EVENT] Pest spray ended.
+19:27:10 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+19:27:10 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+19:27:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:27:13 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (64°F)
+19:27:13 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:27:15 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+19:27:16 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:27:25 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+19:27:35 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:27:40 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (77°F)
+19:27:40 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+19:27:45 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:27:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:27:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+19:28:05 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:28:10 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (61°F)
+19:28:10 🔔 [EVENT] Chilly day! Temp dropped to 61°F. Insulation cover will engage next cycle (6 cycles total).
+19:28:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:28:13 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (61°F)
+19:28:13 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (62°F)
+19:28:16 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (62°F)
+19:28:16 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (63°F)
+19:28:19 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (63°F)
+19:28:19 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+19:28:22 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (64°F)
+19:28:22 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:28:25 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:28:25 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:28:25 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (85°F)
+19:28:25 🔔 [EVENT] It's a sunny day! Temperature rose to 85°F, plants are drying faster.
+19:28:40 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (81°F)
+19:28:40 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+19:28:45 ℹ️ [INFO] Watered 12 plants in the last 10 seconds
+19:28:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+19:29:05 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:29:10 ⚠️ [WARNING] Parasite 'locust' appeared on Corn at Row 1, Column 3
+19:29:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:29:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+19:29:15 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+19:29:25 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (77°F)
+19:29:25 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+19:29:35 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:29:37 ⚠️ [WARNING] Corn at position [0,2] died and was replaced with soil
+19:29:37 ⚠️ [WARNING] Parasite 'locust' appeared on Corn at Row 3, Column 3
+19:29:40 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:29:40 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (81°F)
+19:29:40 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+19:29:52 🔔 [EVENT] Pest spray ended.
+19:29:55 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:29:55 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+19:29:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:30:10 🔔 [EVENT] Pest spray ended.
+19:30:10 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (84°F)
+19:30:10 🔔 [EVENT] It's a sunny day! Temperature rose to 84°F, plants are drying faster.
+19:30:15 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:30:25 🔔 [EVENT] Rainfall: watered 24 plants.
+19:30:25 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:30:35 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:30:40 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (80°F)
+19:30:40 🔔 [EVENT] It's a sunny day! Temperature rose to 80°F, plants are drying faster.
+19:30:45 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:30:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:30:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:31:05 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:31:10 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (62°F)
+19:31:10 🔔 [EVENT] Chilly day! Temp dropped to 62°F. Insulation cover will engage next cycle (6 cycles total).
+19:31:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:31:13 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (62°F)
+19:31:13 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (63°F)
+19:31:16 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (63°F)
+19:31:16 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (64°F)
+19:31:19 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (64°F)
+19:31:19 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:31:22 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:31:25 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:31:25 🔔 [EVENT] Rainfall: watered 24 plants.
+19:31:25 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:31:40 🔔 [EVENT] Rainfall: watered 24 plants.
+19:31:40 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:31:45 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:31:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:31:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:32:05 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:32:10 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (61°F)
+19:32:10 🔔 [EVENT] Chilly day! Temp dropped to 61°F. Insulation cover will engage next cycle (6 cycles total).
+19:32:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:32:13 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (61°F)
+19:32:13 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (62°F)
+19:32:15 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+19:32:16 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (62°F)
+19:32:16 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (63°F)
+19:32:19 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (63°F)
+19:32:19 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (64°F)
+19:32:22 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (64°F)
+19:32:22 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:32:25 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:32:25 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (64°F)
+19:32:25 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+19:32:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:32:28 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (64°F)
+19:32:28 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:32:31 ⚠️ [WARNING] Parasite 'caterpillar' appeared on Carrot at Row 5, Column 1
+19:32:31 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:32:34 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:32:35 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:32:40 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (squashBug x2, aphid x1)
+19:32:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:32:55 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:32:55 🔔 [EVENT] Pest spray ended.
+19:32:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:32:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:33:10 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 24 plants.
+19:33:15 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:33:25 🔔 [EVENT] Rainfall: watered 24 plants.
+19:33:25 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:33:35 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:33:40 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+19:33:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:33:45 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:33:55 🔔 [EVENT] Pest spray ended.
+19:33:55 🔔 [EVENT] Rainfall: watered 24 plants.
+19:33:55 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:34:05 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:34:10 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (squashBug x1, bird x1, weevil x1, aphid x1)
+19:34:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:34:25 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:34:25 🔔 [EVENT] Pest spray ended.
+19:34:25 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (80°F)
+19:34:25 🔔 [EVENT] It's a sunny day! Temperature rose to 80°F, plants are drying faster.
+19:34:34 ⚠️ [WARNING] Parasite 'locust' appeared on Corn at Row 2, Column 3
+19:34:37 ⚠️ [WARNING] Parasite 'locust' appeared on Corn at Row 4, Column 3
+19:34:40 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, weevil x1)
+19:34:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:34:45 ℹ️ [INFO] Watered 11 plants in the last 10 seconds
+19:34:55 🔔 [EVENT] Pest spray ended.
+19:34:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 24 plants.
+19:35:05 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+19:35:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:35:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:35:15 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+19:35:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:35:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:35:35 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:35:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:35:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:35:55 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:35:55 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (85°F)
+19:35:55 🔔 [EVENT] It's a sunny day! Temperature rose to 85°F, plants are drying faster.
+19:36:10 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (79°F)
+19:36:10 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+19:36:15 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:36:25 🔔 [EVENT] Rainfall: watered 24 plants.
+19:36:25 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:36:35 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:36:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:36:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:36:45 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:36:55 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (58°F)
+19:36:55 🔔 [EVENT] Chilly day! Temp dropped to 58°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:36:58 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (58°F)
+19:36:58 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (59°F)
+19:37:01 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (59°F)
+19:37:01 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (60°F)
+19:37:04 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (60°F)
+19:37:04 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (61°F)
+19:37:05 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:37:07 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (61°F)
+19:37:07 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (62°F)
+19:37:10 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (62°F)
+19:37:10 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (63°F)
+19:37:10 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (83°F)
+19:37:10 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+19:37:10 🔔 [EVENT] Insulation cover canceled due to sunny day.
+19:37:25 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:37:25 🔔 [EVENT] Rainfall: watered 24 plants.
+19:37:25 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:37:40 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 24 plants.
+19:37:45 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:37:55 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x2, bird x1)
+19:37:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:38:05 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:38:10 🔔 [EVENT] Pest spray ended.
+19:38:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:38:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:38:15 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+19:38:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:38:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+19:38:35 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:38:40 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (64°F)
+19:38:40 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+19:38:43 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:38:43 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (64°F)
+19:38:43 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:38:46 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:38:55 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:38:55 🔔 [EVENT] Rainfall: watered 24 plants.
+19:38:55 🔔 [EVENT] It's raining! 24 plants have been watered.
+19:39:10 ⚠️ [WARNING] Heat wave! 24 plants dried out and took 8 damage due to high temperature (78°F)
+19:39:10 🔔 [EVENT] It's a sunny day! Temperature rose to 78°F, plants are drying faster.
+19:39:15 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:39:25 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, squashBug x1)
+19:39:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:39:28 ⚠️ [WARNING] Parasite 'weevil' appeared on Cherry at Row 4, Column 2
+19:39:31 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:39:35 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+19:39:40 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (57°F)
+19:39:40 🔔 [EVENT] Chilly day! Temp dropped to 57°F. Insulation cover will engage next cycle (6 cycles total).
+19:39:43 🔔 [EVENT] Pest spray ended.
+19:39:43 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:39:43 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (57°F)
+19:39:43 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (58°F)
+19:39:45 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:39:46 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (58°F)
+19:39:46 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (59°F)
+19:39:49 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (59°F)
+19:39:49 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (60°F)
+19:39:52 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (60°F)
+19:39:52 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (61°F)
+19:39:55 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (61°F)
+19:39:55 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (62°F)
+19:39:55 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (57°F)
+19:39:55 🔔 [EVENT] Chilly day! Temp dropped to 57°F. Insulation cover will engage next cycle (6 cycles total).
+19:39:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:39:58 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (57°F)
+19:39:58 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (58°F)
+19:40:01 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (58°F)
+19:40:01 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (59°F)
+19:40:04 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (59°F)
+19:40:04 ⚠️ [WARNING] Frost damage! 23 plants lost health due to low temperature (60°F)
+19:40:05 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+19:40:07 ⚠️ [WARNING] Corn at position [2,2] died and was replaced with soil
+19:40:07 ⚠️ [WARNING] 23 plants took -2 health due to low temperature (60°F)
+19:40:07 ⚠️ [WARNING] Frost damage! 23 plants lost health due to low temperature (61°F)
+19:40:10 ⚠️ [WARNING] 23 plants took -2 health due to low temperature (61°F)
+19:40:10 ⚠️ [WARNING] Frost damage! 23 plants lost health due to low temperature (62°F)
+19:40:10 ⚠️ [WARNING] Heat wave! 23 plants dried out and took 8 damage due to high temperature (84°F)
+19:40:10 🔔 [EVENT] It's a sunny day! Temperature rose to 84°F, plants are drying faster.
+19:40:10 🔔 [EVENT] Insulation cover canceled due to sunny day.
+19:40:13 ⚠️ [WARNING] Corn at position [1,2] died and was replaced with soil
+19:40:13 ⚠️ [WARNING] Cherry at position [3,1] died and was replaced with soil
+19:40:25 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:40:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:40:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 21 plants are thriving, and temperature restored to 70°F.
+19:40:40 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 21 plants.
+19:40:45 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:40:55 ⚠️ [WARNING] Heat wave! 21 plants dried out and took 8 damage due to high temperature (83°F)
+19:40:55 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+19:41:05 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:41:10 ⚠️ [WARNING] Heat wave! 21 plants dried out and took 8 damage due to high temperature (83°F)
+19:41:10 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+19:41:15 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:41:25 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 21 plants.
+19:41:35 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:41:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:41:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 21 plants are thriving, and temperature restored to 70°F.
+19:41:55 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:41:55 ⚠️ [WARNING] Heat wave! 21 plants dried out and took 8 damage due to high temperature (79°F)
+19:41:55 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+19:41:58 ⚠️ [WARNING] Parasite 'aphid' appeared on Sunflower at Row 3, Column 5
+19:42:10 ⚠️ [WARNING] Heat wave! 21 plants dried out and took 8 damage due to high temperature (76°F)
+19:42:10 🔔 [EVENT] It's a sunny day! Temperature rose to 76°F, plants are drying faster.
+19:42:15 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:42:22 ⚠️ [WARNING] Sunflower at position [2,4] died and was replaced with soil
+19:42:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:42:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 20 plants are thriving, and temperature restored to 70°F.
+19:42:35 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:42:40 🔔 [EVENT] Rainfall: watered 20 plants.
+19:42:40 🔔 [EVENT] It's raining! 20 plants have been watered.
+19:42:45 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:42:55 🔔 [EVENT] Rainfall: watered 20 plants.
+19:42:55 🔔 [EVENT] It's raining! 20 plants have been watered.
+19:43:05 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:43:10 ⚠️ [WARNING] Heat wave! 20 plants dried out and took 8 damage due to high temperature (85°F)
+19:43:10 🔔 [EVENT] It's a sunny day! Temperature rose to 85°F, plants are drying faster.
+19:43:25 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+19:43:25 ⚠️ [WARNING] Heat wave! 20 plants dried out and took 8 damage due to high temperature (82°F)
+19:43:25 🔔 [EVENT] It's a sunny day! Temperature rose to 82°F, plants are drying faster.
+19:43:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:43:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 20 plants are thriving, and temperature restored to 70°F.
+19:43:45 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:43:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 20 plants.
+19:44:05 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:44:10 ⚠️ [WARNING] Heat wave! 20 plants dried out and took 8 damage due to high temperature (79°F)
+19:44:10 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+19:44:15 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:44:19 ⚠️ [WARNING] Parasite 'bird' appeared on Cherry at Row 5, Column 2
+19:44:25 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, squashBug x2)
+19:44:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:44:35 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:44:37 ⚠️ [WARNING] Parasite 'aphid' appeared on Sunflower at Row 1, Column 5
+19:44:40 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:44:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:44:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 20 plants are thriving, and temperature restored to 70°F.
+19:44:52 🔔 [EVENT] Pest spray ended.
+19:44:55 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:44:55 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (weevil x1, aphid x2)
+19:44:58 ⚠️ [WARNING] Parasite 'squashBug' appeared on Pumpkin at Row 4, Column 4
+19:44:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:45:01 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:45:04 ⚠️ [WARNING] Cherry at position [4,1] died and was replaced with soil
+19:45:10 🔔 [EVENT] Rainfall: watered 19 plants.
+19:45:10 🔔 [EVENT] It's raining! 19 plants have been watered.
+19:45:13 🔔 [EVENT] Pest spray ended.
+19:45:15 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:45:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:45:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 19 plants are thriving, and temperature restored to 70°F.
+19:45:28 ⚠️ [WARNING] Parasite 'caterpillar' appeared on Carrot at Row 1, Column 1
+19:45:31 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:45:35 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:45:40 ℹ️ [INFO] A gardener visited! Removed 1 pests and watered 19 plants.
+19:45:43 🔔 [EVENT] Pest spray ended.
+19:45:45 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:45:55 ⚠️ [WARNING] Heat wave! 19 plants dried out and took 8 damage due to high temperature (82°F)
+19:45:55 🔔 [EVENT] It's a sunny day! Temperature rose to 82°F, plants are drying faster.
+19:46:05 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:46:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:46:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 19 plants are thriving, and temperature restored to 70°F.
+19:46:25 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:46:25 ⚠️ [WARNING] Frost damage! 19 plants lost health due to low temperature (64°F)
+19:46:25 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+19:46:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:46:28 ⚠️ [WARNING] 19 plants took -2 health due to low temperature (64°F)
+19:46:28 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:46:31 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:46:40 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 19 plants.
+19:46:45 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:46:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 19 plants.
+19:46:58 ⚠️ [WARNING] Parasite 'squashBug' appeared on Pumpkin at Row 2, Column 4
+19:47:05 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:47:10 ⚠️ [WARNING] Heat wave! 19 plants dried out and took 8 damage due to high temperature (80°F)
+19:47:10 🔔 [EVENT] It's a sunny day! Temperature rose to 80°F, plants are drying faster.
+19:47:15 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:47:25 🔔 [EVENT] Rainfall: watered 19 plants.
+19:47:25 🔔 [EVENT] It's raining! 19 plants have been watered.
+19:47:35 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:47:40 ⚠️ [WARNING] Pumpkin at position [1,3] died and was replaced with soil
+19:47:40 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (caterpillar x1, aphid x2)
+19:47:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:47:55 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:47:55 🔔 [EVENT] Pest spray ended.
+19:47:55 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (55°F)
+19:47:55 🔔 [EVENT] Chilly day! Temp dropped to 55°F. Insulation cover will engage next cycle (6 cycles total).
+19:47:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:47:58 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (55°F)
+19:47:58 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (56°F)
+19:48:01 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (56°F)
+19:48:01 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (57°F)
+19:48:04 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (57°F)
+19:48:04 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (58°F)
+19:48:07 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (58°F)
+19:48:07 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (59°F)
+19:48:10 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (59°F)
+19:48:10 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (60°F)
+19:48:10 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 18 plants.
+19:48:13 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (60°F)
+19:48:13 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (61°F)
+19:48:15 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:48:16 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (61°F)
+19:48:16 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (62°F)
+19:48:19 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (62°F)
+19:48:19 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (63°F)
+19:48:22 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (63°F)
+19:48:22 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (64°F)
+19:48:25 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (64°F)
+19:48:25 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:48:25 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (58°F)
+19:48:25 🔔 [EVENT] Chilly day! Temp dropped to 58°F. Insulation cover will engage next cycle (6 cycles total).
+19:48:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:48:28 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (58°F)
+19:48:28 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (59°F)
+19:48:31 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (59°F)
+19:48:31 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (60°F)
+19:48:34 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (60°F)
+19:48:34 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (61°F)
+19:48:35 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:48:37 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (61°F)
+19:48:37 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (62°F)
+19:48:40 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (62°F)
+19:48:40 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (63°F)
+19:48:40 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 18 plants.
+19:48:43 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (63°F)
+19:48:43 ⚠️ [WARNING] Frost damage! 18 plants lost health due to low temperature (64°F)
+19:48:45 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:48:46 ⚠️ [WARNING] 18 plants took -2 health due to low temperature (64°F)
+19:48:46 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:48:49 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:48:55 ⚠️ [WARNING] Heat wave! 18 plants dried out and took 8 damage due to high temperature (82°F)
+19:48:55 🔔 [EVENT] It's a sunny day! Temperature rose to 82°F, plants are drying faster.
+19:48:58 ⚠️ [WARNING] Carrot at position [2,0] died and was replaced with soil
+19:49:05 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:49:10 ⚠️ [WARNING] Heat wave! 17 plants dried out and took 8 damage due to high temperature (81°F)
+19:49:10 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+19:49:13 ⚠️ [WARNING] Sunflower at position [0,4] died and was replaced with soil
+19:49:25 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:49:25 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 16 plants.
+19:49:40 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (locust x1)
+19:49:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:49:45 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:49:55 🔔 [EVENT] Pest spray ended.
+19:49:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 16 plants.
+19:50:05 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:50:10 ⚠️ [WARNING] Frost damage! 16 plants lost health due to low temperature (63°F)
+19:50:10 🔔 [EVENT] Chilly day! Temp dropped to 63°F. Insulation cover will engage next cycle (6 cycles total).
+19:50:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:50:13 ⚠️ [WARNING] 16 plants took -2 health due to low temperature (63°F)
+19:50:13 ⚠️ [WARNING] Frost damage! 16 plants lost health due to low temperature (64°F)
+19:50:15 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:50:16 ⚠️ [WARNING] 16 plants took -2 health due to low temperature (64°F)
+19:50:16 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:50:19 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:50:25 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (locust x1)
+19:50:28 ⚠️ [WARNING] Corn at position [3,2] died and was replaced with soil
+19:50:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:50:34 ⚠️ [WARNING] Parasite 'squashBug' appeared on Pumpkin at Row 1, Column 4
+19:50:35 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:50:37 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:50:40 ⚠️ [WARNING] Heat wave! 15 plants dried out and took 8 damage due to high temperature (77°F)
+19:50:40 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+19:50:43 ⚠️ [WARNING] Sunflower at position [1,4] died and was replaced with soil
+19:50:49 🔔 [EVENT] Pest spray ended.
+19:50:55 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:50:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:50:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 14 plants are thriving, and temperature restored to 70°F.
+19:51:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:51:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 14 plants are thriving, and temperature restored to 70°F.
+19:51:25 ⚠️ [WARNING] Heat wave! 14 plants dried out and took 8 damage due to high temperature (76°F)
+19:51:25 🔔 [EVENT] It's a sunny day! Temperature rose to 76°F, plants are drying faster.
+19:51:35 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:51:40 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (bird x1, aphid x1)
+19:51:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:51:45 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:51:55 🔔 [EVENT] Pest spray ended.
+19:51:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 14 plants.
+19:52:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:52:10 ⚠️ [WARNING] Heat wave! 14 plants dried out and took 8 damage due to high temperature (81°F)
+19:52:10 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+19:52:25 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:52:25 🔔 [EVENT] Rainfall: watered 14 plants.
+19:52:25 🔔 [EVENT] It's raining! 14 plants have been watered.
+19:52:40 🔔 [EVENT] Rainfall: watered 14 plants.
+19:52:40 🔔 [EVENT] It's raining! 14 plants have been watered.
+19:52:43 ⚠️ [WARNING] Parasite 'squashBug' appeared on Pumpkin at Row 4, Column 4
+19:52:45 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:52:46 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:52:55 ⚠️ [WARNING] Pumpkin at position [3,3] died and was replaced with soil
+19:52:55 ⚠️ [WARNING] Frost damage! 13 plants lost health due to low temperature (56°F)
+19:52:55 🔔 [EVENT] Chilly day! Temp dropped to 56°F. Insulation cover will engage next cycle (6 cycles total).
+19:52:58 🔔 [EVENT] Pest spray ended.
+19:52:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:52:58 ⚠️ [WARNING] 13 plants took -2 health due to low temperature (56°F)
+19:52:58 ⚠️ [WARNING] Frost damage! 13 plants lost health due to low temperature (57°F)
+19:53:01 ⚠️ [WARNING] 13 plants took -2 health due to low temperature (57°F)
+19:53:01 ⚠️ [WARNING] Frost damage! 13 plants lost health due to low temperature (58°F)
+19:53:04 ⚠️ [WARNING] 13 plants took -2 health due to low temperature (58°F)
+19:53:04 ⚠️ [WARNING] Frost damage! 13 plants lost health due to low temperature (59°F)
+19:53:05 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:53:07 ⚠️ [WARNING] 13 plants took -2 health due to low temperature (59°F)
+19:53:07 ⚠️ [WARNING] Frost damage! 13 plants lost health due to low temperature (60°F)
+19:53:10 ⚠️ [WARNING] 13 plants took -2 health due to low temperature (60°F)
+19:53:10 ⚠️ [WARNING] Frost damage! 13 plants lost health due to low temperature (61°F)
+19:53:10 🔔 [EVENT] Rainfall: watered 12 plants.
+19:53:10 🔔 [EVENT] It's raining! 12 plants have been watered.
+19:53:13 ⚠️ [WARNING] Carrot at position [1,0] died and was replaced with soil
+19:53:13 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (61°F)
+19:53:13 ⚠️ [WARNING] Frost damage! 12 plants lost health due to low temperature (62°F)
+19:53:15 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+19:53:16 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (62°F)
+19:53:16 ⚠️ [WARNING] Frost damage! 12 plants lost health due to low temperature (63°F)
+19:53:19 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (63°F)
+19:53:19 ⚠️ [WARNING] Frost damage! 12 plants lost health due to low temperature (64°F)
+19:53:22 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (64°F)
+19:53:22 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:53:25 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:53:25 🔔 [EVENT] Rainfall: watered 12 plants.
+19:53:25 🔔 [EVENT] It's raining! 12 plants have been watered.
+19:53:35 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:53:40 🔔 [EVENT] Rainfall: watered 12 plants.
+19:53:40 🔔 [EVENT] It's raining! 12 plants have been watered.
+19:53:55 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:53:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 12 plants.
+19:54:10 🔔 [EVENT] Rainfall: watered 12 plants.
+19:54:10 🔔 [EVENT] It's raining! 12 plants have been watered.
+19:54:15 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+19:54:25 🔔 [EVENT] Rainfall: watered 12 plants.
+19:54:25 🔔 [EVENT] It's raining! 12 plants have been watered.
+19:54:35 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+19:54:40 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 12 plants.
+19:54:45 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+19:54:55 🔔 [EVENT] Rainfall: watered 12 plants.
+19:54:55 🔔 [EVENT] It's raining! 12 plants have been watered.
+19:55:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:55:10 ⚠️ [WARNING] Heat wave! 12 plants dried out and took 8 damage due to high temperature (77°F)
+19:55:10 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+19:55:16 ⚠️ [WARNING] Parasite 'weevil' appeared on Cherry at Row 3, Column 2
+19:55:19 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:55:25 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+19:55:25 🔔 [EVENT] Rainfall: watered 12 plants.
+19:55:25 🔔 [EVENT] It's raining! 12 plants have been watered.
+19:55:31 🔔 [EVENT] Pest spray ended.
+19:55:40 ⚠️ [WARNING] Heat wave! 12 plants dried out and took 8 damage due to high temperature (79°F)
+19:55:40 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+19:55:45 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+19:55:55 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (squashBug x2, aphid x1)
+19:55:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:56:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:56:10 🔔 [EVENT] Pest spray ended.
+19:56:10 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 12 plants.
+19:56:15 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+19:56:25 ⚠️ [WARNING] Heat wave! 12 plants dried out and took 8 damage due to high temperature (83°F)
+19:56:25 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+19:56:35 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:56:40 ⚠️ [WARNING] Heat wave! 12 plants dried out and took 8 damage due to high temperature (76°F)
+19:56:40 🔔 [EVENT] It's a sunny day! Temperature rose to 76°F, plants are drying faster.
+19:56:55 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:56:55 ⚠️ [WARNING] Frost damage! 12 plants lost health due to low temperature (59°F)
+19:56:55 🔔 [EVENT] Chilly day! Temp dropped to 59°F. Insulation cover will engage next cycle (6 cycles total).
+19:56:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:56:58 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (59°F)
+19:56:58 ⚠️ [WARNING] Frost damage! 12 plants lost health due to low temperature (60°F)
+19:57:01 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (60°F)
+19:57:01 ⚠️ [WARNING] Frost damage! 12 plants lost health due to low temperature (61°F)
+19:57:04 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (61°F)
+19:57:04 ⚠️ [WARNING] Frost damage! 12 plants lost health due to low temperature (62°F)
+19:57:07 ⚠️ [WARNING] 12 plants took -2 health due to low temperature (62°F)
+19:57:07 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (63°F)
+19:57:10 ⚠️ [WARNING] Pumpkin at position [2,3] died and was replaced with soil
+19:57:10 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (63°F)
+19:57:10 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (64°F)
+19:57:10 🔔 [EVENT] Rainfall: watered 11 plants.
+19:57:10 🔔 [EVENT] It's raining! 11 plants have been watered.
+19:57:13 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (64°F)
+19:57:13 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:57:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:57:16 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:57:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:57:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 11 plants are thriving, and temperature restored to 70°F.
+19:57:27 ℹ️ [INFO] Garden cleared for initialization
+19:57:27 ℹ️ [INFO] Planted Carrot at position [0,0]
+19:57:27 ℹ️ [INFO] Planted Cherry at position [0,1]
+19:57:27 ℹ️ [INFO] Planted Corn at position [0,2]
+19:57:27 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+19:57:27 ℹ️ [INFO] Planted Sunflower at position [0,4]
+19:57:27 ℹ️ [INFO] Planted Carrot at position [1,0]
+19:57:27 ℹ️ [INFO] Planted Cherry at position [1,1]
+19:57:27 ℹ️ [INFO] Planted Corn at position [1,2]
+19:57:27 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+19:57:27 ℹ️ [INFO] Planted Sunflower at position [1,4]
+19:57:27 ℹ️ [INFO] Planted Carrot at position [2,0]
+19:57:27 ℹ️ [INFO] Planted Cherry at position [2,1]
+19:57:27 ℹ️ [INFO] Planted Corn at position [2,2]
+19:57:27 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+19:57:27 ℹ️ [INFO] Planted Sunflower at position [2,4]
+19:57:27 ℹ️ [INFO] Planted Carrot at position [3,0]
+19:57:27 ℹ️ [INFO] Planted Cherry at position [3,1]
+19:57:27 ℹ️ [INFO] Planted Corn at position [3,2]
+19:57:27 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+19:57:27 ℹ️ [INFO] Planted Sunflower at position [3,4]
+19:57:27 ℹ️ [INFO] Planted Carrot at position [4,0]
+19:57:27 ℹ️ [INFO] Planted Cherry at position [4,1]
+19:57:27 ℹ️ [INFO] Planted Corn at position [4,2]
+19:57:27 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+19:57:27 ℹ️ [INFO] Planted Sunflower at position [4,4]
+19:57:27 ℹ️ [INFO] Garden initialized from config
+19:57:28 ℹ️ [INFO] Garden application started
+19:57:35 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:57:40 🔔 [EVENT] Rainfall: watered 11 plants.
+19:57:40 🔔 [EVENT] It's raining! 11 plants have been watered.
+19:57:45 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:57:55 🔔 [EVENT] Rainfall: watered 11 plants.
+19:57:55 🔔 [EVENT] It's raining! 11 plants have been watered.
+19:58:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:58:10 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (60°F)
+19:58:10 🔔 [EVENT] Chilly day! Temp dropped to 60°F. Insulation cover will engage next cycle (6 cycles total).
+19:58:12 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:58:12 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (85°F)
+19:58:12 🔔 [EVENT] It's a sunny day! Temperature rose to 85°F, plants are drying faster.
+19:58:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:58:13 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (60°F)
+19:58:13 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (61°F)
+19:58:16 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (61°F)
+19:58:16 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (62°F)
+19:58:19 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (62°F)
+19:58:19 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (63°F)
+19:58:22 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (63°F)
+19:58:22 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (64°F)
+19:58:25 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:58:25 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (64°F)
+19:58:25 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:58:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:58:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 11 plants are thriving, and temperature restored to 70°F.
+19:58:27 🔔 [EVENT] Rainfall: watered 25 plants.
+19:58:27 🔔 [EVENT] It's raining! 25 plants have been watered.
+19:58:28 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+19:58:32 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:58:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:58:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 11 plants are thriving, and temperature restored to 70°F.
+19:58:42 🔔 [EVENT] Rainfall: watered 25 plants.
+19:58:42 🔔 [EVENT] It's raining! 25 plants have been watered.
+19:58:45 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:58:47 🔔 [EVENT] Watered 25 plants!
+19:58:52 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:58:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 11 plants.
+19:58:57 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (81°F)
+19:58:57 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+19:59:05 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:59:06 ⚠️ [WARNING] Parasite 'locust' appeared on Corn at Row 4, Column 3
+19:59:09 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:59:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:59:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 11 plants are thriving, and temperature restored to 70°F.
+19:59:12 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+19:59:12 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (80°F)
+19:59:12 🔔 [EVENT] It's a sunny day! Temperature rose to 80°F, plants are drying faster.
+19:59:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+19:59:21 🔔 [EVENT] Pest spray ended.
+19:59:25 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (bird x1)
+19:59:27 🔔 [EVENT] Rainfall: watered 25 plants.
+19:59:27 🔔 [EVENT] It's raining! 25 plants have been watered.
+19:59:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:59:30 ℹ️ [INFO] Garden application thread pool shutdown initiated
+19:59:35 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:59:40 🔔 [EVENT] Pest spray ended.
+19:59:40 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+19:59:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:59:55 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+19:59:55 🔔 [EVENT] Pest spray ended.
+19:59:55 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (squashBug x1)
+19:59:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:00:10 🔔 [EVENT] Pest spray ended.
+20:00:10 ⚠️ [WARNING] Heat wave! 11 plants dried out and took 8 damage due to high temperature (76°F)
+20:00:10 🔔 [EVENT] It's a sunny day! Temperature rose to 76°F, plants are drying faster.
+20:00:15 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:00:25 🔔 [EVENT] Rainfall: watered 11 plants.
+20:00:25 🔔 [EVENT] It's raining! 11 plants have been watered.
+20:00:35 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+20:00:40 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:00:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:00:45 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+20:00:55 🔔 [EVENT] Pest spray ended.
+20:00:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 11 plants.
+20:01:05 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:01:10 ⚠️ [WARNING] Heat wave! 11 plants dried out and took 8 damage due to high temperature (83°F)
+20:01:10 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+20:01:25 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:01:25 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (56°F)
+20:01:25 🔔 [EVENT] Chilly day! Temp dropped to 56°F. Insulation cover will engage next cycle (6 cycles total).
+20:01:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:01:28 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (56°F)
+20:01:28 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (57°F)
+20:01:31 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (57°F)
+20:01:31 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (58°F)
+20:01:34 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (58°F)
+20:01:34 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (59°F)
+20:01:37 ⚠️ [WARNING] Parasite 'squashBug' appeared on Pumpkin at Row 1, Column 4
+20:01:37 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (59°F)
+20:01:37 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (60°F)
+20:01:40 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:01:40 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (60°F)
+20:01:40 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (61°F)
+20:01:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:01:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 11 plants are thriving, and temperature restored to 70°F.
+20:01:43 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:01:45 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:01:52 🔔 [EVENT] Pest spray ended.
+20:01:55 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+20:01:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:02:05 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:02:10 🔔 [EVENT] Pest spray ended.
+20:02:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:02:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 11 plants are thriving, and temperature restored to 70°F.
+20:02:15 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+20:02:25 ⚠️ [WARNING] Heat wave! 11 plants dried out and took 8 damage due to high temperature (76°F)
+20:02:25 🔔 [EVENT] It's a sunny day! Temperature rose to 76°F, plants are drying faster.
+20:02:40 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (61°F)
+20:02:40 🔔 [EVENT] Chilly day! Temp dropped to 61°F. Insulation cover will engage next cycle (6 cycles total).
+20:02:43 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:02:43 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (61°F)
+20:02:43 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (62°F)
+20:02:46 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (62°F)
+20:02:46 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (63°F)
+20:02:49 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (63°F)
+20:02:49 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (64°F)
+20:02:52 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (64°F)
+20:02:52 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:02:55 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:02:55 ⚠️ [WARNING] Heat wave! 11 plants dried out and took 8 damage due to high temperature (76°F)
+20:02:55 🔔 [EVENT] It's a sunny day! Temperature rose to 76°F, plants are drying faster.
+20:03:10 ⚠️ [WARNING] Heat wave! 11 plants dried out and took 8 damage due to high temperature (80°F)
+20:03:10 🔔 [EVENT] It's a sunny day! Temperature rose to 80°F, plants are drying faster.
+20:03:15 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:03:25 ⚠️ [WARNING] Frost damage! 11 plants lost health due to low temperature (64°F)
+20:03:25 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+20:03:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:03:28 ⚠️ [WARNING] 11 plants took -2 health due to low temperature (64°F)
+20:03:28 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:03:31 ⚠️ [WARNING] Pumpkin at position [0,3] died and was replaced with soil
+20:03:31 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:03:35 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:03:40 🔔 [EVENT] Rainfall: watered 10 plants.
+20:03:40 🔔 [EVENT] It's raining! 10 plants have been watered.
+20:03:55 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 10 plants.
+20:04:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:04:10 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (caterpillar x1)
+20:04:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:04:25 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:04:25 🔔 [EVENT] Pest spray ended.
+20:04:25 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 10 plants.
+20:04:40 🔔 [EVENT] Rainfall: watered 10 plants.
+20:04:40 🔔 [EVENT] It's raining! 10 plants have been watered.
+20:04:45 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+20:04:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:04:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 10 plants are thriving, and temperature restored to 70°F.
+20:05:05 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:05:10 🔔 [EVENT] Rainfall: watered 10 plants.
+20:05:10 🔔 [EVENT] It's raining! 10 plants have been watered.
+20:05:15 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+20:05:25 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (bird x1)
+20:05:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:05:35 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+20:05:40 🔔 [EVENT] Pest spray ended.
+20:05:40 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (bird x1, aphid x1)
+20:05:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:05:55 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:05:55 🔔 [EVENT] Pest spray ended.
+20:05:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:05:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 10 plants are thriving, and temperature restored to 70°F.
+20:06:10 ⚠️ [WARNING] Frost damage! 10 plants lost health due to low temperature (61°F)
+20:06:10 🔔 [EVENT] Chilly day! Temp dropped to 61°F. Insulation cover will engage next cycle (6 cycles total).
+20:06:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:06:13 ⚠️ [WARNING] 10 plants took -2 health due to low temperature (61°F)
+20:06:13 ⚠️ [WARNING] Frost damage! 10 plants lost health due to low temperature (62°F)
+20:06:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:06:16 ⚠️ [WARNING] 10 plants took -2 health due to low temperature (62°F)
+20:06:16 ⚠️ [WARNING] Frost damage! 10 plants lost health due to low temperature (63°F)
+20:06:16 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:19 ⚠️ [WARNING] 10 plants took -2 health due to low temperature (63°F)
+20:06:19 ⚠️ [WARNING] Frost damage! 10 plants lost health due to low temperature (64°F)
+20:06:19 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:22 ⚠️ [WARNING] 10 plants took -2 health due to low temperature (64°F)
+20:06:22 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:06:22 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:25 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:06:25 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+20:06:25 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:06:28 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:31 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:34 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:35 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+20:06:37 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:40 🔔 [EVENT] Pest spray ended.
+20:06:40 🔔 [EVENT] Rainfall: watered 10 plants.
+20:06:40 🔔 [EVENT] It's raining! 10 plants have been watered.
+20:06:40 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:43 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:45 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+20:06:46 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:49 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:52 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:55 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, bird x1)
+20:06:55 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:06:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:06:58 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:01 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:04 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:05 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:07:07 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:10 🔔 [EVENT] Pest spray ended.
+20:07:10 🔔 [EVENT] Rainfall: watered 10 plants.
+20:07:10 🔔 [EVENT] It's raining! 10 plants have been watered.
+20:07:10 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:13 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:16 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:19 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:22 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:25 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 10 plants.
+20:07:25 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:28 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:31 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:34 ❌ [ERROR] Error updating UI in automation: Input stream must not be null
+20:07:40 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (bird x1, aphid x1)
+20:07:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:07:45 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:07:55 ⚠️ [WARNING] Cherry at position [1,1] died and was replaced with soil
+20:07:55 🔔 [EVENT] Pest spray ended.
+20:07:55 🔔 [EVENT] Rainfall: watered 9 plants.
+20:07:55 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:08:05 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:08:10 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:08:10 ℹ️ [INFO] Perfect 🌸growing conditions today! 9 plants are thriving, and temperature restored to 70°F.
+20:08:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:08:25 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:08:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:08:35 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:08:40 🔔 [EVENT] Pest spray ended.
+20:08:40 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 9 plants.
+20:08:55 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:08:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:08:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 9 plants are thriving, and temperature restored to 70°F.
+20:09:10 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (77°F)
+20:09:10 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+20:09:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:09:25 🔔 [EVENT] Rainfall: watered 9 plants.
+20:09:25 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:09:35 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:09:40 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (57°F)
+20:09:40 🔔 [EVENT] Chilly day! Temp dropped to 57°F. Insulation cover will engage next cycle (6 cycles total).
+20:09:43 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:09:43 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (57°F)
+20:09:43 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (58°F)
+20:09:45 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:09:46 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (58°F)
+20:09:46 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (59°F)
+20:09:49 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (59°F)
+20:09:49 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (60°F)
+20:09:52 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (60°F)
+20:09:52 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (61°F)
+20:09:55 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (61°F)
+20:09:55 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (62°F)
+20:09:55 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:09:55 ℹ️ [INFO] Perfect 🌸growing conditions today! 9 plants are thriving, and temperature restored to 70°F.
+20:09:58 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:10:05 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:10:10 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:10:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:10:25 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:10:25 🔔 [EVENT] Pest spray ended.
+20:10:25 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (62°F)
+20:10:25 🔔 [EVENT] Chilly day! Temp dropped to 62°F. Insulation cover will engage next cycle (6 cycles total).
+20:10:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:10:28 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (62°F)
+20:10:28 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (63°F)
+20:10:31 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (63°F)
+20:10:31 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (64°F)
+20:10:34 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (64°F)
+20:10:34 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:10:37 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:10:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:10:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 9 plants are thriving, and temperature restored to 70°F.
+20:10:45 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:10:55 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (82°F)
+20:10:55 🔔 [EVENT] It's a sunny day! Temperature rose to 82°F, plants are drying faster.
+20:11:10 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, squashBug x1)
+20:11:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:11:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:11:25 🔔 [EVENT] Pest spray ended.
+20:11:25 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (85°F)
+20:11:25 🔔 [EVENT] It's a sunny day! Temperature rose to 85°F, plants are drying faster.
+20:11:35 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:11:40 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 9 plants.
+20:11:55 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+20:11:55 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (83°F)
+20:11:55 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+20:12:10 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (64°F)
+20:12:10 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+20:12:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:12:13 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (64°F)
+20:12:13 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:12:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:12:16 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:12:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:12:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 9 plants are thriving, and temperature restored to 70°F.
+20:12:35 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:12:40 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:12:40 ℹ️ [INFO] Perfect 🌸growing conditions today! 9 plants are thriving, and temperature restored to 70°F.
+20:12:45 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:12:55 🔔 [EVENT] Rainfall: watered 9 plants.
+20:12:55 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:13:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:13:10 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 9 plants.
+20:13:25 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:13:25 🔔 [EVENT] Rainfall: watered 9 plants.
+20:13:25 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:13:40 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (79°F)
+20:13:40 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+20:13:45 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:13:55 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (77°F)
+20:13:55 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+20:14:05 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:14:10 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (caterpillar x1)
+20:14:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:14:15 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:14:25 🔔 [EVENT] Pest spray ended.
+20:14:25 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 9 plants.
+20:14:35 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:14:40 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+20:14:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:14:55 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:14:55 🔔 [EVENT] Pest spray ended.
+20:14:55 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (weevil x1, aphid x1)
+20:14:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:15:10 🔔 [EVENT] Pest spray ended.
+20:15:10 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (77°F)
+20:15:10 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+20:15:25 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:15:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:15:35 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:15:40 🔔 [EVENT] Pest spray ended.
+20:15:40 🔔 [EVENT] Rainfall: watered 9 plants.
+20:15:40 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:15:45 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:15:55 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (locust x1)
+20:15:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:16:05 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:16:10 🔔 [EVENT] Pest spray ended.
+20:16:10 🔔 [EVENT] Rainfall: watered 9 plants.
+20:16:10 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:16:25 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:16:25 🔔 [EVENT] Rainfall: watered 9 plants.
+20:16:25 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:16:40 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (78°F)
+20:16:40 🔔 [EVENT] It's a sunny day! Temperature rose to 78°F, plants are drying faster.
+20:16:55 🔔 [EVENT] Rainfall: watered 9 plants.
+20:16:55 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:17:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:17:10 ⚠️ [WARNING] Heat wave! 9 plants dried out and took 8 damage due to high temperature (81°F)
+20:17:10 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+20:17:15 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:17:25 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (62°F)
+20:17:25 🔔 [EVENT] Chilly day! Temp dropped to 62°F. Insulation cover will engage next cycle (6 cycles total).
+20:17:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:17:28 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (62°F)
+20:17:28 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (63°F)
+20:17:31 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (63°F)
+20:17:31 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (64°F)
+20:17:34 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (64°F)
+20:17:34 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:17:35 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:17:37 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:17:40 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:17:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:17:55 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:17:55 🔔 [EVENT] Pest spray ended.
+20:17:55 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (63°F)
+20:17:55 🔔 [EVENT] Chilly day! Temp dropped to 63°F. Insulation cover will engage next cycle (6 cycles total).
+20:17:58 ⚠️ [WARNING] Parasite 'aphid' appeared on Sunflower at Row 5, Column 5
+20:17:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:17:58 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (63°F)
+20:17:58 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (64°F)
+20:18:01 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:18:01 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (64°F)
+20:18:01 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:18:04 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:18:10 🔔 [EVENT] Rainfall: watered 9 plants.
+20:18:10 🔔 [EVENT] It's raining! 9 plants have been watered.
+20:18:13 🔔 [EVENT] Pest spray ended.
+20:18:15 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+20:18:25 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (squashBug x1, bird x1)
+20:18:28 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:18:35 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:18:40 🔔 [EVENT] Pest spray ended.
+20:18:40 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:18:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:18:45 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+20:18:55 🔔 [EVENT] Pest spray ended.
+20:18:55 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (58°F)
+20:18:55 🔔 [EVENT] Chilly day! Temp dropped to 58°F. Insulation cover will engage next cycle (6 cycles total).
+20:18:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:18:58 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (58°F)
+20:18:58 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (59°F)
+20:19:01 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (59°F)
+20:19:01 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (60°F)
+20:19:04 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (60°F)
+20:19:04 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (61°F)
+20:19:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:19:07 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (61°F)
+20:19:07 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (62°F)
+20:19:10 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (62°F)
+20:19:10 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (63°F)
+20:19:10 ⚠️ [WARNING] Frost damage! 9 plants lost health due to low temperature (58°F)
+20:19:10 🔔 [EVENT] Chilly day! Temp dropped to 58°F. Insulation cover will engage next cycle (6 cycles total).
+20:19:13 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:19:13 ⚠️ [WARNING] 9 plants took -2 health due to low temperature (58°F)
+20:19:13 ⚠️ [WARNING] Frost damage! 8 plants lost health due to low temperature (59°F)
+20:19:16 ⚠️ [WARNING] Pumpkin at position [4,3] died and was replaced with soil
+20:19:16 ⚠️ [WARNING] 8 plants took -2 health due to low temperature (59°F)
+20:19:16 ⚠️ [WARNING] Frost damage! 8 plants lost health due to low temperature (60°F)
+20:19:19 ⚠️ [WARNING] 8 plants took -2 health due to low temperature (60°F)
+20:19:19 ⚠️ [WARNING] Frost damage! 8 plants lost health due to low temperature (61°F)
+20:19:22 ⚠️ [WARNING] 8 plants took -2 health due to low temperature (61°F)
+20:19:22 ⚠️ [WARNING] Frost damage! 8 plants lost health due to low temperature (62°F)
+20:19:25 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:19:25 ⚠️ [WARNING] 8 plants took -2 health due to low temperature (62°F)
+20:19:25 ⚠️ [WARNING] Frost damage! 8 plants lost health due to low temperature (63°F)
+20:19:25 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:19:25 ℹ️ [INFO] Perfect 🌸growing conditions today! 8 plants are thriving, and temperature restored to 70°F.
+20:19:28 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:19:40 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, bird x1)
+20:19:43 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:19:49 ⚠️ [WARNING] Corn at position [4,2] died and was replaced with soil
+20:19:52 ⚠️ [WARNING] Cherry at position [2,1] died and was replaced with soil
+20:19:55 🔔 [EVENT] Pest spray ended.
+20:19:55 ⚠️ [WARNING] Heat wave! 6 plants dried out and took 8 damage due to high temperature (84°F)
+20:19:55 🔔 [EVENT] It's a sunny day! Temperature rose to 84°F, plants are drying faster.
+20:20:05 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:20:10 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (bird x1)
+20:20:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:20:15 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:20:25 🔔 [EVENT] Pest spray ended.
+20:20:25 ⚠️ [WARNING] Frost damage! 6 plants lost health due to low temperature (62°F)
+20:20:25 🔔 [EVENT] Chilly day! Temp dropped to 62°F. Insulation cover will engage next cycle (6 cycles total).
+20:20:28 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:20:28 ⚠️ [WARNING] 6 plants took -2 health due to low temperature (62°F)
+20:20:28 ⚠️ [WARNING] Frost damage! 6 plants lost health due to low temperature (63°F)
+20:20:31 ⚠️ [WARNING] 6 plants took -2 health due to low temperature (63°F)
+20:20:31 ⚠️ [WARNING] Frost damage! 5 plants lost health due to low temperature (64°F)
+20:20:34 ⚠️ [WARNING] Carrot at position [3,0] died and was replaced with soil
+20:20:34 ⚠️ [WARNING] Sunflower at position [3,4] died and was replaced with soil
+20:20:34 ⚠️ [WARNING] 4 plants took -2 health due to low temperature (64°F)
+20:20:34 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:20:35 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:20:37 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:20:40 ⚠️ [WARNING] Frost damage! 4 plants lost health due to low temperature (62°F)
+20:20:40 🔔 [EVENT] Chilly day! Temp dropped to 62°F. Insulation cover will engage next cycle (6 cycles total).
+20:20:43 ⚠️ [WARNING] Cherry at position [0,1] died and was replaced with soil
+20:20:43 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:20:43 ⚠️ [WARNING] 3 plants took -2 health due to low temperature (62°F)
+20:20:43 ⚠️ [WARNING] Frost damage! 3 plants lost health due to low temperature (63°F)
+20:20:46 ⚠️ [WARNING] Sunflower at position [4,4] died and was replaced with soil
+20:20:46 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (63°F)
+20:20:46 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (64°F)
+20:20:49 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (64°F)
+20:20:49 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:20:52 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:20:55 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:20:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:21:10 🔔 [EVENT] Pest spray ended.
+20:21:10 ⚠️ [WARNING] Oh no! Pest infestation: 0 plants were infested
+20:21:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+20:21:25 🔔 [EVENT] Pest spray ended.
+20:21:25 🔔 [EVENT] Rainfall: watered 2 plants.
+20:21:25 🔔 [EVENT] It's raining! 2 plants have been watered.
+20:25:49 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:25:54 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (59°F)
+20:25:54 🔔 [EVENT] Chilly day! Temp dropped to 59°F. Insulation cover will engage next cycle (6 cycles total).
+20:25:57 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:25:57 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (59°F)
+20:25:57 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (60°F)
+20:26:00 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (60°F)
+20:26:00 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (61°F)
+20:26:03 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (61°F)
+20:26:03 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (62°F)
+20:26:06 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (62°F)
+20:26:06 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (63°F)
+20:26:09 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (63°F)
+20:26:09 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (64°F)
+20:26:09 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 2 plants.
+20:26:12 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (64°F)
+20:26:12 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:26:15 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:26:19 ℹ️ [INFO] Watered 1 plants in the last 10 seconds
+20:26:24 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:26:24 ℹ️ [INFO] Perfect 🌸growing conditions today! 2 plants are thriving, and temperature restored to 70°F.
+20:38:43 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 2 plants.
+20:38:58 ⚠️ [WARNING] Heat wave! 2 plants dried out and took 8 damage due to high temperature (83°F)
+20:38:58 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+20:41:06 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+20:41:06 ℹ️ [INFO] Perfect 🌸growing conditions today! 2 plants are thriving, and temperature restored to 70°F.
+20:42:54 ℹ️ [INFO] Watered 2 plants in the last 10 seconds
+20:42:59 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 2 plants.
+20:43:14 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (63°F)
+20:43:14 🔔 [EVENT] Chilly day! Temp dropped to 63°F. Insulation cover will engage next cycle (6 cycles total).
+20:43:17 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+20:43:17 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (63°F)
+20:43:17 ⚠️ [WARNING] Frost damage! 2 plants lost health due to low temperature (64°F)
+20:43:20 ⚠️ [WARNING] 2 plants took -2 health due to low temperature (64°F)
+20:43:20 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+20:43:23 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+20:43:29 ⚠️ [WARNING] Heat wave! 2 plants dried out and took 8 damage due to high temperature (84°F)
+20:43:29 🔔 [EVENT] It's a sunny day! Temperature rose to 84°F, plants are drying faster.
+20:59:15 ⚠️ [WARNING] Heat wave! 2 plants dried out and took 8 damage due to high temperature (79°F)
+20:59:15 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+21:09:05 ℹ️ [INFO] Garden cleared for initialization
+21:09:05 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:09:05 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:09:05 ℹ️ [INFO] Planted Corn at position [0,2]
+21:09:05 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:09:05 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:09:05 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:09:05 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:09:05 ℹ️ [INFO] Planted Corn at position [1,2]
+21:09:05 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:09:05 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:09:05 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:09:05 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:09:05 ℹ️ [INFO] Planted Corn at position [2,2]
+21:09:05 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:09:05 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:09:05 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:09:05 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:09:05 ℹ️ [INFO] Planted Corn at position [3,2]
+21:09:05 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:09:05 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:09:05 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:09:05 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:09:05 ℹ️ [INFO] Planted Corn at position [4,2]
+21:09:05 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:09:05 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:09:05 ℹ️ [INFO] Garden initialized from config
+21:09:05 ℹ️ [INFO] Garden application started
+21:09:20 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (caterpillar x1, weevil x1, aphid x2)
+21:09:23 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+21:09:23 ℹ️ [INFO] A gardener visited! Removed 4 pests and watered 25 plants.
+21:09:26 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, aphid x1)
+21:09:26 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:09:28 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, squashBug x1, weevil x1)
+21:09:29 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:09:29 ⚠️ [WARNING] Parasite 'bird' appeared on Cherry at Row 1, Column 2
+21:09:38 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+21:09:38 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+21:09:41 ℹ️ [INFO] Garden automation stopped
+21:09:59 ℹ️ [INFO] Garden cleared for initialization
+21:09:59 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:09:59 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:09:59 ℹ️ [INFO] Planted Corn at position [0,2]
+21:09:59 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:09:59 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:09:59 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:09:59 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:09:59 ℹ️ [INFO] Planted Corn at position [1,2]
+21:09:59 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:09:59 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:09:59 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:09:59 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:09:59 ℹ️ [INFO] Planted Corn at position [2,2]
+21:09:59 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:09:59 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:09:59 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:09:59 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:09:59 ℹ️ [INFO] Planted Corn at position [3,2]
+21:09:59 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:09:59 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:09:59 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:09:59 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:09:59 ℹ️ [INFO] Planted Corn at position [4,2]
+21:09:59 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:09:59 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:09:59 ℹ️ [INFO] Garden initialized from config
+21:09:59 ℹ️ [INFO] Garden application started
+21:10:04 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+21:10:04 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+21:10:04 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+21:10:08 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, weevil x1, aphid x1)
+21:10:10 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:10:11 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (bird x1, aphid x1)
+21:10:12 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (squashBug x1)
+21:10:13 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:10:19 ℹ️ [INFO] A gardener visited! Removed 3 pests and watered 25 plants.
+21:10:24 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+21:10:25 🔔 [EVENT] Pest spray ended.
+21:10:34 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (81°F)
+21:10:34 🔔 [EVENT] It's a sunny day! Temperature rose to 81°F, plants are drying faster.
+21:10:37 ⚠️ [WARNING] Parasite 'locust' appeared on Corn at Row 4, Column 3
+21:10:44 ℹ️ [INFO] Watered 13 plants in the last 10 seconds
+21:10:47 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (locust x1)
+21:10:49 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:10:49 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x2)
+21:10:52 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:10:55 ⚠️ [WARNING] Parasite 'aphid' appeared on Sunflower at Row 3, Column 5
+21:10:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:11:04 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+21:11:04 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (77°F)
+21:11:04 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+21:11:10 🔔 [EVENT] Pest spray ended.
+21:11:19 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (62°F)
+21:11:19 🔔 [EVENT] Chilly day! Temp dropped to 62°F. Insulation cover will engage next cycle (6 cycles total).
+21:11:22 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+21:11:22 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (62°F)
+21:11:22 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (63°F)
+21:11:24 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+21:11:25 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (63°F)
+21:11:25 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+21:11:28 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (64°F)
+21:11:28 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+21:11:31 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+21:11:34 🔔 [EVENT] Rainfall: watered 25 plants.
+21:11:34 🔔 [EVENT] It's raining! 25 plants have been watered.
+21:11:44 ℹ️ [INFO] Watered 8 plants in the last 10 seconds
+21:11:49 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (locust x1, squashBug x1, bird x1, aphid x1)
+21:11:52 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:11:54 ℹ️ [INFO] Watered 5 plants in the last 10 seconds
+21:12:04 🔔 [EVENT] Pest spray ended.
+21:12:04 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+21:12:14 ℹ️ [INFO] Watered 3 plants in the last 10 seconds
+21:12:19 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, weevil x1, aphid x1)
+21:12:22 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:12:34 ℹ️ [INFO] Watered 10 plants in the last 10 seconds
+21:12:34 🔔 [EVENT] Pest spray ended.
+21:12:34 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (55°F)
+21:12:34 🔔 [EVENT] Chilly day! Temp dropped to 55°F. Insulation cover will engage next cycle (6 cycles total).
+21:12:37 ⚠️ [WARNING] Corn at position [0,2] died and will respawn soon
+21:12:37 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+21:12:37 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (55°F)
+21:12:37 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (56°F)
+21:12:40 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (56°F)
+21:12:40 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (57°F)
+21:12:43 ℹ️ [INFO] Automatically planted Carrot at position [0,2]
+21:12:43 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (57°F)
+21:12:43 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (58°F)
+21:12:46 ⚠️ [WARNING] Cherry at position [4,1] died and will respawn soon
+21:12:46 ⚠️ [WARNING] Parasite 'locust' appeared on Corn at Row 4, Column 3
+21:12:46 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (58°F)
+21:12:46 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (59°F)
+21:12:49 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (59°F)
+21:12:49 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (60°F)
+21:12:49 🔔 [EVENT] Rainfall: watered 24 plants.
+21:12:49 🔔 [EVENT] It's raining! 24 plants have been watered.
+21:12:52 ℹ️ [INFO] Automatically planted Carrot at position [4,1]
+21:12:52 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (60°F)
+21:12:52 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (61°F)
+21:12:54 ℹ️ [INFO] Watered 9 plants in the last 10 seconds
+21:12:55 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (61°F)
+21:12:55 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (62°F)
+21:12:58 ⚠️ [WARNING] Corn at position [3,2] died and will respawn soon
+21:12:58 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (62°F)
+21:12:58 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (63°F)
+21:13:01 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (63°F)
+21:13:01 ⚠️ [WARNING] Frost damage! 24 plants lost health due to low temperature (64°F)
+21:13:04 ℹ️ [INFO] Automatically planted Sunflower at position [3,2]
+21:13:04 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (64°F)
+21:13:04 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+21:13:04 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+21:13:07 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+21:13:14 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+21:13:19 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (60°F)
+21:13:19 🔔 [EVENT] Chilly day! Temp dropped to 60°F. Insulation cover will engage next cycle (6 cycles total).
+21:13:22 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+21:13:22 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (60°F)
+21:13:22 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (61°F)
+21:13:24 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+21:13:25 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (61°F)
+21:13:25 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (62°F)
+21:13:28 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (62°F)
+21:13:28 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (63°F)
+21:13:31 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (63°F)
+21:13:31 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+21:13:34 ⚠️ [WARNING] Pumpkin at position [2,3] died and will respawn soon
+21:13:34 ⚠️ [WARNING] 24 plants took -2 health due to low temperature (64°F)
+21:13:34 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+21:13:34 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+21:13:34 ℹ️ [INFO] Perfect 🌸growing conditions today! 24 plants are thriving, and temperature restored to 70°F.
+21:13:37 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+21:13:40 ℹ️ [INFO] Automatically planted Corn at position [2,3]
+21:13:44 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+21:13:49 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (83°F)
+21:13:49 🔔 [EVENT] It's a sunny day! Temperature rose to 83°F, plants are drying faster.
+21:14:04 ℹ️ [INFO] Watered 7 plants in the last 10 seconds
+21:14:04 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (locust x2, squashBug x1, aphid x1)
+21:14:07 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:14:09 ℹ️ [INFO] Garden application thread pool shutdown initiated
+21:14:14 ℹ️ [INFO] Garden application thread pool shutdown initiated
+21:15:35 ℹ️ [INFO] Garden cleared for initialization
+21:15:35 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:15:35 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:15:35 ℹ️ [INFO] Planted Corn at position [0,2]
+21:15:35 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:15:35 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:15:35 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:15:35 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:15:35 ℹ️ [INFO] Planted Corn at position [1,2]
+21:15:35 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:15:35 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:15:35 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:15:35 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:15:35 ℹ️ [INFO] Planted Corn at position [2,2]
+21:15:35 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:15:35 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:15:35 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:15:35 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:15:35 ℹ️ [INFO] Planted Corn at position [3,2]
+21:15:35 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:15:35 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:15:35 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:15:35 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:15:35 ℹ️ [INFO] Planted Corn at position [4,2]
+21:15:35 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:15:35 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:15:35 ℹ️ [INFO] Garden initialized from config
+21:15:35 ℹ️ [INFO] Garden application started
+21:15:41 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, squashBug x1)
+21:15:45 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+21:15:45 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, aphid x2)
+21:15:48 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:15:48 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:48 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:48 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:48 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:48 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:51 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:51 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:51 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:51 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:51 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:54 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:54 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:54 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:54 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:54 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:57 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:57 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:57 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:57 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:15:57 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:00 🔔 [EVENT] Pest spray ended.
+21:16:00 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+21:16:00 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:00 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:00 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:00 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:00 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:03 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:16:03 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:05 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+21:16:06 ❌ [ERROR] Failed to load pest spray image: Input stream must not be null
+21:16:10 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (locust x1, bird x1, weevil x1, aphid x1)
+21:16:10 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (bird x1, aphid x1)
+21:16:12 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:16:15 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+21:16:15 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+21:16:23 ℹ️ [INFO] Garden application thread pool shutdown initiated
+21:17:26 ℹ️ [INFO] Garden cleared for initialization
+21:17:26 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:17:26 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:17:26 ℹ️ [INFO] Planted Corn at position [0,2]
+21:17:26 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:17:26 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:17:26 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:17:26 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:17:26 ℹ️ [INFO] Planted Corn at position [1,2]
+21:17:26 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:17:26 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:17:26 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:17:26 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:17:26 ℹ️ [INFO] Planted Corn at position [2,2]
+21:17:26 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:17:26 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:17:26 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:17:26 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:17:26 ℹ️ [INFO] Planted Corn at position [3,2]
+21:17:26 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:17:26 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:17:26 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:17:26 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:17:26 ℹ️ [INFO] Planted Corn at position [4,2]
+21:17:26 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:17:26 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:17:26 ℹ️ [INFO] Garden initialized from config
+21:17:26 ℹ️ [INFO] Garden application started
+21:17:31 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+21:17:31 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+21:17:31 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+21:17:32 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (caterpillar x1)
+21:17:32 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x2, aphid x1)
+21:17:33 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, caterpillar x1, squashBug x1)
+21:17:33 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (squashBug x2, weevil x1, aphid x1)
+21:17:34 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:17:34 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+21:17:34 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (64°F)
+21:17:34 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+21:17:37 🔔 [EVENT] Insulation cover effect ended – temperature regulation normal.
+21:17:42 ℹ️ [INFO] Garden application thread pool shutdown initiated
+21:17:55 ℹ️ [INFO] Garden cleared for initialization
+21:17:55 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:17:55 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:17:55 ℹ️ [INFO] Planted Corn at position [0,2]
+21:17:55 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:17:55 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:17:55 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:17:55 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:17:55 ℹ️ [INFO] Planted Corn at position [1,2]
+21:17:55 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:17:55 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:17:55 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:17:55 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:17:55 ℹ️ [INFO] Planted Corn at position [2,2]
+21:17:55 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:17:55 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:17:55 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:17:55 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:17:55 ℹ️ [INFO] Planted Corn at position [3,2]
+21:17:55 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:17:55 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:17:55 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:17:55 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:17:55 ℹ️ [INFO] Planted Corn at position [4,2]
+21:17:55 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:17:55 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:17:55 ℹ️ [INFO] Garden initialized from config
+21:17:55 ℹ️ [INFO] Garden application started
+21:18:03 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+21:18:03 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+21:18:06 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (caterpillar x1, locust x1, squashBug x1, aphid x1)
+21:18:06 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:18:06 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (caterpillar x1, squashBug x1, aphid x1)
+21:18:06 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (squashBug x1)
+21:18:06 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (caterpillar x1, locust x1, squashBug x1, aphid x1)
+21:18:07 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (squashBug x1, aphid x1)
+21:18:09 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:18:18 ℹ️ [INFO] A gardener visited! Removed 9 pests and watered 25 plants.
+21:18:18 ℹ️ [INFO] Garden application thread pool shutdown initiated
+21:19:22 ℹ️ [INFO] Garden cleared for initialization
+21:19:22 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:19:22 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:19:22 ℹ️ [INFO] Planted Corn at position [0,2]
+21:19:22 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:19:22 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:19:22 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:19:22 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:19:22 ℹ️ [INFO] Planted Corn at position [1,2]
+21:19:22 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:19:22 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:19:22 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:19:22 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:19:22 ℹ️ [INFO] Planted Corn at position [2,2]
+21:19:22 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:19:22 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:19:22 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:19:22 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:19:22 ℹ️ [INFO] Planted Corn at position [3,2]
+21:19:22 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:19:22 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:19:22 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:19:22 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:19:22 ℹ️ [INFO] Planted Corn at position [4,2]
+21:19:22 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:19:22 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:19:22 ℹ️ [INFO] Garden initialized from config
+21:19:22 ℹ️ [INFO] Garden application started
+21:19:27 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+21:19:27 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+21:19:27 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+21:19:27 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (bird x1, aphid x1)
+21:19:28 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (caterpillar x2, squashBug x1, weevil x1)
+21:19:28 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x2, caterpillar x1)
+21:19:28 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (weevil x1, aphid x2)
+21:19:28 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (bird x1, aphid x2)
+21:19:30 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:19:42 🔔 [EVENT] Pest spray ended.
+21:19:42 🔔 [EVENT] Rainfall: watered 25 plants.
+21:19:42 🔔 [EVENT] It's raining! 25 plants have been watered.
+21:19:45 ⚠️ [WARNING] Parasite 'aphid' appeared on Sunflower at Row 5, Column 5
+21:19:47 ℹ️ [INFO] Watered 4 plants in the last 10 seconds
+21:19:57 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (77°F)
+21:19:57 🔔 [EVENT] It's a sunny day! Temperature rose to 77°F, plants are drying faster.
+21:20:07 ℹ️ [INFO] Watered 6 plants in the last 10 seconds
+21:20:12 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+21:20:12 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+21:22:23 ℹ️ [INFO] Garden cleared for initialization
+21:22:23 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:22:23 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:22:23 ℹ️ [INFO] Planted Corn at position [0,2]
+21:22:23 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:22:23 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:22:23 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:22:23 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:22:23 ℹ️ [INFO] Planted Corn at position [1,2]
+21:22:23 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:22:23 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:22:23 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:22:23 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:22:23 ℹ️ [INFO] Planted Corn at position [2,2]
+21:22:23 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:22:23 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:22:23 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:22:23 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:22:23 ℹ️ [INFO] Planted Corn at position [3,2]
+21:22:23 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:22:23 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:22:23 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:22:23 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:22:23 ℹ️ [INFO] Planted Corn at position [4,2]
+21:22:23 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:22:23 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:22:23 ℹ️ [INFO] Garden initialized from config
+21:22:23 ℹ️ [INFO] Garden application started
+21:22:26 ℹ️ [INFO] Logs cleared
+21:22:30 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+21:22:30 🔔 [EVENT] Rainfall: watered 25 plants.
+21:22:30 🔔 [EVENT] It's raining! 25 plants have been watered.
+21:22:32 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (locust x1, squashBug x1, aphid x1)
+21:22:32 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (caterpillar x1)
+21:22:32 ⚠️ [WARNING] Oh no! Pest infestation: 2 plants were infested (locust x1, squashBug x1)
+21:22:33 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (bird x1, aphid x2)
+21:22:33 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (aphid x1)
+21:22:33 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+21:22:44 ℹ️ [INFO] Garden application thread pool shutdown initiated
+21:33:15 ℹ️ [INFO] Garden cleared for initialization
+21:33:15 ℹ️ [INFO] Planted Carrot at position [0,0]
+21:33:15 ℹ️ [INFO] Planted Cherry at position [0,1]
+21:33:15 ℹ️ [INFO] Planted Corn at position [0,2]
+21:33:15 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+21:33:15 ℹ️ [INFO] Planted Sunflower at position [0,4]
+21:33:15 ℹ️ [INFO] Planted Carrot at position [1,0]
+21:33:15 ℹ️ [INFO] Planted Cherry at position [1,1]
+21:33:15 ℹ️ [INFO] Planted Corn at position [1,2]
+21:33:15 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+21:33:15 ℹ️ [INFO] Planted Sunflower at position [1,4]
+21:33:15 ℹ️ [INFO] Planted Carrot at position [2,0]
+21:33:15 ℹ️ [INFO] Planted Cherry at position [2,1]
+21:33:15 ℹ️ [INFO] Planted Corn at position [2,2]
+21:33:15 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+21:33:15 ℹ️ [INFO] Planted Sunflower at position [2,4]
+21:33:15 ℹ️ [INFO] Planted Carrot at position [3,0]
+21:33:15 ℹ️ [INFO] Planted Cherry at position [3,1]
+21:33:15 ℹ️ [INFO] Planted Corn at position [3,2]
+21:33:15 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+21:33:15 ℹ️ [INFO] Planted Sunflower at position [3,4]
+21:33:15 ℹ️ [INFO] Planted Carrot at position [4,0]
+21:33:15 ℹ️ [INFO] Planted Cherry at position [4,1]
+21:33:15 ℹ️ [INFO] Planted Corn at position [4,2]
+21:33:15 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+21:33:15 ℹ️ [INFO] Planted Sunflower at position [4,4]
+21:33:15 ℹ️ [INFO] Garden initialized from config
+21:33:15 ℹ️ [INFO] Garden application started
+21:33:19 ⚠️ [WARNING] Heat wave! 25 plants dried out and took 8 damage due to high temperature (79°F)
+21:33:19 🔔 [EVENT] It's a sunny day! Temperature rose to 79°F, plants are drying faster.
+21:33:26 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (59°F)
+21:33:26 🔔 [EVENT] Chilly day! Temp dropped to 59°F. Insulation cover will engage next cycle (6 cycles total).
+21:33:29 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+21:33:32 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+21:33:32 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+21:33:38 🔔 [EVENT] Rainfall: watered 25 plants.
+21:33:38 🔔 [EVENT] It's raining! 25 plants have been watered.

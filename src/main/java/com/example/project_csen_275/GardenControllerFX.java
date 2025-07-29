@@ -16,7 +16,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Separator;
 import javafx.scene.control.ToggleButton;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -162,19 +161,6 @@ public class GardenControllerFX implements Initializable {
         });
     }
 
-    /**
-     * Submits a task to the thread pool with proper exception handling
-     */
-    private <T> void submitTask(Runnable task, String errorMessage) {
-        gardenExecutor.submit(() -> {
-            try {
-                task.run();
-            } catch (Exception ex) {
-                handleException(ex, errorMessage);
-            }
-        });
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -223,7 +209,8 @@ public class GardenControllerFX implements Initializable {
             setupHourlyReportTimer();
 
             // Add listener to attach panels when scene is available
-            gardenGrid.sceneProperty().addListener((obs, oldScene, newScene) -> {
+            gardenGrid.sceneProperty().addListener((scene, oldScene, newScene) -> {
+                // Using named parameters for clarity though they're not used
                 if (newScene != null) {
                     Platform.runLater(this::attachPanelsToRoot);
                 }
@@ -349,9 +336,8 @@ public class GardenControllerFX implements Initializable {
 
                                 // Create a delayed animation for each cell
                                 final int index = i; // For closure
-                                Timeline delay = new Timeline(new KeyFrame(Duration.millis(index * 80), event -> {
-                                    WaterAnimation.playWaterAnimation(cell);
-                                }));
+                                Timeline delay = new Timeline(new KeyFrame(Duration.millis(index * 80),
+                                        e -> WaterAnimation.playWaterAnimation(cell)));
                                 delay.play();
                             }
 
@@ -780,7 +766,8 @@ public class GardenControllerFX implements Initializable {
         try {
             // Create a timeline for automatic garden updates
             automationTimer = new Timeline(
-                    new KeyFrame(Duration.seconds(AUTO_UPDATE_INTERVAL), e -> handleAutomationUpdate()));
+                    new KeyFrame(Duration.seconds(AUTO_UPDATE_INTERVAL),
+                            event -> handleAutomationUpdate()));
 
             // Set cycle count to indefinite to run forever
             automationTimer.setCycleCount(Timeline.INDEFINITE);
@@ -852,7 +839,6 @@ public class GardenControllerFX implements Initializable {
                                 if (!(plant instanceof NoPlant) && plant.getHealth() > 0 && random.nextInt(4) == 0) {
                                     garden.waterPlantSilently(r, c);
                                     autoWaterCount++;
-                                    final int row = r;
                                 }
                             }
                         }
