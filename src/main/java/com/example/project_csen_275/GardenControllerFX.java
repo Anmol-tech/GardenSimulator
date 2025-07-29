@@ -998,8 +998,8 @@ public class GardenControllerFX implements Initializable {
                         garden.getPlant(r, c).dryOut(); // Extra drying
                     }
                 }
-                // Increase temperature above ideal range (e.g., 76-85°F)
-                int sunnyTemp = IDEAL_TEMP_UPPER + 1 + random.nextInt(10); // 76 to 85
+                // Increase temperature above ideal range (e.g., 76-90°F)
+                int sunnyTemp = IDEAL_TEMP_UPPER + 1 + random.nextInt(15); // 76 to 90
                 garden.temperature(sunnyTemp);
                 String message = "It's a sunny day! Temperature rose to " + sunnyTemp + "°F, plants are drying faster.";
                 updateStatus("EVENT", message);
