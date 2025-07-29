@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -93,7 +92,7 @@ public class GardenLogger {
         Platform.runLater(() -> {
             // Add to the beginning of the list so newest logs are at top
             logs.add(0, formattedMessage);
-            
+
             // Keep the list at a reasonable size
             if (logs.size() > MAX_LOGS) {
                 logs.remove(logs.size() - 1);
@@ -131,24 +130,29 @@ public class GardenLogger {
      * @param message The message to write
      */
     private static void writeToLogFile(String message) {
-        try {
-            // Create logs directory if it doesn't exist
-            File logDir = new File(LOG_DIRECTORY);
-            if (!logDir.exists()) {
-                logDir.mkdir();
+        // Create logs directory if it doesn't exist
+        File logDir = new File(LOG_DIRECTORY);
+        if (!logDir.exists()) {
+            if (!logDir.mkdir()) {
+                System.err.println("Error: Could not create logs directory at " + logDir.getAbsolutePath());
+                return;
             }
+        }
 
-            // Create log file with date in filename
-            String today = fileDateFormat.format(new Date());
-            String logFileName = LOG_DIRECTORY + File.separator + LOG_FILE_PREFIX + today + ".log";
+        // Create log file with date in filename
+        String today = fileDateFormat.format(new Date());
+        String logFileName = LOG_DIRECTORY + File.separator + LOG_FILE_PREFIX + today + ".log";
 
-            // Append to log file
-            try (FileWriter fw = new FileWriter(logFileName, true);
-                    PrintWriter pw = new PrintWriter(fw)) {
-                pw.println(message);
-            }
-        } catch (IOException e) {
+        try (FileWriter fw = new FileWriter(logFileName, true);
+                PrintWriter pw = new PrintWriter(fw)) {
+            pw.println(message);
+        } catch (java.io.FileNotFoundException e) {
+            System.err.println("Error: Log file not found or cannot be created: " + e.getMessage());
+            System.err.println("Log directory permissions may be incorrect for: " + logFileName);
+        } catch (java.io.IOException e) {
             System.err.println("Error writing to log file: " + e.getMessage());
+        } catch (SecurityException e) {
+            System.err.println("Security violation: No permission to write logs: " + e.getMessage());
         }
     }
 
