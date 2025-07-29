@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 public class GardenApp extends Application {
+    private GardenControllerFX controller;
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("garden-view.fxml"));
@@ -16,7 +18,20 @@ public class GardenApp extends Application {
         stage.setScene(scene);
         stage.setTitle("Garden Simulator");
         stage.centerOnScreen(); // Center window on screen
+
+        // Get controller reference for cleanup
+        controller = loader.getController();
+
         stage.show();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        // Clean up resources when application is closing
+        if (controller != null) {
+            controller.cleanup();
+        }
+        super.stop();
     }
 
     public static void main(String[] args) {

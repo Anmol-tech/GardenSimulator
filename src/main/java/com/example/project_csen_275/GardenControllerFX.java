@@ -18,8 +18,10 @@ import javafx.scene.control.ToggleButton;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -84,17 +86,25 @@ public class GardenControllerFX implements Initializable {
     private int sprayCyclesLeft = 0;
     private static final int SPRAY_INITIAL_DMG = 8;
     private static final int SPRAY_SUBSEQUENT_DMG = 3;
-    
-    // Thread pool for background operations
-    private final ExecutorService gardenExecutor = Executors.newFixedThreadPool(3, new ThreadFactory() {
-        private final AtomicInteger threadCount = new AtomicInteger(1);
-        @Override
-        public Thread newThread(Runnable r) {
-            Thread thread = new Thread(r, "GardenThread-" + threadCount.getAndIncrement());
-            thread.setDaemon(true); // Don't prevent JVM shutdown
-            return thread;
-        }
-    });
+
+    // Thread pool for background operations with saturation protection
+    private final ExecutorService gardenExecutor = new ThreadPoolExecutor(
+            3, // Core pool size
+            3, // Maximum pool size (same as core for fixed size)
+            0L, TimeUnit.MILLISECONDS, // Keep-alive time for excess threads
+            new LinkedBlockingQueue<Runnable>(), // Work queue
+            new ThreadFactory() {
+                private final AtomicInteger threadCount = new AtomicInteger(1);
+
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread thread = new Thread(r, "GardenThread-" + threadCount.getAndIncrement());
+                    thread.setDaemon(true); // Don't prevent JVM shutdown
+                    return thread;
+                }
+            },
+            new ThreadPoolExecutor.CallerRunsPolicy() // Saturation policy - run in caller's thread if queue is full
+    );
     // Temperature regulation
     private static final int IDEAL_TEMP_LOWER = 65;
     private static final int IDEAL_TEMP_UPPER = 75;
@@ -131,13 +141,14 @@ public class GardenControllerFX implements Initializable {
 
     /**
      * Handles exceptions in a centralized manner
-     * @param ex The exception to handle
+     * 
+     * @param ex      The exception to handle
      * @param message A user-friendly message to display
      */
     private void handleException(Throwable ex, String message) {
         // Log the error
         GardenLogger.error(message + " - Error: " + ex.getMessage());
-        
+
         // Show error dialog on the JavaFX thread
         Platform.runLater(() -> {
             Alert alert = new Alert(AlertType.ERROR);
@@ -145,12 +156,12 @@ public class GardenControllerFX implements Initializable {
             alert.setHeaderText(message);
             alert.setContentText("Error details: " + ex.getMessage());
             alert.showAndWait();
-            
+
             // Update status
             statusText.setText("Error: " + message);
         });
     }
-    
+
     /**
      * Submits a task to the thread pool with proper exception handling
      */
@@ -177,12 +188,11 @@ public class GardenControllerFX implements Initializable {
             // Set up the combo box with the same items as in the plant selector
             plantTypeComboBox.getItems().addAll(plantSelector.getComboBox().getItems());
             plantTypeComboBox.setValue("Empty");
-            
+
             // Set up the event dropdown for manual triggering
             eventComboBox.getItems().addAll(
-                "Sunny Day", "Rainy Day", "Pest Infestation",
-                "Perfect Growth", "Gardener Visit", "Chilly Day"
-            );
+                    "Sunny Day", "Rainy Day", "Pest Infestation",
+                    "Perfect Growth", "Gardener Visit", "Chilly Day");
             eventComboBox.setValue("Sunny Day");
 
             // Load event icons and hide by default
@@ -273,13 +283,13 @@ public class GardenControllerFX implements Initializable {
             // Update status first
             String message = "Garden updating...";
             statusText.setText(message);
-            
+
             // Run the garden update in a background thread
             gardenExecutor.submit(() -> {
                 try {
                     // Perform the garden update operation
                     garden.updateGardenState();
-                    
+
                     // Update UI on JavaFX thread when complete
                     Platform.runLater(() -> {
                         try {
@@ -306,28 +316,29 @@ public class GardenControllerFX implements Initializable {
         try {
             // Show watering in progress status
             statusText.setText("Watering plants in progress...");
-            
+
             // Create and submit watering task
             gardenExecutor.submit(() -> {
                 try {
                     // Track plants to water for animations
                     final java.util.List<int[]> plantsToWater = new java.util.ArrayList<>();
-                    final java.util.concurrent.atomic.AtomicInteger wateredCount = new java.util.concurrent.atomic.AtomicInteger(0);
-                    
+                    final java.util.concurrent.atomic.AtomicInteger wateredCount = new java.util.concurrent.atomic.AtomicInteger(
+                            0);
+
                     // First pass - identify plants and water them (fast operation)
                     for (int r = 0; r < ROWS; r++) {
                         for (int c = 0; c < COLS; c++) {
                             Plant plant = garden.getPlant(r, c);
-                            
+
                             // Only water actual plants, not empty soil
                             if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
                                 garden.waterPlant(r, c);
                                 wateredCount.incrementAndGet();
-                                plantsToWater.add(new int[]{r, c});
+                                plantsToWater.add(new int[] { r, c });
                             }
                         }
                     }
-                    
+
                     // Update UI on JavaFX thread
                     Platform.runLater(() -> {
                         try {
@@ -335,15 +346,15 @@ public class GardenControllerFX implements Initializable {
                             for (int i = 0; i < plantsToWater.size(); i++) {
                                 int[] pos = plantsToWater.get(i);
                                 StackPane cell = (StackPane) getNodeByRowColumnIndex(pos[0], pos[1]);
-                                
+
                                 // Create a delayed animation for each cell
-                                final int index = i;  // For closure
+                                final int index = i; // For closure
                                 Timeline delay = new Timeline(new KeyFrame(Duration.millis(index * 80), event -> {
                                     WaterAnimation.playWaterAnimation(cell);
                                 }));
                                 delay.play();
                             }
-                            
+
                             // Update status and UI
                             String message = "Watered " + wateredCount.get() + " plants!";
                             statusText.setText(message);
@@ -428,7 +439,7 @@ public class GardenControllerFX implements Initializable {
                         // Schedule spray next cycle
                         sprayPending = true;
                         String msg = "Parasite '" + pestName + "' added to " + plant.getName() +
-                                     " at Row " + (row + 1) + ", Column " + (col + 1);
+                                " at Row " + (row + 1) + ", Column " + (col + 1);
                         statusText.setText(msg);
                         GardenLogger.warning(msg);
                         added = true;
@@ -440,7 +451,7 @@ public class GardenControllerFX implements Initializable {
                 statusText.setText(noMsg);
                 GardenLogger.warning(noMsg);
             }
-            
+
             // Update UI
             updateGrid();
             updateStats();
@@ -483,12 +494,24 @@ public class GardenControllerFX implements Initializable {
                 return;
             }
             switch (selected) {
-                case "Sunny Day": forcedEventType = 0; break;
-                case "Rainy Day": forcedEventType = 1; break;
-                case "Pest Infestation": forcedEventType = 2; break;
-                case "Perfect Growth": forcedEventType = 3; break;
-                case "Gardener Visit": forcedEventType = 4; break;
-                case "Chilly Day": forcedEventType = 5; break;
+                case "Sunny Day":
+                    forcedEventType = 0;
+                    break;
+                case "Rainy Day":
+                    forcedEventType = 1;
+                    break;
+                case "Pest Infestation":
+                    forcedEventType = 2;
+                    break;
+                case "Perfect Growth":
+                    forcedEventType = 3;
+                    break;
+                case "Gardener Visit":
+                    forcedEventType = 4;
+                    break;
+                case "Chilly Day":
+                    forcedEventType = 5;
+                    break;
                 default:
                     statusText.setText("Unknown event: " + selected);
                     return;
@@ -499,7 +522,7 @@ public class GardenControllerFX implements Initializable {
             handleException(ex, "Error triggering event");
         }
     }
-    
+
     @FXML
     public void onHelp() {
         try {
@@ -510,7 +533,7 @@ public class GardenControllerFX implements Initializable {
             root.setPadding(new Insets(10));
             root.setAlignment(Pos.TOP_LEFT);
             root.setStyle("-fx-background-color: linear-gradient(#e8ffea, #c8f8cc); " +
-                          "-fx-border-color: #80c080; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;");
+                    "-fx-border-color: #80c080; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;");
             ScrollPane scrollPane = new ScrollPane(root);
             scrollPane.setFitToWidth(true);
             scrollPane.setStyle("-fx-background: transparent;");
@@ -522,87 +545,103 @@ public class GardenControllerFX implements Initializable {
             // Sections with styled headings and descriptions
             // Plant Selector
             Label plantHdr = new Label("Plant Selector:");
-            plantHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            plantHdr.setStyle(
+                    "-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
             root.getChildren().add(plantHdr);
             Label plantDesc = new Label(
-                "Choose a plant from the dropdown and click 'Plant Selected' to place it in the grid. " +
-                "Right-click on a cell to water individual plants manually.");
+                    "Choose a plant from the dropdown and click 'Plant Selected' to place it in the grid. " +
+                            "Right-click on a cell to water individual plants manually.");
             plantDesc.setWrapText(true);
             plantDesc.setMaxWidth(360);
-            plantDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            plantDesc.setStyle(
+                    "-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
             root.getChildren().add(plantDesc);
             // Water All
             Label waterHdr = new Label("Water All:");
-            waterHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            waterHdr.setStyle(
+                    "-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
             root.getChildren().add(waterHdr);
             Label waterDesc = new Label(
-                "Water every plant in the garden, restoring moisture and up to +9 health per action.");
+                    "Water every plant in the garden, restoring moisture and up to +9 health per action.");
             waterDesc.setWrapText(true);
             waterDesc.setMaxWidth(360);
-            waterDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            waterDesc.setStyle(
+                    "-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
             root.getChildren().add(waterDesc);
             // Add Pests
             Label pestHdr = new Label("Add Pests:");
-            pestHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            pestHdr.setStyle(
+                    "-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
             root.getChildren().add(pestHdr);
             Label pestDesc = new Label(
-                "Spawn a random pest on a vulnerable plant. Pests have 20 health and damage plants each cycle. " +
-                "Pest Spray defense auto-deploys next cycle to deal 8 damage initially, then 3 per cycle.");
+                    "Spawn a random pest on a vulnerable plant. Pests have 20 health and damage plants each cycle. " +
+                            "Pest Spray defense auto-deploys next cycle to deal 8 damage initially, then 3 per cycle.");
             pestDesc.setWrapText(true);
             pestDesc.setMaxWidth(360);
-            pestDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            pestDesc.setStyle(
+                    "-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
             root.getChildren().add(pestDesc);
             // Remove Bugs
             Label removeHdr = new Label("Remove Bugs:");
-            removeHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            removeHdr.setStyle(
+                    "-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
             root.getChildren().add(removeHdr);
             Label removeDesc = new Label(
-                "A gardener visits, removes all pests instantly, and waters every plant for a health boost. " +
-                "This stops any ongoing pest spray.");
+                    "A gardener visits, removes all pests instantly, and waters every plant for a health boost. " +
+                            "This stops any ongoing pest spray.");
             removeDesc.setWrapText(true);
             removeDesc.setMaxWidth(360);
-            removeDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            removeDesc.setStyle(
+                    "-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
             root.getChildren().add(removeDesc);
             // Automation
             Label autoHdr = new Label("Automation:");
-            autoHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            autoHdr.setStyle(
+                    "-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
             root.getChildren().add(autoHdr);
             Label autoDesc = new Label(
-                "Toggle automatic mode (every 3s): cycles apply garden updates, random events, pest spray, and " +
-                "randomly waters plants (25% chance every 18s).");
+                    "Toggle automatic mode (every 3s): cycles apply garden updates, random events, pest spray, and " +
+                            "randomly waters plants (25% chance every 18s).");
             autoDesc.setWrapText(true);
             autoDesc.setMaxWidth(360);
-            autoDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            autoDesc.setStyle(
+                    "-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
             root.getChildren().add(autoDesc);
             // Events Modeled
             Label eventsHdr = new Label("Events Modeled:");
-            eventsHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            eventsHdr.setStyle(
+                    "-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
             root.getChildren().add(eventsHdr);
             Label eventsDesc = new Label(
-                "Sunny Day: extra moisture loss + heat stress;\n" +
-                "Rainy Day: rainwaters all plants + regen;\n" +
-                "Pest Infestation: random pests appear;\n" +
-                "Perfect Growth: double water, restores ideal temp;\n" +
-                "Gardener Visit: clears pests & waters;\n" +
-                "Chilly Day: temp drop + delayed insulation cover to restore heat.");
+                    "Sunny Day: extra moisture loss + heat stress;\n" +
+                            "Rainy Day: rainwaters all plants + regen;\n" +
+                            "Pest Infestation: random pests appear;\n" +
+                            "Perfect Growth: double water, restores ideal temp;\n" +
+                            "Gardener Visit: clears pests & waters;\n" +
+                            "Chilly Day: temp drop + delayed insulation cover to restore heat.");
             eventsDesc.setWrapText(true);
             eventsDesc.setMaxWidth(360);
-            eventsDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            eventsDesc.setStyle(
+                    "-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
             root.getChildren().add(eventsDesc);
             // Detailed Mechanics
             Label mechHdr = new Label("Detailed Mechanics:");
-            mechHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            mechHdr.setStyle(
+                    "-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
             root.getChildren().add(mechHdr);
             Label mechDesc = new Label(
-                "- Chilly Day: -2 health damage per cycle when temp <65°F. Insulation cover engages next cycle to raise +1°F per cycle until ideal.\n" +
-                "- Sunny Day: -8 health damage per cycle when temp >75°F.\n" +
-                "- Watering: restores moisture and +9 health manually or via rain.\n" +
-                "- Pest Spray: initial 8 damage then 3 per cycle for up to 5 cycles, triggers 1 cycle after infestation.\n" +
-                "- Gardener Visit: removes pests & waters all plants, canceling sprays.\n" +
-                "- Automation: runs every 3s, manages updates, events, sprays, and random watering.");
+                    "- Chilly Day: -2 health damage per cycle when temp <65°F. Insulation cover engages next cycle to raise +1°F per cycle until ideal.\n"
+                            +
+                            "- Sunny Day: -8 health damage per cycle when temp >75°F.\n" +
+                            "- Watering: restores moisture and +9 health manually or via rain.\n" +
+                            "- Pest Spray: initial 8 damage then 3 per cycle for up to 5 cycles, triggers 1 cycle after infestation.\n"
+                            +
+                            "- Gardener Visit: removes pests & waters all plants, canceling sprays.\n" +
+                            "- Automation: runs every 3s, manages updates, events, sprays, and random watering.");
             mechDesc.setWrapText(true);
             mechDesc.setMaxWidth(360);
-            mechDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            mechDesc.setStyle(
+                    "-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
             root.getChildren().add(mechDesc);
             Scene scene = new Scene(scrollPane, 380, 260);
             helpStage.setScene(scene);
@@ -740,23 +779,25 @@ public class GardenControllerFX implements Initializable {
     private void setupAutomationTimer() {
         try {
             // Create a timeline for automatic garden updates
-            automationTimer = new Timeline(new KeyFrame(Duration.seconds(AUTO_UPDATE_INTERVAL), e -> handleAutomationUpdate()));
-    
+            automationTimer = new Timeline(
+                    new KeyFrame(Duration.seconds(AUTO_UPDATE_INTERVAL), e -> handleAutomationUpdate()));
+
             // Set cycle count to indefinite to run forever
             automationTimer.setCycleCount(Timeline.INDEFINITE);
         } catch (Exception ex) {
             handleException(ex, "Failed to set up automation timer");
         }
     }
-    
+
     /**
-     * Handle a single automation update cycle with error handling and multithreading
+     * Handle a single automation update cycle with error handling and
+     * multithreading
      */
     private void handleAutomationUpdate() {
         try {
             // Increment cycle count
             automationCycleCount++;
-            
+
             // Use thread pool to handle garden update in background
             gardenExecutor.submit(() -> {
                 try {
@@ -788,7 +829,7 @@ public class GardenControllerFX implements Initializable {
                                     int dmg = sprayCyclesLeft == 5 ? SPRAY_INITIAL_DMG : SPRAY_SUBSEQUENT_DMG;
                                     int newPestHealth = plant.getPestHealth() - dmg;
                                     plant.setPestHealth(newPestHealth);
-                                    sprayedPositions.add(new int[]{r, c});
+                                    sprayedPositions.add(new int[] { r, c });
                                 }
                             }
                         }
@@ -835,25 +876,25 @@ public class GardenControllerFX implements Initializable {
                                 sprayPending = true;
                                 // Log the infestation event
                                 String logMsg = "Parasite '" + pestName + "' appeared on " + plant.getName() +
-                                                 " at Row " + (row + 1) + ", Column " + (col + 1);
+                                        " at Row " + (row + 1) + ", Column " + (col + 1);
                                 GardenLogger.warning(logMsg);
                                 // Update UI status
                                 Platform.runLater(() -> statusText.setText(logMsg));
                             }
                         }
                     }
-                    
+
                     // Handle pest addition (approx 2% chance)
                     handleAutomationPests();
-                    
+
                     // Apply temperature effects
                     handleAutomationTemperature();
-                    
+
                     // Every 5 cycles, trigger a random event
                     if (automationCycleCount % 5 == 0) {
                         Platform.runLater(this::triggerRandomEvent);
                     }
-                    
+
                     // Update UI, then play pest spray animations for this cycle
                     Platform.runLater(() -> {
                         try {
@@ -878,7 +919,7 @@ public class GardenControllerFX implements Initializable {
             handleException(ex, "Failed to submit automation update task");
         }
     }
-    
+
     /**
      * Handle pest addition during automation with proper error handling
      */
@@ -896,21 +937,21 @@ public class GardenControllerFX implements Initializable {
                         if (!pests.isEmpty()) {
                             String pestName = pests.get(random.nextInt(pests.size()));
                             plant.setPestType(pestName);
-                            
+
                             // Store information for logging on UI thread
                             final String finalPestName = pestName;
                             final String plantName = plant.getName();
                             final int finalRow = row;
                             final int finalCol = col;
-                            
+
                             // Execute UI updates on the JavaFX application thread
                             Platform.runLater(() -> {
                                 try {
                                     // Log the infestation event
                                     String logMsg = "Parasite '" + finalPestName + "' appeared on " + plantName +
-                                                 " at Row " + (finalRow + 1) + ", Column " + (finalCol + 1);
+                                            " at Row " + (finalRow + 1) + ", Column " + (finalCol + 1);
                                     GardenLogger.warning(logMsg);
-                                    
+
                                     // Update UI status
                                     statusText.setText(logMsg);
                                 } catch (Exception e) {
@@ -930,7 +971,7 @@ public class GardenControllerFX implements Initializable {
             Platform.runLater(() -> GardenLogger.error(errorMsg));
         }
     }
-    
+
     /**
      * Handle temperature effects during automation with proper error handling
      */
@@ -940,7 +981,8 @@ public class GardenControllerFX implements Initializable {
             if (insulationPending) {
                 insulationCoverActive = true;
                 insulationPending = false;
-                Platform.runLater(() -> GardenLogger.event("Insulation cover engaged for " + insulationCyclesLeft + " cycles."));
+                Platform.runLater(
+                        () -> GardenLogger.event("Insulation cover engaged for " + insulationCyclesLeft + " cycles."));
             }
             // Apply frost stress penalty every cycle if below ideal
             final int temp = garden.getCurrentTemperature();
@@ -956,16 +998,17 @@ public class GardenControllerFX implements Initializable {
                                 penaltyCount++;
                             }
                         } catch (Exception ex) {
-                            final String errorMsg = "Error applying temperature effect to plant at " + 
-                                r + "," + c + ": " + ex.getMessage();
+                            final String errorMsg = "Error applying temperature effect to plant at " +
+                                    r + "," + c + ": " + ex.getMessage();
                             Platform.runLater(() -> GardenLogger.error(errorMsg));
                         }
                     }
                 }
                 final int finalPenaltyCount = penaltyCount;
-                Platform.runLater(() -> GardenLogger.warning(finalPenaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)"));
+                Platform.runLater(() -> GardenLogger
+                        .warning(finalPenaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)"));
             }
-            
+
             // Insulation cover effect: restore 1°F per cycle until ideal is reached
             if (insulationCoverActive) {
                 try {
@@ -985,7 +1028,8 @@ public class GardenControllerFX implements Initializable {
                     } else {
                         // Ideal reached; disable insulation cover
                         insulationCoverActive = false;
-                        Platform.runLater(() -> GardenLogger.event("Insulation cover effect ended – temperature regulation normal."));
+                        Platform.runLater(() -> GardenLogger
+                                .event("Insulation cover effect ended – temperature regulation normal."));
                     }
                 } catch (Exception ex) {
                     final String errorMsg = "Error applying insulation effect: " + ex.getMessage();
@@ -997,7 +1041,7 @@ public class GardenControllerFX implements Initializable {
             Platform.runLater(() -> GardenLogger.error(errorMsg));
         }
     }
-    
+
     // This duplicate method was removed
 
     @FXML
@@ -1075,7 +1119,7 @@ public class GardenControllerFX implements Initializable {
                 insulationPending = true;
                 insulationCyclesLeft = 6;
                 String chillMsg = "Chilly day! Temp dropped to " + coldTemp + "°F. " +
-                                  "Insulation cover will engage next cycle (" + insulationCyclesLeft + " cycles total).";
+                        "Insulation cover will engage next cycle (" + insulationCyclesLeft + " cycles total).";
                 statusText.setText(chillMsg);
                 GardenLogger.event(chillMsg);
                 // Display frost icon
@@ -1108,7 +1152,7 @@ public class GardenControllerFX implements Initializable {
             case 2: // Pest infestation - random pests appear based on vulnerabilities
                 int pestCount = 0;
                 // Track infestation summary (optional)
-                Map<String,Integer> infestSummary = new HashMap<>();
+                Map<String, Integer> infestSummary = new HashMap<>();
                 for (int r = 0; r < ROWS; r++) {
                     for (int c = 0; c < COLS; c++) {
                         Plant plant = garden.getPlant(r, c);
@@ -1374,7 +1418,7 @@ public class GardenControllerFX implements Initializable {
             // Shutdown the thread pool gracefully
             gardenExecutor.shutdown();
             GardenLogger.info("Garden application thread pool shutdown initiated");
-            
+
             // Allow time for tasks to complete
             if (!gardenExecutor.awaitTermination(3, java.util.concurrent.TimeUnit.SECONDS)) {
                 gardenExecutor.shutdownNow();
@@ -1388,7 +1432,7 @@ public class GardenControllerFX implements Initializable {
             GardenLogger.error("Error during garden application cleanup: " + ex.getMessage());
         }
     }
-    
+
     private void setupComboBoxCellFactory() {
         plantTypeComboBox.setCellFactory(_ -> new javafx.scene.control.ListCell<>() {
             private final ImageView imageView = new ImageView();
