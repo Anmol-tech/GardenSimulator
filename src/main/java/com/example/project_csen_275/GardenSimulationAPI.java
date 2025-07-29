@@ -131,6 +131,23 @@ public class GardenSimulationAPI {
      * @param pestName the name of the parasite to infest
      * @return number of plants infested
      */
+    /**
+     * Helper to format pest names (camelCase to Title Case).
+     */
+    private static String formatPestName(String raw) {
+        if (raw == null || raw.isEmpty()) {
+            return raw;
+        }
+        String spaced = raw.replaceAll("([a-z])([A-Z])", "$1 $2");
+        String[] parts = spaced.split("\\s+");
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < parts.length; i++) {
+            String w = parts[i].toLowerCase();
+            res.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1));
+            if (i < parts.length - 1) res.append(" ");
+        }
+        return res.toString();
+    }
     public int parasite(String pestName) {
         int count = 0;
         int rows = garden.getRows();
@@ -148,7 +165,9 @@ public class GardenSimulationAPI {
                 }
             }
         }
-        GardenLogger.warning("Parasite '" + pestName + "' infested " + count + " plants.");
+        // Format and log infestation without quotes
+        String formatted = formatPestName(pestName);
+        GardenLogger.warning("Parasite " + formatted + " infested " + count + " plants.");
         return count;
     }
 

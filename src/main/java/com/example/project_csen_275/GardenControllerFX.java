@@ -445,7 +445,7 @@ public class GardenControllerFX implements Initializable {
                         String formattedPest = formatPestName(pestName);
                         String msg = "Parasite " + formattedPest + " added to " + plant.getName() +
                                 " at Row " + (row + 1) + ", Column " + (col + 1);
-                        statusText.setText(msg);
+                        updateStatus("WARNING", msg);
                         GardenLogger.warning(msg);
                         added = true;
                     }
@@ -997,7 +997,7 @@ public class GardenControllerFX implements Initializable {
                 int sunnyTemp = IDEAL_TEMP_UPPER + 1 + random.nextInt(10); // 76 to 85
                 garden.temperature(sunnyTemp);
                 String message = "It's a sunny day! Temperature rose to " + sunnyTemp + "°F, plants are drying faster.";
-                statusText.setText(message);
+                updateStatus("EVENT", message);
                 GardenLogger.event(message);
                 // Cancel any pending or active insulation cover
                 if (insulationCoverActive || insulationPending) {
@@ -1040,7 +1040,7 @@ public class GardenControllerFX implements Initializable {
                 insulationCyclesLeft = 6;
                 String chillMsg = "Chilly day! Temp dropped to " + coldTemp + "°F. " +
                         "Insulation cover will engage next cycle (" + insulationCyclesLeft + " cycles total).";
-                statusText.setText(chillMsg);
+                updateStatus("EVENT", chillMsg);
                 GardenLogger.event(chillMsg);
                 // Display frost icon
                 eventImageView.setImage(frostEventImage);
@@ -1086,7 +1086,7 @@ public class GardenControllerFX implements Initializable {
                     }
                 }
                 String rainMessage = "It's raining! " + rainCount + " plants have been watered.";
-                statusText.setText(rainMessage);
+                updateStatus("EVENT", rainMessage);
                 GardenLogger.event(rainMessage);
                 break;
 
@@ -1123,7 +1123,7 @@ public class GardenControllerFX implements Initializable {
                 String pestMessage = msg.toString();
                 // Schedule pest spray next cycle
                 sprayPending = true;
-                statusText.setText(pestMessage);
+                updateStatus("WARNING", pestMessage);
                 GardenLogger.warning(pestMessage);
                 break;
 
@@ -1146,7 +1146,7 @@ public class GardenControllerFX implements Initializable {
                 garden.temperature(idealTemp);
                 String growthMessage = "Perfect 🌸growing conditions today! " + healthyPlantCount
                         + " plants are thriving, and temperature restored to " + idealTemp + "°F.";
-                statusText.setText(growthMessage);
+                updateStatus("INFO", growthMessage);
                 GardenLogger.info(growthMessage);
 
                 // Play sunshine animation on all plants
@@ -1204,7 +1204,7 @@ public class GardenControllerFX implements Initializable {
                 }
                 String gardenerMessage = "A gardener visited! Removed " + pestsRemoved + " pests and watered "
                         + plantsWatered + " plants.";
-                statusText.setText(gardenerMessage);
+                updateStatus("INFO", gardenerMessage);
                 GardenLogger.info(gardenerMessage);
                 break;
         }
@@ -1604,5 +1604,34 @@ public class GardenControllerFX implements Initializable {
             }
         }
         return result.toString();
+    }
+
+    private void updateStatus(String level, String message) {
+        String emoji;
+        Color color;
+        switch (level) {
+            case "INFO":
+                emoji = "ℹ️ ";
+                color = Color.BLUE;
+                break;
+            case "WARNING":
+                emoji = "⚠️ ";
+                color = Color.ORANGE;
+                break;
+            case "ERROR":
+                emoji = "❌ ";
+                color = Color.RED;
+                break;
+            case "EVENT":
+                emoji = "🔔 ";
+                color = Color.MEDIUMSEAGREEN;
+                break;
+            default:
+                emoji = "";
+                color = Color.BLACK;
+        }
+        statusText.setText(emoji + message);
+        statusText.setFill(color);
+        statusText.setFont(Font.font("Arial", FontWeight.BOLD, 14));
     }
 }
