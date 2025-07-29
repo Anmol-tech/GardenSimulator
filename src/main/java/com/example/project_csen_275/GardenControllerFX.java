@@ -120,6 +120,9 @@ public class GardenControllerFX implements Initializable {
     private Text plantedText = new Text("Plants Planted: 0");
     private Text wateredText = new Text("Plants Watered: 0");
     private Text temperatureText = new Text("Temperature: 0°F");
+    private Text gameTimeText = new Text("Day 1, 6:00 AM");
+    private Text sessionTimeText = new Text("Session: 0h 0m");
+    private GardenTimer gardenTimer;
     private Timeline statsUpdateTimer;
 
     // Log display
@@ -198,6 +201,12 @@ public class GardenControllerFX implements Initializable {
             automationToggle.setText("▶️ START AUTOMATION");
             automationToggle.setStyle(
                     "-fx-base: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5;");
+
+            // Initialize garden timer
+            gardenTimer = new GardenTimer();
+            gameTimeText.textProperty().bind(gardenTimer.timeStringProperty());
+            sessionTimeText.textProperty().bind(gardenTimer.sessionTimeStringProperty());
+            gardenTimer.start();
 
             // Create stats panel
             setupStatsPanel();
@@ -1035,7 +1044,10 @@ public class GardenControllerFX implements Initializable {
     @FXML
     public void onToggleAutomation() {
         if (isAutomationRunning) {
-            waterLogTimer.stop();
+            // Check for null before stopping
+            if (waterLogTimer != null) {
+                waterLogTimer.stop();
+            }
             // Stop automation
             automationTimer.stop();
             isAutomationRunning = false;
@@ -1046,7 +1058,10 @@ public class GardenControllerFX implements Initializable {
             statusText.setText(message);
             GardenLogger.info(message);
         } else {
-            waterLogTimer.play();
+            // Check for null before playing
+            if (waterLogTimer != null) {
+                waterLogTimer.play();
+            }
             // Start automation
             automationTimer.play();
             isAutomationRunning = true;
@@ -1348,13 +1363,25 @@ public class GardenControllerFX implements Initializable {
         temperatureText.setFill(Color.DARKBLUE);
         temperatureText.setFont(Font.font("Arial", FontWeight.BOLD, 13));
 
+        // Add time display with clock and calendar icons
+        // Don't set text directly as it will be bound to timer properties
+        gameTimeText.setFill(Color.PURPLE);
+        gameTimeText.setFont(Font.font("Arial", FontWeight.BOLD, 13));
+
+        // Don't set text directly as it will be bound to timer properties
+        sessionTimeText.setFill(Color.DARKSLATEGRAY);
+        sessionTimeText.setFont(Font.font("Arial", FontWeight.BOLD, 13));
+
         statsPanel.getChildren().addAll(
                 livePlantsText,
                 deadPlantsText,
                 emptyPlotsText,
                 plantedText,
                 wateredText,
-                temperatureText);
+                temperatureText,
+                new Separator(),
+                gameTimeText,
+                sessionTimeText);
 
         // Set up the log panel
         setupLogPanel();
