@@ -306,23 +306,6 @@ public class GardenDocumentation {
                                 "• Perform best in temperatures between 60-75°F\n" +
                                 "• Monitor for pests regularly"),
 
-                // Radish
-                createPlantSection(
-                        "🍡 Radish (Root Vegetable)",
-                        "Growth Rate: Very Fast\n" +
-                                "Water Needs: Low\n" +
-                                "Temperature Tolerance: High\n" +
-                                "Pest Vulnerability: Low",
-
-                        "Radishes are the quickest-growing plants in the garden. They require minimal water and are " +
-                                "highly resistant to temperature fluctuations. They have good natural resistance to most pests.\n\n"
-                                +
-
-                                "Care Tips:\n" +
-                                "• Only water when moisture drops below 30%\n" +
-                                "• Can thrive in wider temperature ranges (55-80°F)\n" +
-                                "• Ideal starter plant for beginners"),
-
                 // Sunflower
                 createPlantSection(
                         "🌻 Sunflower (Ornamental)",
