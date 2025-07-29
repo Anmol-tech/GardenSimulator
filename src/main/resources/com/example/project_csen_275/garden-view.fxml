@@ -31,7 +31,7 @@
                         <padding><Insets top="15" right="15" bottom="15" left="20"/></padding>
                     </GridPane>
                 </VBox>
-                <ImageView fx:id="eventImageView" fitWidth="80" fitHeight="80" visible="false" StackPane.alignment="TOP_LEFT"/>
+                <ImageView fx:id="eventImageView" fitWidth="80" fitHeight="80" preserveRatio="false" visible="false" StackPane.alignment="TOP_LEFT"/>
             </children>
         </StackPane>
     </center>

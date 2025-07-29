@@ -91,6 +91,7 @@ public class GardenControllerFX implements Initializable {
     private static final int IDEAL_TEMP_LOWER = 65;
     private static final int IDEAL_TEMP_UPPER = 75;
     private boolean insulationCoverActive = false;
+    private boolean insulationPending = false; // Delay cover activation
     private int insulationCyclesLeft = 0;
 
     // Stats display
@@ -810,6 +811,12 @@ public class GardenControllerFX implements Initializable {
      */
     private void handleAutomationTemperature() {
         try {
+            // Activate delayed insulation cover if pending
+            if (insulationPending) {
+                insulationCoverActive = true;
+                insulationPending = false;
+                Platform.runLater(() -> GardenLogger.event("Insulation cover engaged for " + insulationCyclesLeft + " cycles."));
+            }
             // Apply frost stress penalty every cycle if below ideal
             final int temp = garden.getCurrentTemperature();
             if (temp < IDEAL_TEMP_LOWER) {
@@ -834,29 +841,24 @@ public class GardenControllerFX implements Initializable {
                 Platform.runLater(() -> GardenLogger.warning(finalPenaltyCount + " plants took -2 health due to low temperature (" + temp + "°F)"));
             }
             
-            // Insulation cover effect: gradually restore temp to ideal
-            if (insulationCoverActive && insulationCyclesLeft > 0) {
+            // Insulation cover effect: restore 1°F per cycle until ideal is reached
+            if (insulationCoverActive) {
                 try {
                     final int currentTemp = garden.getCurrentTemperature();
                     if (currentTemp < IDEAL_TEMP_LOWER) {
-                        final int newTemp = Math.min(currentTemp + 5, IDEAL_TEMP_LOWER);
-                        
-                        // First, update the temperature value without UI updates (thread-safe)
+                        final int newTemp = Math.min(currentTemp + 1, IDEAL_TEMP_LOWER);
+                        // Update temperature without UI updates
                         garden.setTemperature(newTemp);
-                        
-                        // Then schedule the UI updates on the JavaFX thread
                         final int tempToSet = newTemp;
                         Platform.runLater(() -> {
                             try {
-                                // Call temperature again on the FX thread to trigger UI updates
                                 garden.temperature(tempToSet);
                             } catch (Exception e) {
                                 GardenLogger.error("Error setting temperature in FX thread: " + e.getMessage());
                             }
                         });
-                    }
-                    insulationCyclesLeft--;
-                    if (insulationCyclesLeft == 0) {
+                    } else {
+                        // Ideal reached; disable insulation cover
                         insulationCoverActive = false;
                         Platform.runLater(() -> GardenLogger.event("Insulation cover effect ended – temperature regulation normal."));
                     }
@@ -929,6 +931,13 @@ public class GardenControllerFX implements Initializable {
                 String message = "It's a sunny day! Temperature rose to " + sunnyTemp + "°F, plants are drying faster.";
                 statusText.setText(message);
                 GardenLogger.event(message);
+                // Cancel any pending or active insulation cover
+                if (insulationCoverActive || insulationPending) {
+                    insulationCoverActive = false;
+                    insulationPending = false;
+                    insulationCyclesLeft = 0;
+                    GardenLogger.event("Insulation cover canceled due to sunny day.");
+                }
                 // Display sun icon
                 eventImageView.setImage(sunEventImage);
                 eventImageView.setVisible(true);
@@ -937,11 +946,11 @@ public class GardenControllerFX implements Initializable {
                 // Drop temperature below ideal range (e.g., 55-64°F)
                 int coldTemp = IDEAL_TEMP_LOWER - 1 - random.nextInt(10); // 55 to 64
                 garden.temperature(coldTemp);
-                // Activate insulation to recover over next cycles
-                insulationCoverActive = true;
+                // Schedule insulation cover activation next cycle
+                insulationPending = true;
                 insulationCyclesLeft = 6;
                 String chillMsg = "Chilly day! Temp dropped to " + coldTemp + "°F. " +
-                                  "Insulation cover engaged for " + insulationCyclesLeft + " cycles.";
+                                  "Insulation cover will engage next cycle (" + insulationCyclesLeft + " cycles total).";
                 statusText.setText(chillMsg);
                 GardenLogger.event(chillMsg);
                 // Display frost icon
@@ -1022,8 +1031,11 @@ public class GardenControllerFX implements Initializable {
                         }
                     }
                 }
+                // Restore temperature to ideal midpoint
+                int idealTemp = (IDEAL_TEMP_LOWER + IDEAL_TEMP_UPPER) / 2;
+                garden.temperature(idealTemp);
                 String growthMessage = "Perfect 🌸growing conditions today! " + healthyPlantCount
-                        + " plants are thriving.";
+                        + " plants are thriving, and temperature restored to " + idealTemp + "°F.";
                 statusText.setText(growthMessage);
                 GardenLogger.info(growthMessage);
                 break;
