@@ -254,7 +254,9 @@ public class GardenControllerFX implements Initializable {
         cell.setMinSize(80, 80);
         cell.setPrefSize(80, 80);
         cell.setMaxSize(80, 80);
-        cell.setStyle("-fx-border-color: #555555; -fx-background-color: #e8e8d0;");
+        // Choose background color based on insulation cover status
+        String bgColor = insulationCoverActive ? "#ffe0b3" : "#e8e8d0"; // Light orange/amber when insulation is active (for warmth)
+        cell.setStyle("-fx-border-color: #555555; -fx-background-color: " + bgColor + ";");
 
         cell.setOnMouseClicked(e -> {
             // Set selected cell for planting
@@ -646,11 +648,14 @@ public class GardenControllerFX implements Initializable {
 
                 cell.getChildren().add(imageView);
 
+                // Choose background color based on insulation cover status
+                String bgColor = insulationCoverActive ? "#ffe0b3" : "#e8e8d0"; // Light orange/amber when insulation is active (for warmth)
+                
                 // Highlight selected cell
                 if (r == selectedRow && c == selectedCol) {
-                    cell.setStyle("-fx-border-color: blue; -fx-border-width: 2px; -fx-background-color: #e8e8d0;");
+                    cell.setStyle("-fx-border-color: blue; -fx-border-width: 2px; -fx-background-color: " + bgColor + ";");
                 } else {
-                    cell.setStyle("-fx-border-color: #555555; -fx-background-color: #e8e8d0;");
+                    cell.setStyle("-fx-border-color: #555555; -fx-background-color: " + bgColor + ";");
                 }
             }
         }

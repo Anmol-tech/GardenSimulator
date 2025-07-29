@@ -86,7 +86,7 @@ public class PestSprayAnimation extends AnimationBase {
             sprayText = new Text("🧪");
             sprayText.setFont(Font.font("Arial", FontWeight.BOLD, 20));
             sprayText.setFill(Color.LIMEGREEN);
-            sprayText.setTranslateX(5);
+            sprayText.setTranslateX(20);
             sprayText.setTranslateY(-10);
 
             // Add green circles to represent spray mist

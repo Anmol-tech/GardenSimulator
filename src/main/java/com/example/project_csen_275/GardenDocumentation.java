@@ -193,7 +193,8 @@ public class GardenDocumentation {
                                 "• Chilly Day\n" +
                                 "  - Drops temperature below 65°F\n" +
                                 "  - Causes cold damage (-2 health per cycle)\n" +
-                                "  - Activates insulation cover to gradually restore temperature\n\n" +
+                                "  - Activates insulation cover to gradually restore temperature\n" +
+                                "  - Garden background turns light orange when insulation cover is active (indicating warmth)\n\n" +
 
                                 "• Pest Infestation\n" +
                                 "  - Adds pests to random plants\n" +
