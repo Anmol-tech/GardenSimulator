@@ -17,4 +17,16 @@ public class NoPlant extends Plant {
     public void dryOut() {
         // Do nothing - empty soil doesn't dry out
     }
+    
+    @Override
+    public int applyHeatDamage(int temperature) {
+        // Empty soil doesn't take heat damage
+        return 0;
+    }
+    
+    @Override
+    public int applyColdDamage(int temperature) {
+        // Empty soil doesn't take cold damage
+        return 0;
+    }
 }

@@ -52,12 +52,69 @@ public class Plant {
         moistureLevel = Math.min(moistureLevel + amount, 100);
     }
 
+    /**
+     * Simulates the plant drying out, reducing moisture level and potentially causing health damage.
+     * Plants with moisture level below 30% will take damage proportional to their dryness.
+     * Different plants have different drought tolerance (override this method to customize).
+     */
     public void dryOut() {
         // Drain moisture by 1 per cycle
         moistureLevel = Math.max(0, moistureLevel - 1);
+        
+        // Plants with low moisture take damage proportional to dryness
         if (moistureLevel < 30) {
-            health = Math.max(0, health - 2);
+            // More damage as moisture gets lower
+            int damageFactor = (30 - moistureLevel) / 10 + 1;
+            // Default drought resistance multiplier is 1.0
+            health = Math.max(0, health - (int)(damageFactor * getDroughtResistanceMultiplier()));
         }
+    }
+    
+    /**
+     * Applies heat damage to the plant during a heat wave or sunny day event.
+     * @param temperature The current temperature in °F
+     * @return The amount of damage actually applied
+     */
+    public int applyHeatDamage(int temperature) {
+        // Default behavior: 8 damage for hot temperatures
+        int baseDamage = 8;
+        int actualDamage = (int)(baseDamage * getHeatResistanceMultiplier());
+        health = Math.max(0, health - actualDamage);
+        return actualDamage;
+    }
+    
+    /**
+     * Applies cold damage to the plant during a frost or cold event.
+     * @param temperature The current temperature in °F
+     * @return The amount of damage actually applied
+     */
+    public int applyColdDamage(int temperature) {
+        // Default behavior: 2 damage for cold temperatures
+        int baseDamage = 2;
+        int actualDamage = (int)(baseDamage * getColdResistanceMultiplier());
+        health = Math.max(0, health - actualDamage);
+        return actualDamage;
+    }
+    
+    /**
+     * Gets the plant's resistance multiplier to drought (1.0 is normal, lower is more resistant)
+     */
+    protected double getDroughtResistanceMultiplier() {
+        return 1.0; // Default multiplier
+    }
+    
+    /**
+     * Gets the plant's resistance multiplier to heat (1.0 is normal, lower is more resistant)
+     */
+    protected double getHeatResistanceMultiplier() {
+        return 1.0; // Default multiplier
+    }
+    
+    /**
+     * Gets the plant's resistance multiplier to cold (1.0 is normal, lower is more resistant)
+     */
+    protected double getColdResistanceMultiplier() {
+        return 1.0; // Default multiplier
     }
 
     public String getName() {
