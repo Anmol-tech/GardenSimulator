@@ -441,7 +441,9 @@ public class GardenControllerFX implements Initializable {
                         plant.setPestType(pestName);
                         // Schedule spray next cycle
                         sprayPending = true;
-                        String msg = "Parasite '" + pestName + "' added to " + plant.getName() +
+                        // Format pest name and remove quotes
+                        String formattedPest = formatPestName(pestName);
+                        String msg = "Parasite " + formattedPest + " added to " + plant.getName() +
                                 " at Row " + (row + 1) + ", Column " + (col + 1);
                         statusText.setText(msg);
                         GardenLogger.warning(msg);
@@ -822,11 +824,10 @@ public class GardenControllerFX implements Initializable {
                         // Choose a random pest from this plant's vulnerabilities
                         List<String> pests = GardenSimulationAPI.getDefaultParasitesFor(plant.getName());
                         if (!pests.isEmpty()) {
-                            String pestName = pests.get(random.nextInt(pests.size()));
-                            plant.setPestType(pestName);
+                            String finalPestName = pests.get(random.nextInt(pests.size()));
+                            plant.setPestType(finalPestName);
 
                             // Store information for logging on UI thread
-                            final String finalPestName = pestName;
                             final String plantName = plant.getName();
                             final int finalRow = row;
                             final int finalCol = col;
@@ -834,8 +835,10 @@ public class GardenControllerFX implements Initializable {
                             // Execute UI updates on the JavaFX application thread
                             Platform.runLater(() -> {
                                 try {
+                                    // Format pest name and remove quotes
+                                    String formattedPest = formatPestName(finalPestName);
                                     // Log the infestation event
-                                    String logMsg = "Parasite '" + finalPestName + "' appeared on " + plantName +
+                                    String logMsg = "Parasite " + formattedPest + " appeared on " + plantName +
                                             " at Row " + (finalRow + 1) + ", Column " + (finalCol + 1);
                                     GardenLogger.warning(logMsg);
 
@@ -1112,7 +1115,7 @@ public class GardenControllerFX implements Initializable {
                 msg.append(pestCount).append(" plants were infested");
                 if (!infestSummary.isEmpty()) {
                     msg.append(" (");
-                    infestSummary.forEach((p, count) -> msg.append(p).append(" x").append(count).append(", "));
+                    infestSummary.forEach((p, count) -> msg.append(formatPestName(p)).append(" x").append(count).append(", "));
                     // remove trailing comma and space
                     msg.setLength(msg.length() - 2);
                     msg.append(")");
@@ -1581,5 +1584,25 @@ public class GardenControllerFX implements Initializable {
 
         // Add small spacing after each section
         container.getChildren().add(new Separator());
+    }
+
+    // Add helper method to format pest names
+    private static String formatPestName(String raw) {
+        if (raw == null || raw.isEmpty()) {
+            return raw;
+        }
+        // Insert space between camelCase boundaries
+        String spaced = raw.replaceAll("([a-z])([A-Z])", "$1 $2");
+        // Split into words, normalize case and capitalize each word
+        String[] parts = spaced.split("\\s+");
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < parts.length; i++) {
+            String word = parts[i].toLowerCase();
+            result.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1));
+            if (i < parts.length - 1) {
+                result.append(" ");
+            }
+        }
+        return result.toString();
     }
 }
