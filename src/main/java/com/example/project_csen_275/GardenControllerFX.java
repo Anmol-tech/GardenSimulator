@@ -839,6 +839,9 @@ public class GardenControllerFX implements Initializable {
                                             " at Row " + (finalRow + 1) + ", Column " + (finalCol + 1);
                                     GardenLogger.warning(logMsg);
 
+                                    // Schedule pest spray next cycle
+                                    sprayPending = true;
+
                                     // Update UI status
                                     statusText.setText(logMsg);
                                 } catch (Exception e) {

@@ -13,7 +13,7 @@ import javafx.util.Duration;
 public abstract class AnimationBase {
 
     // Common animation duration in milliseconds
-    protected static final int DISPLAY_DURATION = 800;
+    protected static final int DISPLAY_DURATION = 1500;
 
     // Background rectangle for better visibility
     protected Rectangle background;
