@@ -15,7 +15,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Separator;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ScrollPane;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -245,9 +247,9 @@ public class GardenControllerFX implements Initializable {
 
     private StackPane getStackPane(int r, int c) {
         StackPane cell = new StackPane();
-        cell.setMinSize(100, 100);
-        cell.setPrefSize(100, 100);
-        cell.setMaxSize(100, 100);
+        cell.setMinSize(80, 80);
+        cell.setPrefSize(80, 80);
+        cell.setMaxSize(80, 80);
         cell.setStyle("-fx-border-color: #555555; -fx-background-color: #e8e8d0;");
 
         cell.setOnMouseClicked(e -> {
@@ -673,8 +675,8 @@ public class GardenControllerFX implements Initializable {
 
                 Image plantImage = new Image(getClass().getResourceAsStream(imagePath));
                 ImageView imageView = new ImageView(plantImage);
-                imageView.setFitWidth(60);
-                imageView.setFitHeight(60);
+                imageView.setFitWidth(50);
+                imageView.setFitHeight(50);
 
                 // Special indicator for empty soil (NoPlant)
                 if (plant instanceof NoPlant) {
@@ -687,15 +689,15 @@ public class GardenControllerFX implements Initializable {
                 // Add visual indicator for health/pest status for living plants
                 if (!(plant instanceof NoPlant)) {
                     // Create a background for the health text
-                    Rectangle healthBg = new Rectangle(70, 24);
-                    healthBg.setArcWidth(10);
-                    healthBg.setArcHeight(10);
+                    Rectangle healthBg = new Rectangle(60, 20);
+                    healthBg.setArcWidth(8);
+                    healthBg.setArcHeight(8);
                     healthBg.setFill(Color.WHITE);
                     healthBg.setOpacity(0.9);
                     healthBg.setStroke(Color.DARKGRAY);
                     healthBg.setStrokeWidth(1.5);
                     healthBg.setTranslateX(0);
-                    healthBg.setTranslateY(-38);
+                    healthBg.setTranslateY(-30);
 
                     // Color based on health: green (good), yellow (medium), orange (low), red
                     // (pest)
@@ -717,14 +719,14 @@ public class GardenControllerFX implements Initializable {
                     healthLabel.setTextFill(healthColor);
                     healthLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12px;");
                     healthLabel.setTranslateX(0);
-                    healthLabel.setTranslateY(-38);
+                    healthLabel.setTranslateY(-32);
 
                     // Add moisture indicator with better visibility
                     Label moistureLabel = new Label("💧 " + plant.getMoistureLevel());
                     moistureLabel.setTextFill(Color.DEEPSKYBLUE);
                     moistureLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 12px;");
                     moistureLabel.setTranslateX(0);
-                    moistureLabel.setTranslateY(38);
+                    moistureLabel.setTranslateY(32);
 
                     // Add indicators to the cell, making sure they're on top of other elements
                     cell.getChildren().add(healthBg);
@@ -1324,8 +1326,9 @@ public class GardenControllerFX implements Initializable {
         statsPanel = new VBox(8);
         statsPanel.setStyle(
                 "-fx-padding: 15px; -fx-background-color: #f0f8ff; -fx-border-color: #b3e5fc; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-background-radius: 10px;");
-        statsPanel.setMinWidth(300);
-        statsPanel.setPrefWidth(300);
+        statsPanel.setMinWidth(200);
+        statsPanel.setPrefWidth(250);
+        statsPanel.setMaxWidth(280);
 
         // Add title with better styling
         Text statsTitle = new Text("Garden Statistics");
@@ -1378,10 +1381,7 @@ public class GardenControllerFX implements Initializable {
                 emptyPlotsText,
                 plantedText,
                 wateredText,
-                temperatureText,
-                new Separator(),
-                gameTimeText,
-                sessionTimeText);
+                temperatureText);
 
         // Set up the log panel
         setupLogPanel();
@@ -1395,13 +1395,43 @@ public class GardenControllerFX implements Initializable {
     private void attachPanelsToRoot() {
         // Create a VBox to hold both panels
         VBox rightPanels = new VBox(10);
-        rightPanels.setPadding(new javafx.geometry.Insets(10, 10, 10, 10));
+        rightPanels.setPadding(new javafx.geometry.Insets(5, 5, 5, 5));
         rightPanels.setAlignment(javafx.geometry.Pos.TOP_CENTER);
         rightPanels.getChildren().addAll(statsPanel, logPanel);
 
+        // Set VBox to be responsive
+        VBox.setVgrow(statsPanel, Priority.NEVER); // Fixed size for stats
+        VBox.setVgrow(logPanel, Priority.ALWAYS); // Log panel can grow
+
+        // Create a scroll pane to allow scrolling if window gets too small
+        ScrollPane scrollPane = new ScrollPane(rightPanels);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setPannable(true);
+        scrollPane.setStyle("-fx-background-color: transparent; -fx-background: transparent;");
+
         // Find the root BorderPane and set the right side
         BorderPane borderPane = (BorderPane) gardenGrid.getScene().getRoot();
-        borderPane.setRight(rightPanels);
+        borderPane.setRight(scrollPane);
+
+        // Set up initial panel sizes
+        Platform.runLater(() -> {
+            if (gardenGrid.getScene() != null) {
+                adjustPanelSizes(gardenGrid.getScene().getWidth());
+            }
+        });
+    }
+
+    /**
+     * Adjust panel sizes based on window width
+     */
+    private void adjustPanelSizes(double windowWidth) {
+        // Adjust panel width based on window width
+        double panelWidth = Math.min(280, Math.max(200, windowWidth * 0.25));
+
+        statsPanel.setPrefWidth(panelWidth);
+        logPanel.setPrefWidth(panelWidth);
     }
 
     /**
@@ -1412,8 +1442,9 @@ public class GardenControllerFX implements Initializable {
         logPanel = new VBox(8);
         logPanel.setStyle(
                 "-fx-padding: 15px; -fx-background-color: #fff8f0; -fx-border-color: #ffcc80; -fx-border-width: 2px; -fx-border-radius: 10px; -fx-background-radius: 10px;");
-        logPanel.setMinWidth(300);
-        logPanel.setPrefWidth(300);
+        logPanel.setMinWidth(200);
+        logPanel.setPrefWidth(250);
+        logPanel.setMaxWidth(280);
         VBox.setVgrow(logPanel, Priority.ALWAYS);
 
         // Add title with better styling
@@ -1428,7 +1459,8 @@ public class GardenControllerFX implements Initializable {
         // Create log list view with better styling
         logListView = new javafx.scene.control.ListView<>();
         logListView.setItems(GardenLogger.getLogs());
-        logListView.setPrefHeight(250); // Make it taller
+        logListView.setPrefHeight(180); // Adjust height to fit better
+        logListView.setMinHeight(100);
         logListView.setStyle(
                 "-fx-background-color: #fffaf0; -fx-background-radius: 5px; -fx-border-color: #ffe0b2; -fx-border-radius: 5px;");
         VBox.setVgrow(logListView, Priority.ALWAYS);

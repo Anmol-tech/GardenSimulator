@@ -54,7 +54,6 @@ public class SunshineAnimation extends AnimationBase {
     @Override
     protected void prepareElements() {
         try {
-            // Using sunflower as sun image
             Image sunImage = new Image(
                     getClass().getResourceAsStream("/com/example/project_csen_275/assests/Tiles/sun.png"));
             sunView = new ImageView(sunImage);

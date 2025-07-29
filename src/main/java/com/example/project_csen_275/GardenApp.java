@@ -13,7 +13,7 @@ public class GardenApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("garden-view.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 1024, 768); // Further increased window size for better visibility
+        Scene scene = new Scene(root, 1024, 900); // Further increased window size for better visibility
         stage.setResizable(true);
         stage.setScene(scene);
         stage.setTitle("Garden Simulator");

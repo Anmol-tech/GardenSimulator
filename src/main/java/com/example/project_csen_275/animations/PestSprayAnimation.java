@@ -51,10 +51,10 @@ public class PestSprayAnimation extends AnimationBase {
             Image sprayImage = new Image(
                     getClass().getResourceAsStream("/com/example/project_csen_275/assests/Tiles/pest-spray.png"));
             sprayView = new ImageView(sprayImage);
-            sprayView.setFitWidth(35);
-            sprayView.setFitHeight(35);
-            sprayView.setTranslateX(10);
-            sprayView.setTranslateY(-10);
+            sprayView.setFitWidth(30);
+            sprayView.setFitHeight(30);
+            sprayView.setTranslateX(8);
+            sprayView.setTranslateY(-8);
 
             // Add a mist effect with small rectangular shapes
             mistDrops = new Rectangle[5];
