@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.project_csen_275.GardenControllerFX"
@@ -14,7 +15,6 @@
             <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
             <Text style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #2e7d32;">Garden Simulator</Text>
             <Text fx:id="statusText" style="-fx-font-size: 14px;">Welcome to your garden!</Text>
-            
             <Separator>
                 <padding><Insets top="10" bottom="10"/></padding>
             </Separator>
@@ -22,13 +22,18 @@
     </top>
     
     <center>
-        <VBox alignment="CENTER">
-            <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
-            <GridPane fx:id="gardenGrid" hgap="12" vgap="12" alignment="CENTER" 
-                      style="-fx-background-color: #e0f2f1; -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #b2dfdb; -fx-border-radius: 10; -fx-border-width: 2;">
-                <padding><Insets top="15" right="15" bottom="15" left="20"/></padding>
-            </GridPane>
-        </VBox>
+        <StackPane>
+            <children>
+                <VBox alignment="CENTER">
+                    <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                    <GridPane fx:id="gardenGrid" hgap="12" vgap="12" alignment="CENTER" 
+                              style="-fx-background-color: #e0f2f1; -fx-padding: 20; -fx-background-radius: 10; -fx-border-color: #b2dfdb; -fx-border-radius: 10; -fx-border-width: 2;">
+                        <padding><Insets top="15" right="15" bottom="15" left="20"/></padding>
+                    </GridPane>
+                </VBox>
+                <ImageView fx:id="eventImageView" fitWidth="80" fitHeight="80" visible="false" StackPane.alignment="TOP_LEFT"/>
+            </children>
+        </StackPane>
     </center>
     
     <bottom>

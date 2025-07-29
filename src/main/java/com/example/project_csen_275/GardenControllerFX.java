@@ -52,9 +52,15 @@ public class GardenControllerFX implements Initializable {
     private Text statusText;
     @FXML
     private ComboBox<String> eventComboBox;
+    @FXML
+    private ImageView eventImageView; // For displaying event icons
 
     // For manual event triggering
     private int forcedEventType = -1;
+
+    // Event icon images
+    private Image sunEventImage;
+    private Image frostEventImage;
 
     private final int ROWS = 5;
     private final int COLS = 5;
@@ -169,6 +175,11 @@ public class GardenControllerFX implements Initializable {
                 "Perfect Growth", "Gardener Visit", "Chilly Day"
             );
             eventComboBox.setValue("Sunny Day");
+
+            // Load event icons and hide by default
+            sunEventImage = new Image(getClass().getResourceAsStream("assests/Tiles/sun.png"));
+            frostEventImage = new Image(getClass().getResourceAsStream("assests/Tiles/frost.png"));
+            eventImageView.setVisible(false);
 
             // Set up cell factory to show plant images in dropdown
             setupComboBoxCellFactory();
@@ -893,6 +904,9 @@ public class GardenControllerFX implements Initializable {
     }
 
     private void triggerRandomEvent() {
+        // Hide any previous event icon
+        eventImageView.setVisible(false);
+
         // Determine event type: forcedEventType if set, else random
         int eventType;
         if (forcedEventType >= 0) {
@@ -915,6 +929,9 @@ public class GardenControllerFX implements Initializable {
                 String message = "It's a sunny day! Temperature rose to " + sunnyTemp + "°F, plants are drying faster.";
                 statusText.setText(message);
                 GardenLogger.event(message);
+                // Display sun icon
+                eventImageView.setImage(sunEventImage);
+                eventImageView.setVisible(true);
                 break;
             case 5: // Chilly day - temperature drop and insulation cover
                 // Drop temperature below ideal range (e.g., 55-64°F)
@@ -927,6 +944,9 @@ public class GardenControllerFX implements Initializable {
                                   "Insulation cover engaged for " + insulationCyclesLeft + " cycles.";
                 statusText.setText(chillMsg);
                 GardenLogger.event(chillMsg);
+                // Display frost icon
+                eventImageView.setImage(frostEventImage);
+                eventImageView.setVisible(true);
                 break;
 
             case 1: // Rainy day - use API rain to water all plants with health regen
