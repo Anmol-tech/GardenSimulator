@@ -734,8 +734,8 @@ public class GardenControllerFX implements Initializable {
                 }
 
                 if (plant.hasPest()) {
-                    // Show pest health overlay
-                    Rectangle pestBg = new Rectangle(50, 18);
+                    // Show pest health overlay (smaller, moved down to fit within cell)
+                    Rectangle pestBg = new Rectangle(50, 14);
                     pestBg.setArcWidth(8);
                     pestBg.setArcHeight(8);
                     pestBg.setFill(Color.WHITE);
@@ -743,13 +743,13 @@ public class GardenControllerFX implements Initializable {
                     pestBg.setStrokeWidth(1.5);
                     pestBg.setOpacity(0.9);
                     pestBg.setTranslateX(0);
-                    pestBg.setTranslateY(-55);
+                    pestBg.setTranslateY(-48);
 
                     Label pestLabel = new Label("P: " + plant.getPestHealth());
                     pestLabel.setTextFill(Color.RED);
-                    pestLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 10px;");
+                    pestLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 9px;");
                     pestLabel.setTranslateX(0);
-                    pestLabel.setTranslateY(-55);
+                    pestLabel.setTranslateY(-48);
 
                     cell.getChildren().addAll(pestBg, pestLabel);
                 }
