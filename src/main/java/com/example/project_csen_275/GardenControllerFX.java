@@ -54,6 +54,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class GardenControllerFX implements Initializable {
     @FXML
@@ -147,6 +150,7 @@ public class GardenControllerFX implements Initializable {
     private int waterBatchCount = 0;
     private Timeline waterLogTimer;
     private Timeline hourlyReportTimer;
+    private ScheduledExecutorService hourlyScheduler;
 
     /**
      * Handles exceptions in a centralized manner
@@ -223,6 +227,9 @@ public class GardenControllerFX implements Initializable {
             setupWaterBatchLogTimer();
             // Setup real-time hourly state reporting
             setupHourlyReportTimer();
+            // Schedule real-time hourly garden state logging
+            hourlyScheduler = Executors.newSingleThreadScheduledExecutor();
+            hourlyScheduler.scheduleAtFixedRate(() -> simApi.getState(), 1, 1, TimeUnit.HOURS);
 
             // Add listener to attach panels when scene is available
             gardenGrid.sceneProperty().addListener((scene, oldScene, newScene) -> {
@@ -1439,6 +1446,8 @@ public class GardenControllerFX implements Initializable {
         try {
             // Shutdown the thread pool gracefully
             gardenExecutor.shutdown();
+            // Shutdown hourly scheduler
+            if (hourlyScheduler != null) hourlyScheduler.shutdownNow();
             GardenLogger.info("Garden application thread pool shutdown initiated");
 
             // Allow time for tasks to complete
