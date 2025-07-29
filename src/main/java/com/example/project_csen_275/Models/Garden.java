@@ -8,6 +8,9 @@ import java.util.Map;
 public class Garden {
     private Plant[][] grid;
     private Random random = new Random();
+    // Delay cycles before replanting after death
+    private int[][] replantDelay;
+    private static final int REPLANT_DELAY_CYCLES = 3;
 
     // Stats tracking
     private int deadPlantCount = 0;
@@ -18,9 +21,11 @@ public class Garden {
 
     public Garden(int rows, int cols) {
         grid = new Plant[rows][cols];
+        replantDelay = new int[rows][cols];
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 grid[r][c] = createRandomPlant();
+                replantDelay[r][c] = -1; // no replant scheduled
             }
         }
     }
@@ -112,15 +117,44 @@ public class Garden {
                             String plantName = plant.getName();
                             grid[r][c] = new NoPlant();
                             deadPlantCount++;
-
+                            replantDelay[r][c] = REPLANT_DELAY_CYCLES; // schedule replant
                             // Log plant death
                             if (com.example.project_csen_275.GardenLogger.class != null) {
-                                com.example.project_csen_275.GardenLogger.warning(plantName + " at position [" + r + ","
-                                        + c + "] died and was replaced with soil");
+                                com.example.project_csen_275.GardenLogger.warning(
+                                    plantName + " at position [" + r + "," + c + "] died and will respawn soon");
                             }
                         }
                     }
                     // NoPlant instances have health 0 by default, so we don't need to set it here
+                }
+            }
+        }
+        // Handle scheduled replanting
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[r].length; c++) {
+                if (grid[r][c] instanceof NoPlant && replantDelay[r][c] >= 0) {
+                    replantDelay[r][c]--;
+                    if (replantDelay[r][c] == 0) {
+                        // Plant a new random plant in this spot
+                        Plant newPlant;
+                        int type = random.nextInt(5) + 1; // 1-5 for real plants
+                        switch (type) {
+                            case 1: newPlant = new Carrot(); break;
+                            case 2: newPlant = new Cherry(); break;
+                            case 3: newPlant = new Corn(); break;
+                            case 4: newPlant = new Pumpkin(); break;
+                            case 5: newPlant = new Sunflower(); break;
+                            default: newPlant = new Carrot();
+                        }
+                        grid[r][c] = newPlant;
+                        plantedCount++;
+                        // Log automatic planting
+                        if (com.example.project_csen_275.GardenLogger.class != null) {
+                            com.example.project_csen_275.GardenLogger.info(
+                                "Automatically planted " + newPlant.getName() + " at position [" + r + "," + c + "]");
+                        }
+                        replantDelay[r][c] = -1;
+                    }
                 }
             }
         }
