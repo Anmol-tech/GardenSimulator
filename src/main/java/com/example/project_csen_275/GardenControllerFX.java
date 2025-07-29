@@ -42,10 +42,18 @@ import java.util.ResourceBundle;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import javafx.stage.Stage;
+import javafx.stage.Modality;
+import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 
 public class GardenControllerFX implements Initializable {
     @FXML
     private GridPane gardenGrid;
+    @FXML
+    private Button helpButton;
     @FXML
     private ComboBox<String> plantTypeComboBox;
     @FXML
@@ -219,6 +227,9 @@ public class GardenControllerFX implements Initializable {
                 }
             }
             updateGrid();
+            // Ensure Help button is visible and on top
+            helpButton.setVisible(true);
+            helpButton.toFront();
             updateStats();
         } catch (Exception ex) {
             handleException(ex, "Failed to initialize garden application");
@@ -486,6 +497,120 @@ public class GardenControllerFX implements Initializable {
             triggerRandomEvent();
         } catch (Exception ex) {
             handleException(ex, "Error triggering event");
+        }
+    }
+    
+    @FXML
+    public void onHelp() {
+        try {
+            Stage helpStage = new Stage();
+            helpStage.setTitle("Garden Simulator Help");
+            // Create styled container
+            VBox root = new VBox(10);
+            root.setPadding(new Insets(10));
+            root.setAlignment(Pos.TOP_LEFT);
+            root.setStyle("-fx-background-color: linear-gradient(#e8ffea, #c8f8cc); " +
+                          "-fx-border-color: #80c080; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;");
+            ScrollPane scrollPane = new ScrollPane(root);
+            scrollPane.setFitToWidth(true);
+            scrollPane.setStyle("-fx-background: transparent;");
+            // Title
+            Label title = new Label("🎮 Garden Simulator Help");
+            title.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2e7d32;");
+            title.setWrapText(true);
+            root.getChildren().add(title);
+            // Sections with styled headings and descriptions
+            // Plant Selector
+            Label plantHdr = new Label("Plant Selector:");
+            plantHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            root.getChildren().add(plantHdr);
+            Label plantDesc = new Label(
+                "Choose a plant from the dropdown and click 'Plant Selected' to place it in the grid. " +
+                "Right-click on a cell to water individual plants manually.");
+            plantDesc.setWrapText(true);
+            plantDesc.setMaxWidth(360);
+            plantDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            root.getChildren().add(plantDesc);
+            // Water All
+            Label waterHdr = new Label("Water All:");
+            waterHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            root.getChildren().add(waterHdr);
+            Label waterDesc = new Label(
+                "Water every plant in the garden, restoring moisture and up to +9 health per action.");
+            waterDesc.setWrapText(true);
+            waterDesc.setMaxWidth(360);
+            waterDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            root.getChildren().add(waterDesc);
+            // Add Pests
+            Label pestHdr = new Label("Add Pests:");
+            pestHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            root.getChildren().add(pestHdr);
+            Label pestDesc = new Label(
+                "Spawn a random pest on a vulnerable plant. Pests have 20 health and damage plants each cycle. " +
+                "Pest Spray defense auto-deploys next cycle to deal 8 damage initially, then 3 per cycle.");
+            pestDesc.setWrapText(true);
+            pestDesc.setMaxWidth(360);
+            pestDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            root.getChildren().add(pestDesc);
+            // Remove Bugs
+            Label removeHdr = new Label("Remove Bugs:");
+            removeHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            root.getChildren().add(removeHdr);
+            Label removeDesc = new Label(
+                "A gardener visits, removes all pests instantly, and waters every plant for a health boost. " +
+                "This stops any ongoing pest spray.");
+            removeDesc.setWrapText(true);
+            removeDesc.setMaxWidth(360);
+            removeDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            root.getChildren().add(removeDesc);
+            // Automation
+            Label autoHdr = new Label("Automation:");
+            autoHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            root.getChildren().add(autoHdr);
+            Label autoDesc = new Label(
+                "Toggle automatic mode (every 3s): cycles apply garden updates, random events, pest spray, and " +
+                "randomly waters plants (25% chance every 18s).");
+            autoDesc.setWrapText(true);
+            autoDesc.setMaxWidth(360);
+            autoDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            root.getChildren().add(autoDesc);
+            // Events Modeled
+            Label eventsHdr = new Label("Events Modeled:");
+            eventsHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            root.getChildren().add(eventsHdr);
+            Label eventsDesc = new Label(
+                "Sunny Day: extra moisture loss + heat stress;\n" +
+                "Rainy Day: rainwaters all plants + regen;\n" +
+                "Pest Infestation: random pests appear;\n" +
+                "Perfect Growth: double water, restores ideal temp;\n" +
+                "Gardener Visit: clears pests & waters;\n" +
+                "Chilly Day: temp drop + delayed insulation cover to restore heat.");
+            eventsDesc.setWrapText(true);
+            eventsDesc.setMaxWidth(360);
+            eventsDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            root.getChildren().add(eventsDesc);
+            // Detailed Mechanics
+            Label mechHdr = new Label("Detailed Mechanics:");
+            mechHdr.setStyle("-fx-font-size: 14px; -fx-font-weight: bold; -fx-underline: true; -fx-text-fill: #204020;");
+            root.getChildren().add(mechHdr);
+            Label mechDesc = new Label(
+                "- Chilly Day: -2 health damage per cycle when temp <65°F. Insulation cover engages next cycle to raise +1°F per cycle until ideal.\n" +
+                "- Sunny Day: -8 health damage per cycle when temp >75°F.\n" +
+                "- Watering: restores moisture and +9 health manually or via rain.\n" +
+                "- Pest Spray: initial 8 damage then 3 per cycle for up to 5 cycles, triggers 1 cycle after infestation.\n" +
+                "- Gardener Visit: removes pests & waters all plants, canceling sprays.\n" +
+                "- Automation: runs every 3s, manages updates, events, sprays, and random watering.");
+            mechDesc.setWrapText(true);
+            mechDesc.setMaxWidth(360);
+            mechDesc.setStyle("-fx-background-color: rgba(255,255,128,0.3); -fx-font-size: 13px; -fx-text-fill: #204020; -fx-padding: 4px;");
+            root.getChildren().add(mechDesc);
+            Scene scene = new Scene(scrollPane, 380, 260);
+            helpStage.setScene(scene);
+            helpStage.initOwner(gardenGrid.getScene().getWindow());
+            helpStage.initModality(Modality.APPLICATION_MODAL);
+            helpStage.show();
+        } catch (Exception ex) {
+            handleException(ex, "Error opening Help window");
         }
     }
 

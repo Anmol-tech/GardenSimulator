@@ -53,6 +53,7 @@
                         <Button text="Update Garden" onAction="#onUpdate" style="-fx-base: #bbdefb;"/>
                         <Button text="Water All" onAction="#onWaterAll" style="-fx-base: #90caf9;"/>
                         <Button text="Add Pests" onAction="#onAddPest" style="-fx-base: #ffcc80;"/>
+                        <Button fx:id="helpButton" text="❓ Help" onAction="#onHelp" style="-fx-base: gold; -fx-text-fill: black; -fx-font-size: 12px; -fx-padding: 4px 8px;"/>
                         <Button text="Remove Bugs" onAction="#onRemovePests" style="-fx-base: #ef9a9a;"/>
                     </HBox>
                     
