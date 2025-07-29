@@ -3,6 +3,7 @@ package com.example.project_csen_275;
 import com.example.project_csen_275.Models.Garden;
 import com.example.project_csen_275.GardenSimulationAPI;
 import com.example.project_csen_275.Models.Plants.*;
+import com.example.project_csen_275.animations.AnimationFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -252,7 +253,7 @@ public class GardenControllerFX implements Initializable {
                 if (!(plant instanceof NoPlant)) {
                     garden.waterPlant(r, c);
                     statusText.setText("Watered plant at Row " + (r + 1) + ", Column " + (c + 1));
-                    WaterAnimation.playWaterAnimation(cell);
+                    AnimationFactory.playAnimation(cell, AnimationFactory.AnimationType.WATER);
                 } else {
                     statusText.setText("Cannot water empty soil!");
                 }
@@ -337,7 +338,8 @@ public class GardenControllerFX implements Initializable {
                                 // Create a delayed animation for each cell
                                 final int index = i; // For closure
                                 Timeline delay = new Timeline(new KeyFrame(Duration.millis(index * 80),
-                                        e -> WaterAnimation.playWaterAnimation(cell)));
+                                        e -> AnimationFactory.playAnimation(cell,
+                                                AnimationFactory.AnimationType.WATER)));
                                 delay.play();
                             }
 
@@ -890,7 +892,7 @@ public class GardenControllerFX implements Initializable {
                             for (int[] pos : sprayedPositions) {
                                 StackPane cell = getNodeByRowColumnIndex(pos[0], pos[1]);
                                 if (cell != null) {
-                                    WaterAnimation.playPestSprayAnimation(cell);
+                                    AnimationFactory.playAnimation(cell, AnimationFactory.AnimationType.PEST_SPRAY);
                                 }
                             }
                         } catch (Exception ex) {
@@ -1096,6 +1098,27 @@ public class GardenControllerFX implements Initializable {
                 // Display sun icon
                 eventImageView.setImage(sunEventImage);
                 eventImageView.setVisible(true);
+
+                // Play sunshine animation on all plants
+                for (int r = 0; r < ROWS; r++) {
+                    for (int c = 0; c < COLS; c++) {
+                        Plant plant = garden.getPlant(r, c);
+                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                            final int row = r;
+                            final int col = c;
+                            // Small delay between animations for visual effect
+                            final int delay = random.nextInt(300);
+                            Timeline timeline = new Timeline(new KeyFrame(
+                                    Duration.millis(delay),
+                                    e -> {
+                                        final StackPane cell = getNodeByRowColumnIndex(row, col);
+                                        Platform.runLater(() -> AnimationFactory.playAnimation(cell,
+                                                AnimationFactory.AnimationType.SUNSHINE));
+                                    }));
+                            timeline.play();
+                        }
+                    }
+                }
                 break;
             case 5: // Chilly day - temperature drop and insulation cover
                 // Drop temperature below ideal range (e.g., 55-64°F)
@@ -1111,6 +1134,27 @@ public class GardenControllerFX implements Initializable {
                 // Display frost icon
                 eventImageView.setImage(frostEventImage);
                 eventImageView.setVisible(true);
+
+                // Play frost animation on all plants
+                for (int r = 0; r < ROWS; r++) {
+                    for (int c = 0; c < COLS; c++) {
+                        Plant plant = garden.getPlant(r, c);
+                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                            final int row = r;
+                            final int col = c;
+                            // Small delay between animations for visual effect
+                            final int delay = random.nextInt(300);
+                            Timeline timeline = new Timeline(new KeyFrame(
+                                    Duration.millis(delay),
+                                    e -> {
+                                        final StackPane cell = getNodeByRowColumnIndex(row, col);
+                                        Platform.runLater(() -> AnimationFactory.playAnimation(cell,
+                                                AnimationFactory.AnimationType.FROST));
+                                    }));
+                            timeline.play();
+                        }
+                    }
+                }
                 break;
 
             case 1: // Rainy day - use API rain to water all plants with health regen
@@ -1125,7 +1169,7 @@ public class GardenControllerFX implements Initializable {
                             final int col = c;
                             Platform.runLater(() -> {
                                 StackPane cell = getNodeByRowColumnIndex(row, col);
-                                WaterAnimation.playWaterAnimation(cell);
+                                AnimationFactory.playAnimation(cell, AnimationFactory.AnimationType.RAIN);
                             });
                         }
                     }
@@ -1193,6 +1237,27 @@ public class GardenControllerFX implements Initializable {
                         + " plants are thriving, and temperature restored to " + idealTemp + "°F.";
                 statusText.setText(growthMessage);
                 GardenLogger.info(growthMessage);
+
+                // Play sunshine animation on all plants
+                for (int r = 0; r < ROWS; r++) {
+                    for (int c = 0; c < COLS; c++) {
+                        Plant plant = garden.getPlant(r, c);
+                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                            final int row = r;
+                            final int col = c;
+                            // Small delay between animations for visual effect
+                            final int delay = random.nextInt(300);
+                            Timeline timeline = new Timeline(new KeyFrame(
+                                    Duration.millis(delay),
+                                    e -> {
+                                        final StackPane cell = getNodeByRowColumnIndex(row, col);
+                                        Platform.runLater(() -> AnimationFactory.playAnimation(cell,
+                                                AnimationFactory.AnimationType.SUNSHINE));
+                                    }));
+                            timeline.play();
+                        }
+                    }
+                }
                 break;
 
             case 4: // Gardener visit - remove pests and water plants
@@ -1210,6 +1275,19 @@ public class GardenControllerFX implements Initializable {
                             }
                             garden.waterPlant(r, c);
                             plantsWatered++;
+
+                            final int row = r;
+                            final int col = c;
+                            // Small delay between animations
+                            final int delay = random.nextInt(300);
+                            Timeline timeline = new Timeline(new KeyFrame(
+                                    Duration.millis(delay),
+                                    e -> {
+                                        final StackPane cell = getNodeByRowColumnIndex(row, col);
+                                        Platform.runLater(() -> AnimationFactory.playAnimation(cell,
+                                                AnimationFactory.AnimationType.FARMER));
+                                    }));
+                            timeline.play();
                         }
                     }
                 }
