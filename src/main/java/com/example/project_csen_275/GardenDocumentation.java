@@ -193,8 +193,7 @@ public class GardenDocumentation {
                                 "• Chilly Day\n" +
                                 "  - Drops temperature below 65°F\n" +
                                 "  - Causes cold damage (-2 health per cycle)\n" +
-                                "  - Activates insulation cover to gradually restore temperature\n" +
-                                "  - Garden background turns light orange when insulation cover is active (indicating warmth)\n\n" +
+                                "  - Activates insulation cover to gradually restore temperature\n\n" +
 
                                 "• Pest Infestation\n" +
                                 "  - Adds pests to random plants\n" +
@@ -235,7 +234,6 @@ public class GardenDocumentation {
                                 "  - Plant counts (living, dead, empty)\n" +
                                 "  - Water level average\n" +
                                 "  - Health level average\n" +
-                                "  - Fertilizer level\n" +
                                 "  - Current garden temperature\n\n" +
 
                                 "• Activity Log (Right, Below Stats)\n" +
@@ -243,15 +241,38 @@ public class GardenDocumentation {
                                 "  - Color-coded messages (green for info, yellow for warnings, red for errors)\n" +
                                 "  - Chronological record of all garden events"),
 
-                // Keyboard Shortcuts
-                createSection("Keyboard Shortcuts",
-                        "The following keyboard shortcuts are available for faster garden management:\n\n" +
-                                "• Spacebar: Update garden (when garden area is focused)\n" +
-                                "• W: Water all plants\n" +
-                                "• A: Toggle automation (start/stop)\n" +
-                                "• R: Remove pests from all plants\n" +
-                                "• H or F1: Open help window\n" +
-                                "• Esc: Close dialogs"));
+                // Weather & Events
+                createSection("Weather and Events",
+                        "The garden simulation includes various weather events that affect your plants:\n\n" +
+                                "• Sunny Day\n" +
+                                "  - Increases temperature above 75°F\n" +
+                                "  - Accelerates moisture loss in plants\n" +
+                                "  - Can cause heat stress (-8 health per cycle) if too hot\n\n" +
+
+                                "• Rainy Day\n" +
+                                "  - Waters all plants automatically\n" +
+                                "  - Increases plant health\n" +
+                                "  - Restores optimal moisture levels\n\n" +
+
+                                "• Chilly Day\n" +
+                                "  - Drops temperature below 65°F\n" +
+                                "  - Causes cold damage (-2 health per cycle)\n" +
+                                "  - Activates insulation cover to gradually restore temperature\n\n" +
+
+                                "• Pest Infestation\n" +
+                                "  - Adds pests to random plants\n" +
+                                "  - Reduces plant health until pests are eliminated\n" +
+                                "  - Triggers automatic pest spray defense\n\n" +
+
+                                "• Perfect Growth\n" +
+                                "  - Optimal conditions for all plants\n" +
+                                "  - Doubles water effectiveness\n" +
+                                "  - Restores ideal temperature\n\n" +
+
+                                "• Gardener Visit\n" +
+                                "  - Removes all pests\n" +
+                                "  - Waters all plants\n" +
+                                "  - Improves plant health"));
 
         scrollPane.setContent(content);
         tab.setContent(scrollPane);
@@ -385,7 +406,6 @@ public class GardenDocumentation {
                 // General Plant Care
                 createSection("General Plant Care Guidelines",
                         "• Watering Strategy\n" +
-                                "  - Right-click individual plants to water them manually\n" +
                                 "  - Use 'Water All' for efficient garden-wide watering\n" +
                                 "  - Water more frequently during hot weather and sunny days\n" +
                                 "  - Each watering restores moisture and provides up to +9 health\n\n" +
