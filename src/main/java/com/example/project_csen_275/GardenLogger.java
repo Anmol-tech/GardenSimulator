@@ -69,33 +69,25 @@ public class GardenLogger {
         String timestamp = dateFormat.format(new Date());
 
         // Add appropriate emoji based on log level
-        String emoji = "";
-        switch (level) {
-            case "INFO":
-                emoji = "ℹ️ ";
-                break;
-            case "WARNING":
-                emoji = "⚠️ ";
-                break;
-            case "ERROR":
-                emoji = "❌ ";
-                break;
-            case "EVENT":
-                emoji = "🔔 ";
-                break;
-        }
+        String emoji = switch (level) {
+            case "INFO" -> "ℹ️ ";
+            case "WARNING" -> "⚠️ ";
+            case "ERROR" -> "❌ ";
+            case "EVENT" -> "🔔 ";
+            default -> "";
+        };
 
         // Create the formatted message with emoji
         final String formattedMessage = timestamp + " " + emoji + "[" + level + "] " + message;
 
         // Update the UI on the JavaFX application thread
         Platform.runLater(() -> {
-            // Add to the beginning of the list so newest logs are at top
-            logs.add(0, formattedMessage);
+            // Add to the beginning of the list so the newest logs are at top
+            logs.addFirst(formattedMessage);
 
             // Keep the list at a reasonable size
             if (logs.size() > MAX_LOGS) {
-                logs.remove(logs.size() - 1);
+                logs.removeLast();
             }
         });
 
@@ -121,7 +113,7 @@ public class GardenLogger {
      * Clear all logs
      */
     public static void clearLogs() {
-        Platform.runLater(() -> logs.clear());
+        Platform.runLater(logs::clear);
     }
 
     /**
@@ -156,21 +148,4 @@ public class GardenLogger {
         }
     }
 
-    /**
-     * Enable or disable file logging
-     * 
-     * @param enabled Whether file logging should be enabled
-     */
-    public static void setFileLoggingEnabled(boolean enabled) {
-        fileLoggingEnabled = enabled;
-    }
-
-    /**
-     * Check if file logging is enabled
-     * 
-     * @return true if file logging is enabled
-     */
-    public static boolean isFileLoggingEnabled() {
-        return fileLoggingEnabled;
-    }
 }

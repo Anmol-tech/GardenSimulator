@@ -1,11 +1,9 @@
 package com.example.project_csen_275.animations;
 
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 
 /**
  * Base class for all garden animations

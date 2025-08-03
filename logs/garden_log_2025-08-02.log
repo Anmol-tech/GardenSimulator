@@ -1,0 +1,119 @@
+19:24:46 ℹ️ [INFO] Garden cleared for initialization
+19:24:46 ℹ️ [INFO] Planted Carrot at position [0,0]
+19:24:46 ℹ️ [INFO] Planted Cherry at position [0,1]
+19:24:46 ℹ️ [INFO] Planted Corn at position [0,2]
+19:24:46 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+19:24:46 ℹ️ [INFO] Planted Sunflower at position [0,4]
+19:24:46 ℹ️ [INFO] Planted Carrot at position [1,0]
+19:24:46 ℹ️ [INFO] Planted Cherry at position [1,1]
+19:24:46 ℹ️ [INFO] Planted Corn at position [1,2]
+19:24:46 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+19:24:46 ℹ️ [INFO] Planted Sunflower at position [1,4]
+19:24:46 ℹ️ [INFO] Planted Carrot at position [2,0]
+19:24:46 ℹ️ [INFO] Planted Cherry at position [2,1]
+19:24:46 ℹ️ [INFO] Planted Corn at position [2,2]
+19:24:46 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+19:24:46 ℹ️ [INFO] Planted Sunflower at position [2,4]
+19:24:46 ℹ️ [INFO] Planted Carrot at position [3,0]
+19:24:46 ℹ️ [INFO] Planted Cherry at position [3,1]
+19:24:46 ℹ️ [INFO] Planted Corn at position [3,2]
+19:24:46 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+19:24:46 ℹ️ [INFO] Planted Sunflower at position [3,4]
+19:24:46 ℹ️ [INFO] Planted Carrot at position [4,0]
+19:24:46 ℹ️ [INFO] Planted Cherry at position [4,1]
+19:24:46 ℹ️ [INFO] Planted Corn at position [4,2]
+19:24:46 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+19:24:46 ℹ️ [INFO] Planted Sunflower at position [4,4]
+19:24:46 ℹ️ [INFO] Garden initialized from config
+19:24:46 ℹ️ [INFO] Garden application started
+19:24:48 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:24:48 🔔 [EVENT] Rainfall: watered 25 plants.
+19:24:48 🔔 [EVENT] It's raining! 25 plants have been watered.
+19:24:57 ℹ️ [INFO] Garden application thread pool shutdown initiated
+19:36:09 ℹ️ [INFO] Garden cleared for initialization
+19:36:09 ℹ️ [INFO] Planted Carrot at position [0,0]
+19:36:09 ℹ️ [INFO] Planted Cherry at position [0,1]
+19:36:09 ℹ️ [INFO] Planted Corn at position [0,2]
+19:36:09 ℹ️ [INFO] Planted Pumpkin at position [0,3]
+19:36:09 ℹ️ [INFO] Planted Sunflower at position [0,4]
+19:36:09 ℹ️ [INFO] Planted Carrot at position [1,0]
+19:36:09 ℹ️ [INFO] Planted Cherry at position [1,1]
+19:36:09 ℹ️ [INFO] Planted Corn at position [1,2]
+19:36:09 ℹ️ [INFO] Planted Pumpkin at position [1,3]
+19:36:09 ℹ️ [INFO] Planted Sunflower at position [1,4]
+19:36:09 ℹ️ [INFO] Planted Carrot at position [2,0]
+19:36:09 ℹ️ [INFO] Planted Cherry at position [2,1]
+19:36:09 ℹ️ [INFO] Planted Corn at position [2,2]
+19:36:09 ℹ️ [INFO] Planted Pumpkin at position [2,3]
+19:36:09 ℹ️ [INFO] Planted Sunflower at position [2,4]
+19:36:09 ℹ️ [INFO] Planted Carrot at position [3,0]
+19:36:09 ℹ️ [INFO] Planted Cherry at position [3,1]
+19:36:09 ℹ️ [INFO] Planted Corn at position [3,2]
+19:36:09 ℹ️ [INFO] Planted Pumpkin at position [3,3]
+19:36:09 ℹ️ [INFO] Planted Sunflower at position [3,4]
+19:36:09 ℹ️ [INFO] Planted Carrot at position [4,0]
+19:36:09 ℹ️ [INFO] Planted Cherry at position [4,1]
+19:36:09 ℹ️ [INFO] Planted Corn at position [4,2]
+19:36:09 ℹ️ [INFO] Planted Pumpkin at position [4,3]
+19:36:09 ℹ️ [INFO] Planted Sunflower at position [4,4]
+19:36:09 ℹ️ [INFO] Garden initialized from config
+19:36:09 ℹ️ [INFO] Garden application started
+19:36:17 ℹ️ [INFO] Planted Cherry at position [4,3]
+19:36:20 ⚠️ [WARNING] Oh no! Pest infestation: 1 plants were infested (Aphid x1)
+19:36:21 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (Locust x2, Bird x1)
+19:36:21 ⚠️ [WARNING] Oh no! Pest infestation: 5 plants were infested (Bird x2, Aphid x3)
+19:36:24 ⚠️ [WARNING] Heat wave! 25 plants affected by high temperature (78°F) - different plants respond differently
+19:36:24 🔔 [EVENT] It's a sunny day! Temperature rose to 78°F, plants are drying faster.
+19:36:28 ⚠️ [WARNING] Heat wave! 25 plants affected by high temperature (88°F) - different plants respond differently
+19:36:28 🔔 [EVENT] It's a sunny day! Temperature rose to 88°F, plants are drying faster.
+19:36:35 🔔 [EVENT] Rainfall: watered 25 plants.
+19:36:35 🔔 [EVENT] It's raining! 25 plants have been watered.
+19:36:36 🔔 [EVENT] Rainfall: watered 25 plants.
+19:36:36 🔔 [EVENT] It's raining! 25 plants have been watered.
+19:36:37 🔔 [EVENT] Rainfall: watered 25 plants.
+19:36:37 🔔 [EVENT] It's raining! 25 plants have been watered.
+19:36:40 ⚠️ [WARNING] Oh no! Pest infestation: 3 plants were infested (Locust x1, Squash Bug x1, Aphid x1)
+19:36:43 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:36:43 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+19:36:43 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:36:43 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+19:36:43 🔔 [EVENT] Ideal temperature: 70°F. No stress applied.
+19:36:43 ℹ️ [INFO] Perfect 🌸growing conditions today! 25 plants are thriving, and temperature restored to 70°F.
+19:36:48 ℹ️ [INFO] A gardener visited! Removed 11 pests and watered 25 plants.
+19:36:48 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+19:36:48 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+19:36:48 ℹ️ [INFO] A gardener visited! Removed 0 pests and watered 25 plants.
+19:36:51 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+19:36:51 🔔 [EVENT] Chilly day! Temp dropped to 64°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:52 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (59°F)
+19:36:52 🔔 [EVENT] Chilly day! Temp dropped to 59°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:52 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (58°F)
+19:36:52 🔔 [EVENT] Chilly day! Temp dropped to 58°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:52 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (55°F)
+19:36:52 🔔 [EVENT] Chilly day! Temp dropped to 55°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:52 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (63°F)
+19:36:52 🔔 [EVENT] Chilly day! Temp dropped to 63°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:53 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (58°F)
+19:36:53 🔔 [EVENT] Chilly day! Temp dropped to 58°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:53 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (58°F)
+19:36:53 🔔 [EVENT] Chilly day! Temp dropped to 58°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:53 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (60°F)
+19:36:53 🔔 [EVENT] Chilly day! Temp dropped to 60°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:55 ℹ️ [INFO] Garden automation running - updates every 3 seconds
+19:36:55 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (60°F)
+19:36:55 🔔 [EVENT] Chilly day! Temp dropped to 60°F. Insulation cover will engage next cycle (6 cycles total).
+19:36:58 🔔 [EVENT] Deploying Anti-pest spray for 5 cycles!
+19:36:58 🔔 [EVENT] Insulation cover engaged for 6 cycles.
+19:36:58 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (60°F)
+19:36:58 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (61°F)
+19:37:01 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (61°F)
+19:37:01 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (62°F)
+19:37:04 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (62°F)
+19:37:04 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (63°F)
+19:37:07 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (63°F)
+19:37:07 ⚠️ [WARNING] Frost damage! 25 plants lost health due to low temperature (64°F)
+19:37:10 🔔 [EVENT] Pest spray ended.
+19:37:10 ⚠️ [WARNING] 25 plants took -2 health due to low temperature (64°F)
+19:37:10 🔔 [EVENT] Ideal temperature: 65°F. No stress applied.
+19:37:10 ⚠️ [WARNING] Oh no! Pest infestation: 4 plants were infested (Squash Bug x1, Bird x1, Weevil x1, Aphid x1)
+19:37:12 ℹ️ [INFO] Garden application thread pool shutdown initiated

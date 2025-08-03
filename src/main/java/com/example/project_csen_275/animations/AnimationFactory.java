@@ -51,29 +51,4 @@ public class AnimationFactory {
         }
     }
 
-    /**
-     * Create a specific animation instance without playing it
-     * 
-     * @param cell The StackPane where the animation will be shown
-     * @param type The type of animation to create
-     * @return The created animation instance
-     */
-    public static AnimationBase createAnimation(StackPane cell, AnimationType type) {
-        switch (type) {
-            case WATER:
-                return new WaterAnimation(cell);
-            case PEST_SPRAY:
-                return new PestSprayAnimation(cell);
-            case FROST:
-                return new FrostAnimation(cell);
-            case RAIN:
-                return new RainAnimation(cell);
-            case SUNSHINE:
-                return new SunshineAnimation(cell);
-            case FARMER:
-                return new FarmerAnimation(cell);
-            default:
-                throw new IllegalArgumentException("Unsupported animation type: " + type);
-        }
-    }
 }

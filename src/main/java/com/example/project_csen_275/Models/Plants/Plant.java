@@ -45,14 +45,6 @@ public class Plant {
     }
 
     /**
-     * Adds a specified amount of water to the plant's moisture level (no health restoration).
-     * @param amount water amount to add
-     */
-    public void addWater(int amount) {
-        moistureLevel = Math.min(moistureLevel + amount, 100);
-    }
-
-    /**
      * Simulates the plant drying out, reducing moisture level and potentially causing health damage.
      * Plants with moisture level below 30% will take damage proportional to their dryness.
      * Different plants have different drought tolerance (override this method to customize).
@@ -85,15 +77,14 @@ public class Plant {
     
     /**
      * Applies cold damage to the plant during a frost or cold event.
+     *
      * @param temperature The current temperature in °F
-     * @return The amount of damage actually applied
      */
-    public int applyColdDamage(int temperature) {
+    public void applyColdDamage(int temperature) {
         // Default behavior: 2 damage for cold temperatures
         int baseDamage = 2;
         int actualDamage = (int)(baseDamage * getColdResistanceMultiplier());
         health = Math.max(0, health - actualDamage);
-        return actualDamage;
     }
     
     /**

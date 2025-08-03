@@ -76,7 +76,7 @@ public class PestSprayAnimation extends AnimationBase {
             cell.getChildren().add(sprayView);
 
             // Add background behind all
-            cell.getChildren().add(0, background);
+            cell.getChildren().addFirst(background);
 
         } catch (Exception ex) {
             // Log error but use a sophisticated fallback
@@ -105,7 +105,7 @@ public class PestSprayAnimation extends AnimationBase {
             cell.getChildren().add(sprayText);
 
             // Add background behind all
-            cell.getChildren().add(0, background);
+            cell.getChildren().addFirst(background);
         }
     }
 
@@ -135,8 +135,8 @@ public class PestSprayAnimation extends AnimationBase {
 
             // Show mist effect
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), _ -> {
-                for (int i = 0; i < mistDrops.length; i++) {
-                    mistDrops[i].setOpacity(0.7);
+                for (Rectangle mistDrop : mistDrops) {
+                    mistDrop.setOpacity(0.7);
                 }
                 sprayView.setRotate(-30); // More tilt for spraying action
                 sprayView.setScaleX(1.1);
@@ -187,8 +187,8 @@ public class PestSprayAnimation extends AnimationBase {
 
             // Show mist
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(200), _ -> {
-                for (int i = 0; i < mistCircles.length; i++) {
-                    mistCircles[i].setOpacity(0.8);
+                for (Circle mistCircle : mistCircles) {
+                    mistCircle.setOpacity(0.8);
                 }
             }));
 

@@ -1,13 +1,11 @@
 package com.example.project_csen_275;
 
 import com.example.project_csen_275.Models.Garden;
-import com.example.project_csen_275.GardenSimulationAPI;
 import com.example.project_csen_275.Models.Plants.*;
 import com.example.project_csen_275.animations.AnimationFactory;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -17,7 +15,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Separator;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ScrollPane;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -32,14 +29,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Modality;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -49,14 +44,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import javafx.stage.Stage;
-import javafx.stage.Modality;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class GardenControllerFX implements Initializable {
     @FXML
@@ -83,7 +73,6 @@ public class GardenControllerFX implements Initializable {
     private final int COLS = 5;
     private GardenSimulationAPI simApi;
     private Garden garden;
-    private PlantSelector plantSelector;
     private int selectedRow = -1;
     private int selectedCol = -1;
     private final Random random = new Random();
@@ -99,7 +88,7 @@ public class GardenControllerFX implements Initializable {
             3, // Core pool size
             3, // Maximum pool size (same as core for fixed size)
             0L, TimeUnit.MILLISECONDS, // Keep-alive time for excess threads
-            new LinkedBlockingQueue<Runnable>(), // Work queue
+            new LinkedBlockingQueue<>(), // Work queue
             new ThreadFactory() {
                 private final AtomicInteger threadCount = new AtomicInteger(1);
 
@@ -121,18 +110,16 @@ public class GardenControllerFX implements Initializable {
 
     // Stats display
     private VBox statsPanel;
-    private Text livePlantsText = new Text("🌿 Living Plants: 0");
-    private Text deadPlantsText = new Text("�� Dead Plants: 0");
-    private Text emptyPlotsText = new Text("🌱 Empty Soil: 0");
-    private Text plantedText = new Text("🪴 Plants Planted: 0");
-    private Text wateredText = new Text("💧 Plants Watered: 0");
-    private Text temperatureText = new Text("Temperature: 0°F");
+    private final Text livePlantsText = new Text("🌿 Living Plants: 0");
+    private final Text deadPlantsText = new Text("�� Dead Plants: 0");
+    private final Text emptyPlotsText = new Text("🌱 Empty Soil: 0");
+    private final Text plantedText = new Text("🪴 Plants Planted: 0");
+    private final Text wateredText = new Text("💧 Plants Watered: 0");
+    private final Text temperatureText = new Text("Temperature: 0°F");
     @FXML
     private Text gameTimeText;
     @FXML
     private Text sessionTimeText;
-    private GardenTimer gardenTimer;
-    private Timeline statsUpdateTimer;
 
     // Log display
     private VBox logPanel;
@@ -183,7 +170,7 @@ public class GardenControllerFX implements Initializable {
             simApi.initializeGarden();
             garden = simApi.getGarden();
             // Initialize the plant selector
-            plantSelector = new PlantSelector();
+            PlantSelector plantSelector = new PlantSelector();
 
             // Set up the combo box with the same items as in the plant selector
             plantTypeComboBox.getItems().addAll(plantSelector.getComboBox().getItems());
@@ -213,7 +200,7 @@ public class GardenControllerFX implements Initializable {
                     "-fx-base: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5;");
 
             // Initialize garden timer
-            gardenTimer = new GardenTimer();
+            GardenTimer gardenTimer = new GardenTimer();
             gameTimeText.textProperty().bind(gardenTimer.timeStringProperty());
             sessionTimeText.textProperty().bind(gardenTimer.sessionTimeStringProperty());
             gardenTimer.start();
@@ -271,7 +258,7 @@ public class GardenControllerFX implements Initializable {
             selectedCol = c;
             statusText.setText("Selected position: Row " + (r + 1) + ", Column " + (c + 1));
 
-            // If right-click, water the plant
+            // If right-clicked, water the plant
             if (e.isSecondaryButtonDown()) {
                 Plant plant = garden.getPlant(r, c);
                 if (!(plant instanceof NoPlant)) {
@@ -359,9 +346,8 @@ public class GardenControllerFX implements Initializable {
                                 int[] pos = plantsToWater.get(i);
                                 StackPane cell = (StackPane) getNodeByRowColumnIndex(pos[0], pos[1]);
 
-                                // Create a delayed animation for each cell
-                                final int index = i; // For closure
-                                Timeline delay = new Timeline(new KeyFrame(Duration.millis(index * 80),
+                                // Create a delayed animation for each cell for closure
+                                Timeline delay = new Timeline(new KeyFrame(Duration.millis(i * 80),
                                         e -> AnimationFactory.playAnimation(cell,
                                                 AnimationFactory.AnimationType.WATER)));
                                 delay.play();
@@ -393,27 +379,7 @@ public class GardenControllerFX implements Initializable {
             if (selectedPlantType != null) {
                 // Create the plant from the selected type
                 Plant newPlant;
-                switch (selectedPlantType) {
-                    case "Carrot":
-                        newPlant = new Carrot();
-                        break;
-                    case "Cherry":
-                        newPlant = new Cherry();
-                        break;
-                    case "Corn":
-                        newPlant = new Corn();
-                        break;
-                    case "Pumpkin":
-                        newPlant = new Pumpkin();
-                        break;
-                    case "Sunflower":
-                        newPlant = new Sunflower();
-                        break;
-                    case "Empty":
-                    default:
-                        newPlant = new NoPlant();
-                        break;
-                }
+                newPlant = getPlant(selectedPlantType);
 
                 garden.addPlant(selectedRow, selectedCol, newPlant);
                 String message = newPlant.getName() + " planted at Row " + (selectedRow + 1) + ", Column "
@@ -431,6 +397,17 @@ public class GardenControllerFX implements Initializable {
             statusText.setText(message);
             GardenLogger.warning(message);
         }
+    }
+
+    private Plant getPlant(String selectedPlantType) {
+        return switch (selectedPlantType) {
+            case "Carrot" -> new Carrot();
+            case "Cherry" -> new Cherry();
+            case "Corn" -> new Corn();
+            case "Pumpkin" -> new Pumpkin();
+            case "Sunflower" -> new Sunflower();
+            default -> new NoPlant();
+        };
     }
 
     @FXML
@@ -559,18 +536,7 @@ public class GardenControllerFX implements Initializable {
                 cell.getChildren().clear();
 
                 // Determine the correct image
-                String imagePath;
-
-                if (plant instanceof NoPlant) {
-                    // Empty soil - use basic soil tile
-                    imagePath = "assests/Tiles/tile_0000.png";
-                } else if (plant.getHealth() <= 0) {
-                    // Dead plant (shouldn't happen as they should be converted to NoPlant)
-                    imagePath = "assests/Tiles/dead_plant.png";
-                } else {
-                    // Normal plant image
-                    imagePath = "assests/Tiles/" + plant.getImageUrl();
-                }
+                String imagePath = getImagePath(plant);
 
                 Image plantImage = new Image(getClass().getResourceAsStream(imagePath));
                 ImageView imageView = new ImageView(plantImage);
@@ -666,6 +632,22 @@ public class GardenControllerFX implements Initializable {
                 }
             }
         }
+    }
+
+    private static String getImagePath(Plant plant) {
+        String imagePath;
+
+        if (plant instanceof NoPlant) {
+            // Empty soil - use basic soil tile
+            imagePath = "assests/Tiles/tile_0000.png";
+        } else if (plant.getHealth() <= 0) {
+            // Dead plant (shouldn't happen as they should be converted to NoPlant)
+            imagePath = "assests/Tiles/dead_plant.png";
+        } else {
+            // Normal plant image
+            imagePath = "assests/Tiles/" + plant.getImageUrl();
+        }
+        return imagePath;
     }
 
     private StackPane getNodeByRowColumnIndex(int row, int column) {
@@ -922,10 +904,9 @@ public class GardenControllerFX implements Initializable {
                         final int newTemp = Math.min(currentTemp + 1, IDEAL_TEMP_LOWER);
                         // Update temperature without UI updates
                         garden.setTemperature(newTemp);
-                        final int tempToSet = newTemp;
                         Platform.runLater(() -> {
                             try {
-                                garden.temperature(tempToSet);
+                                garden.temperature(newTemp);
                             } catch (Exception e) {
                                 GardenLogger.error("Error setting temperature in FX thread: " + e.getMessage());
                             }
@@ -1023,25 +1004,7 @@ public class GardenControllerFX implements Initializable {
                 eventImageView.setVisible(true);
 
                 // Play sunshine animation on all plants
-                for (int r = 0; r < ROWS; r++) {
-                    for (int c = 0; c < COLS; c++) {
-                        Plant plant = garden.getPlant(r, c);
-                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                            final int row = r;
-                            final int col = c;
-                            // Small delay between animations for visual effect
-                            final int delay = random.nextInt(300);
-                            Timeline timeline = new Timeline(new KeyFrame(
-                                    Duration.millis(delay),
-                                    e -> {
-                                        final StackPane cell = getNodeByRowColumnIndex(row, col);
-                                        Platform.runLater(() -> AnimationFactory.playAnimation(cell,
-                                                AnimationFactory.AnimationType.SUNSHINE));
-                                    }));
-                            timeline.play();
-                        }
-                    }
-                }
+                playSunshineAnimation();
                 break;
             case 5: // Chilly day - temperature drop and insulation cover
                 // Drop temperature below ideal range (e.g., 55-64°F)
@@ -1082,7 +1045,7 @@ public class GardenControllerFX implements Initializable {
 
             case 1: // Rainy day - use API rain to water all plants with health regen
                 // Delegate to simulation API for rain
-                int rainCount = simApi.rain(0); // amount ignored in model; uses plant.water()
+                int rainCount = simApi.rain();
                 // Animate all watered cells
                 for (int r = 0; r < ROWS; r++) {
                     for (int c = 0; c < COLS; c++) {
@@ -1162,25 +1125,7 @@ public class GardenControllerFX implements Initializable {
                 GardenLogger.info(growthMessage);
 
                 // Play sunshine animation on all plants
-                for (int r = 0; r < ROWS; r++) {
-                    for (int c = 0; c < COLS; c++) {
-                        Plant plant = garden.getPlant(r, c);
-                        if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
-                            final int row = r;
-                            final int col = c;
-                            // Small delay between animations for visual effect
-                            final int delay = random.nextInt(300);
-                            Timeline timeline = new Timeline(new KeyFrame(
-                                    Duration.millis(delay),
-                                    e -> {
-                                        final StackPane cell = getNodeByRowColumnIndex(row, col);
-                                        Platform.runLater(() -> AnimationFactory.playAnimation(cell,
-                                                AnimationFactory.AnimationType.SUNSHINE));
-                                    }));
-                            timeline.play();
-                        }
-                    }
-                }
+                playSunshineAnimation();
                 break;
 
             case 4: // Gardener visit - remove pests and water plants
@@ -1222,6 +1167,28 @@ public class GardenControllerFX implements Initializable {
         }
 
         updateGrid();
+    }
+
+    private void playSunshineAnimation() {
+        for (int r = 0; r < ROWS; r++) {
+            for (int c = 0; c < COLS; c++) {
+                Plant plant = garden.getPlant(r, c);
+                if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
+                    final int row = r;
+                    final int col = c;
+                    // Small delay between animations for visual effect
+                    final int delay = random.nextInt(300);
+                    Timeline timeline = new Timeline(new KeyFrame(
+                            Duration.millis(delay),
+                            e -> {
+                                final StackPane cell = getNodeByRowColumnIndex(row, col);
+                                Platform.runLater(() -> AnimationFactory.playAnimation(cell,
+                                        AnimationFactory.AnimationType.SUNSHINE));
+                            }));
+                    timeline.play();
+                }
+            }
+        }
     }
 
     /**
@@ -1390,7 +1357,7 @@ public class GardenControllerFX implements Initializable {
      * Set up a timer to periodically update the stats
      */
     private void setupStatsUpdateTimer() {
-        statsUpdateTimer = new Timeline(new KeyFrame(Duration.seconds(2), _ -> updateStats()));
+        Timeline statsUpdateTimer = new Timeline(new KeyFrame(Duration.seconds(2), _ -> updateStats()));
         statsUpdateTimer.setCycleCount(Timeline.INDEFINITE);
         statsUpdateTimer.play();
     }
@@ -1417,7 +1384,7 @@ public class GardenControllerFX implements Initializable {
     }
 
     /**
-     * Sets up a timer to log total waterings in batch every 10 seconds.
+     * Sets up a timer to log total watering in batch every 10 seconds.
      */
     private void setupWaterBatchLogTimer() {
         waterLogTimer = new Timeline(new KeyFrame(Duration.seconds(10), _ -> {
@@ -1478,28 +1445,7 @@ public class GardenControllerFX implements Initializable {
                 } else {
                     try {
                         // Create plant instance to get the image URL
-                        Plant plant = null;
-                        switch (item) {
-                            case "Carrot":
-                                plant = new Carrot();
-                                break;
-                            case "Cherry":
-                                plant = new Cherry();
-                                break;
-                            case "Corn":
-                                plant = new Corn();
-                                break;
-                            case "Pumpkin":
-                                plant = new Pumpkin();
-                                break;
-                            case "Sunflower":
-                                plant = new Sunflower();
-                                break;
-                            case "Empty":
-                            default:
-                                plant = new NoPlant();
-                                break;
-                        }
+                        Plant plant = getPlant(item);
 
                         // Plant will never be null here since we assign a NoPlant as default
                         String imagePath = "assests/Tiles/" + plant.getImageUrl();
@@ -1531,28 +1477,7 @@ public class GardenControllerFX implements Initializable {
                 } else {
                     try {
                         // Create plant instance to get the image URL
-                        Plant plant = null;
-                        switch (item) {
-                            case "Carrot":
-                                plant = new Carrot();
-                                break;
-                            case "Cherry":
-                                plant = new Cherry();
-                                break;
-                            case "Corn":
-                                plant = new Corn();
-                                break;
-                            case "Pumpkin":
-                                plant = new Pumpkin();
-                                break;
-                            case "Sunflower":
-                                plant = new Sunflower();
-                                break;
-                            case "Empty":
-                            default:
-                                plant = new NoPlant();
-                                break;
-                        }
+                        Plant plant = getPlant(item);
 
                         // Plant will never be null here since we assign a NoPlant as default
                         String imagePath = "assests/Tiles/" + plant.getImageUrl();
@@ -1569,35 +1494,6 @@ public class GardenControllerFX implements Initializable {
                 }
             }
         });
-    }
-
-    /**
-     * Helper method to add a section to the help window with consistent styling
-     * 
-     * @param container  The parent container to add the section to
-     * @param title      The section title with emoji
-     * @param content    The section content as bullet points
-     * @param titleColor The color for the section title
-     */
-    private void addHelpSection(VBox container, String title, String content, String titleColor) {
-        // Create section title
-        Label header = new Label(title);
-        header.setStyle(
-                "-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: " + titleColor + ";");
-        container.getChildren().add(header);
-
-        // Create content area with styled background
-        Label description = new Label(content);
-        description.setWrapText(true);
-        description.setMaxWidth(420);
-        description.setStyle(
-                "-fx-background-color: rgba(255,255,255,0.7); -fx-font-size: 13px; -fx-text-fill: #333333; " +
-                        "-fx-padding: 8px; -fx-background-radius: 5; -fx-border-color: rgba(200,230,200,0.8); " +
-                        "-fx-border-radius: 5; -fx-border-width: 1;");
-        container.getChildren().add(description);
-
-        // Add small spacing after each section
-        container.getChildren().add(new Separator());
     }
 
     // Add helper method to format pest names
@@ -1622,28 +1518,28 @@ public class GardenControllerFX implements Initializable {
 
     private void updateStatus(String level, String message) {
         String emoji;
-        Color color;
-        switch (level) {
-            case "INFO":
+        Color color = switch (level) {
+            case "INFO" -> {
                 emoji = "ℹ️ ";
-                color = Color.BLUE;
-                break;
-            case "WARNING":
+                yield Color.BLUE;
+            }
+            case "WARNING" -> {
                 emoji = "⚠️ ";
-                color = Color.ORANGE;
-                break;
-            case "ERROR":
+                yield Color.ORANGE;
+            }
+            case "ERROR" -> {
                 emoji = "❌ ";
-                color = Color.RED;
-                break;
-            case "EVENT":
+                yield Color.RED;
+            }
+            case "EVENT" -> {
                 emoji = "🔔 ";
-                color = Color.MEDIUMSEAGREEN;
-                break;
-            default:
+                yield Color.MEDIUMSEAGREEN;
+            }
+            default -> {
                 emoji = "";
-                color = Color.BLACK;
-        }
+                yield Color.BLACK;
+            }
+        };
         statusText.setText(emoji + message);
         statusText.setFill(color);
         statusText.setFont(Font.font("Arial", FontWeight.BOLD, 14));

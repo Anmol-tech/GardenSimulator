@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Garden {
-    private Plant[][] grid;
-    private Random random = new Random();
+    private final Plant[][] grid;
+    private final Random random = new Random();
     // Delay cycles before replanting after death
-    private int[][] replantDelay;
+    private final int[][] replantDelay;
     private static final int REPLANT_DELAY_CYCLES = 3;
 
     // Stats tracking
@@ -32,22 +32,14 @@ public class Garden {
 
     private Plant createRandomPlant() {
         int plantType = random.nextInt(7); // 0-6
-        switch (plantType) {
-            case 0:
-                return new NoPlant();
-            case 1:
-                return new Carrot();
-            case 2:
-                return new Cherry();
-            case 3:
-                return new Corn();
-            case 4:
-                return new Pumpkin();
-            case 5:
-                return new Sunflower();
-            default:
-                return new NoPlant();
-        }
+        return switch (plantType) {
+            case 1 -> new Carrot();
+            case 2 -> new Cherry();
+            case 3 -> new Corn();
+            case 4 -> new Pumpkin();
+            case 5 -> new Sunflower();
+            default -> new NoPlant();
+        };
     }
 
     public void addPlant(int row, int col, Plant plant) {
@@ -138,14 +130,13 @@ public class Garden {
                         // Plant a new random plant in this spot
                         Plant newPlant;
                         int type = random.nextInt(5) + 1; // 1-5 for real plants
-                        switch (type) {
-                            case 1: newPlant = new Carrot(); break;
-                            case 2: newPlant = new Cherry(); break;
-                            case 3: newPlant = new Corn(); break;
-                            case 4: newPlant = new Pumpkin(); break;
-                            case 5: newPlant = new Sunflower(); break;
-                            default: newPlant = new Carrot();
-                        }
+                        newPlant = switch (type) {
+                            case 2 -> new Cherry();
+                            case 3 -> new Corn();
+                            case 4 -> new Pumpkin();
+                            case 5 -> new Sunflower();
+                            default -> new Carrot();
+                        };
                         grid[r][c] = newPlant;
                         plantedCount++;
                         // Log automatic planting
@@ -162,14 +153,12 @@ public class Garden {
 
     /**
      * Simulates rainfall by adding given amount of water to all plants.
-     * @param amount the water amount to add per plant
      * @return number of plants watered
      */
-    public int rain(int amount) {
+    public int rain() {
         int count = 0;
-        for (int r = 0; r < grid.length; r++) {
-            for (int c = 0; c < grid[r].length; c++) {
-                Plant plant = grid[r][c];
+        for (Plant[] plants : grid) {
+            for (Plant plant : plants) {
                 if (plant != null && !(plant instanceof NoPlant) && plant.getHealth() > 0) {
                     plant.water(); // standard water + health regen
                     wateredCount++;
@@ -194,9 +183,8 @@ public class Garden {
         int affected = 0;
         if (temp > 75) {
             // Heat stress: extra drying and heat damage
-            for (int r = 0; r < grid.length; r++) {
-                for (int c = 0; c < grid[r].length; c++) {
-                    Plant plant = grid[r][c];
+            for (Plant[] plants : grid) {
+                for (Plant plant : plants) {
                     if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
                         plant.dryOut(); // Extra drying based on plant type
                         // Apply heat damage based on plant's heat resistance
@@ -213,16 +201,13 @@ public class Garden {
                     // We're not on FX thread, use Platform.runLater
                     final int finalAffected = affected;
                     final int finalTemp = temp;
-                    javafx.application.Platform.runLater(() -> {
-                        com.example.project_csen_275.GardenLogger.warning("Heat wave! " + finalAffected + " plants affected by high temperature (" + finalTemp + "°F) - different plants respond differently");
-                    });
+                    javafx.application.Platform.runLater(() -> com.example.project_csen_275.GardenLogger.warning("Heat wave! " + finalAffected + " plants affected by high temperature (" + finalTemp + "°F) - different plants respond differently"));
                 }
             }
         } else if (temp < 65) {
             // Cold stress: damage health based on plant's cold resistance
-            for (int r = 0; r < grid.length; r++) {
-                for (int c = 0; c < grid[r].length; c++) {
-                    Plant plant = grid[r][c];
+            for (Plant[] plants : grid) {
+                for (Plant plant : plants) {
                     if (!(plant instanceof NoPlant) && plant.getHealth() > 0) {
                         plant.applyColdDamage(temp);
                         affected++;
@@ -273,79 +258,6 @@ public class Garden {
      */
     public int getCurrentTemperature() {
         return currentTemperature;
-    }
-
-    /**
-     * Try to plant a new plant in an empty soil spot
-     * 
-     * @return true if a new plant was planted, false otherwise
-     */
-    public boolean plantRandomPlant() {
-        // Find empty spots in the garden
-        int rows = grid.length;
-        int cols = grid[0].length;
-
-        // Create arrays to store empty spot coordinates
-        int[] emptyRows = new int[rows * cols];
-        int[] emptyCols = new int[rows * cols];
-        int emptyCount = 0;
-
-        // Find all empty spots
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                if (grid[r][c] instanceof NoPlant) {
-                    emptyRows[emptyCount] = r;
-                    emptyCols[emptyCount] = c;
-                    emptyCount++;
-                }
-            }
-        }
-
-        // If there are empty spots, plant a random plant in one of them
-        if (emptyCount > 0) {
-            int randomSpot = random.nextInt(emptyCount);
-            int row = emptyRows[randomSpot];
-            int col = emptyCols[randomSpot];
-
-            // Create a random plant (excluding NoPlant)
-            int plantType = random.nextInt(5) + 1; // 1-5
-            Plant newPlant;
-
-            switch (plantType) {
-                case 1:
-                    newPlant = new Carrot();
-                    break;
-                case 2:
-                    newPlant = new Cherry();
-                    break;
-                case 3:
-                    newPlant = new Corn();
-                    break;
-                case 4:
-                    newPlant = new Pumpkin();
-                    break;
-                case 5:
-                    newPlant = new Sunflower();
-                    break;
-                default:
-                    newPlant = new Carrot();
-                    break;
-            }
-
-            // Plant the new plant
-            grid[row][col] = newPlant;
-            plantedCount++;
-
-            // Log automatic planting
-            if (com.example.project_csen_275.GardenLogger.class != null) {
-                com.example.project_csen_275.GardenLogger
-                        .info("Automatically planted " + newPlant.getName() + " at position [" + row + "," + col + "]");
-            }
-
-            return true;
-        }
-
-        return false;
     }
 
     /**
@@ -430,14 +342,5 @@ public class Garden {
         }
 
         return count;
-    }
-
-    /**
-     * Reset the counters for stats that accumulate over time
-     */
-    public void resetStats() {
-        deadPlantCount = 0;
-        plantedCount = 0;
-        wateredCount = 0;
     }
 }

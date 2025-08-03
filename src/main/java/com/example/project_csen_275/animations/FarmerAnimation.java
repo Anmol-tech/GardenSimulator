@@ -72,7 +72,7 @@ public class FarmerAnimation extends AnimationBase {
             }
 
             // Add elements to cell
-            cell.getChildren().add(0, background);
+            cell.getChildren().addFirst(background);
             cell.getChildren().add(farmerView);
 
         } catch (Exception ex) {
@@ -142,8 +142,8 @@ public class FarmerAnimation extends AnimationBase {
             // Soil settling animation
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(550), _ -> {
                 // Soil particles fall back
-                for (int i = 0; i < soilParticles.length; i++) {
-                    soilParticles[i].setTranslateY(0);
+                for (Circle soilParticle : soilParticles) {
+                    soilParticle.setTranslateY(0);
                 }
 
                 // Farmer moves side to side slightly

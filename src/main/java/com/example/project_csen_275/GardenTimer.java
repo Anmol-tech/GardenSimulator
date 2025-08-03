@@ -15,21 +15,18 @@ import javafx.util.Duration;
  */
 public class GardenTimer {
     // Game time properties
-    private IntegerProperty days = new SimpleIntegerProperty(1);
-    private IntegerProperty hours = new SimpleIntegerProperty(6); // Start at 6 AM
-    private IntegerProperty minutes = new SimpleIntegerProperty(0);
-    private StringProperty timeString = new SimpleStringProperty("Day 1, 6:00 AM");
+    private final IntegerProperty days = new SimpleIntegerProperty(1);
+    private final IntegerProperty hours = new SimpleIntegerProperty(6); // Start at 6 AM
+    private final IntegerProperty minutes = new SimpleIntegerProperty(0);
+    private final StringProperty timeString = new SimpleStringProperty("Day 1, 6:00 AM");
 
     // Session timer properties
-    private long startTimeMillis;
-    private IntegerProperty sessionMinutes = new SimpleIntegerProperty(0);
-    private StringProperty sessionTimeString = new SimpleStringProperty("Session: 0h 0m");
+    private final long startTimeMillis;
+    private final IntegerProperty sessionMinutes = new SimpleIntegerProperty(0);
+    private final StringProperty sessionTimeString = new SimpleStringProperty("Session: 0h 0m");
 
     // Game time timeline
-    private Timeline timeline;
-
-    // Time multiplier: 1 real minute = 1 game hour
-    private final int TIME_MULTIPLIER = 60;
+    private final Timeline timeline;
 
     /**
      * Initialize the garden timer
@@ -50,13 +47,6 @@ public class GardenTimer {
     }
 
     /**
-     * Stop the timer
-     */
-    public void stop() {
-        timeline.stop();
-    }
-
-    /**
      * Update game time and session time
      */
     private void updateTime() {
@@ -71,6 +61,8 @@ public class GardenTimer {
         // Update game time (1 real minute = 1 game hour)
         // Convert seconds to game minutes (1 real second = TIME_MULTIPLIER/60 game
         // minutes)
+        // Time multiplier: 1 real minute = 1 game hour
+        int TIME_MULTIPLIER = 60;
         int gameMinutesElapsed = (int) (elapsedSeconds * (TIME_MULTIPLIER / 60.0));
         int totalGameHours = gameMinutesElapsed / 60;
         int gameDays = totalGameHours / 24;
@@ -127,39 +119,4 @@ public class GardenTimer {
         return sessionTimeString;
     }
 
-    /**
-     * Get the current day
-     * 
-     * @return The current day
-     */
-    public IntegerProperty daysProperty() {
-        return days;
-    }
-
-    /**
-     * Get the current hour
-     * 
-     * @return The current hour (0-23)
-     */
-    public IntegerProperty hoursProperty() {
-        return hours;
-    }
-
-    /**
-     * Get the current minute
-     * 
-     * @return The current minute (0-59)
-     */
-    public IntegerProperty minutesProperty() {
-        return minutes;
-    }
-
-    /**
-     * Get the session minutes elapsed
-     * 
-     * @return Minutes elapsed since the session started
-     */
-    public IntegerProperty sessionMinutesProperty() {
-        return sessionMinutes;
-    }
 }

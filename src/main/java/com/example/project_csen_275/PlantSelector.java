@@ -64,19 +64,6 @@ public class PlantSelector {
         return plantSelector;
     }
 
-    public Plant createSelectedPlant() {
-        try {
-            String selectedType = plantSelector.getValue();
-            return plantTypes.get(selectedType).getDeclaredConstructor().newInstance();
-        } catch (Exception e) {
-            return new NoPlant();
-        }
-    }
-
-    public Map<String, Class<? extends Plant>> getPlantTypes() {
-        return plantTypes;
-    }
-
     public Plant createPlantByName(String plantName) {
         try {
             return plantTypes.get(plantName).getDeclaredConstructor().newInstance();

@@ -17,7 +17,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -27,12 +26,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Comprehensive documentation system for the Garden Simulator application.
@@ -51,7 +47,6 @@ public class GardenDocumentation {
     private static final String STYLE_TAB_CONTENT = "-fx-background-color: linear-gradient(#f8fff8, #e0f2e0);";
 
     private Stage stage;
-    private TabPane tabPane;
 
     /**
      * Create and display the documentation window
@@ -66,7 +61,7 @@ public class GardenDocumentation {
         stage.initModality(Modality.APPLICATION_MODAL);
 
         // Create tab pane for different documentation sections
-        tabPane = new TabPane();
+        TabPane tabPane = new TabPane();
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
         // Create tabs
@@ -125,154 +120,161 @@ public class GardenDocumentation {
 
                 // Introduction
                 createSection("Introduction",
-                        "Garden Simulator is an interactive application that allows you to create and manage your own virtual garden. "
-                                +
-                                "You can plant different types of plants, water them, monitor their health, and deal with various events "
-                                +
-                                "and challenges such as pests, weather changes, and temperature fluctuations.\n\n" +
-                                "This guide provides comprehensive instructions on how to use all features of the Garden Simulator application."),
+                        """
+                                Garden Simulator is an interactive application that allows you to create and manage your own virtual garden. \
+                                You can plant different types of plants, water them, monitor their health, and deal with various events \
+                                and challenges such as pests, weather changes, and temperature fluctuations.
+                                
+                                This guide provides comprehensive instructions on how to use all features of the Garden Simulator application."""),
 
                 // Getting Started
                 createSection("Getting Started",
-                        "1. The main interface displays a 5x5 grid representing your garden plots\n" +
-                                "2. The right panel shows garden statistics and an activity log\n" +
-                                "3. The bottom panel contains controls for plant selection, events, and automation\n" +
-                                "4. The top-right corner displays the game time and session duration\n\n" +
-                                "To begin gardening:\n" +
-                                "• Click on any empty grid cell to select it\n" +
-                                "• Choose a plant type from the dropdown menu in the bottom panel\n" +
-                                "• Click 'Plant Selected' to place your chosen plant in the selected cell\n" +
-                                "• Water your plants regularly by right-clicking on them or using the 'Water All' button"),
+                        """
+                                1. The main interface displays a 5x5 grid representing your garden plots
+                                2. The right panel shows garden statistics and an activity log
+                                3. The bottom panel contains controls for plant selection, events, and automation
+                                4. The top-right corner displays the game time and session duration
+                                
+                                To begin gardening:
+                                • Click on any empty grid cell to select it
+                                • Choose a plant type from the dropdown menu in the bottom panel
+                                • Click 'Plant Selected' to place your chosen plant in the selected cell
+                                • Water your plants regularly by right-clicking on them or using the 'Water All' button"""),
 
                 // Core Features
                 createSection("Core Features",
-                        "• Plant Selection and Placement\n" +
-                                "  - Left-click a grid cell to select it for planting\n" +
-                                "  - Choose a plant type from the dropdown menu\n" +
-                                "  - Click 'Plant Selected' to place the plant\n" +
-                                "  - To remove a plant, select 'Empty' from the dropdown and place it\n\n" +
-
-                                "• Plant Care and Watering\n" +
-                                "  - Right-click on individual plants to water them\n" +
-                                "  - Use the 'Water All' button to water every plant at once\n" +
-                                "  - Monitor plant health (♥) and moisture levels (💧) displayed on each plant\n" +
-                                "  - Plants with higher moisture levels maintain better health\n\n" +
-
-                                "• Garden Updates\n" +
-                                "  - Use the 'Update Garden' button to advance the garden simulation by one cycle\n" +
-                                "  - Each update changes moisture levels, grows plants, and applies environmental effects\n"
-                                +
-                                "  - Track changes in the activity log on the right side panel\n\n" +
-
-                                "• Pest Management\n" +
-                                "  - Pests appear naturally or can be manually added with 'Add Pests' button\n" +
-                                "  - Infested plants show a bug icon (🐛) instead of the health icon (♥)\n" +
-                                "  - Use 'Remove Bugs' button to eliminate all pests immediately\n" +
-                                "  - Pest spray automatically activates to gradually reduce pest health\n\n" +
-
-                                "• Automation System\n" +
-                                "  - Click 'Start Automation' to let the garden run automatically\n" +
-                                "  - The simulation will update every 3 seconds\n" +
-                                "  - Plants receive random watering and care\n" +
-                                "  - Random events will occur to make gardening interesting\n" +
-                                "  - Click 'Stop Automation' to regain manual control"),
+                        """
+                                • Plant Selection and Placement
+                                  - Left-click a grid cell to select it for planting
+                                  - Choose a plant type from the dropdown menu
+                                  - Click 'Plant Selected' to place the plant
+                                  - To remove a plant, select 'Empty' from the dropdown and place it
+                                
+                                • Plant Care and Watering
+                                  - Right-click on individual plants to water them
+                                  - Use the 'Water All' button to water every plant at once
+                                  - Monitor plant health (♥) and moisture levels (💧) displayed on each plant
+                                  - Plants with higher moisture levels maintain better health
+                                
+                                • Garden Updates
+                                  - Use the 'Update Garden' button to advance the garden simulation by one cycle
+                                  - Each update changes moisture levels, grows plants, and applies environmental effects
+                                  - Track changes in the activity log on the right side panel
+                                
+                                • Pest Management
+                                  - Pests appear naturally or can be manually added with 'Add Pests' button
+                                  - Infested plants show a bug icon (🐛) instead of the health icon (♥)
+                                  - Use 'Remove Bugs' button to eliminate all pests immediately
+                                  - Pest spray automatically activates to gradually reduce pest health
+                                
+                                • Automation System
+                                  - Click 'Start Automation' to let the garden run automatically
+                                  - The simulation will update every 3 seconds
+                                  - Plants receive random watering and care
+                                  - Random events will occur to make gardening interesting
+                                  - Click 'Stop Automation' to regain manual control"""),
 
                 // Weather & Events
                 createSection("Weather and Events",
-                        "The garden simulation includes various weather events that affect your plants:\n\n" +
-                                "• Sunny Day\n" +
-                                "  - Increases temperature above 75°F\n" +
-                                "  - Accelerates moisture loss in plants\n" +
-                                "  - Can cause heat stress (-8 health per cycle) if too hot\n\n" +
-
-                                "• Rainy Day\n" +
-                                "  - Waters all plants automatically\n" +
-                                "  - Increases plant health\n" +
-                                "  - Restores optimal moisture levels\n\n" +
-
-                                "• Chilly Day\n" +
-                                "  - Drops temperature below 65°F\n" +
-                                "  - Causes cold damage (-2 health per cycle)\n" +
-                                "  - Activates insulation cover to gradually restore temperature\n\n" +
-
-                                "• Pest Infestation\n" +
-                                "  - Adds pests to random plants\n" +
-                                "  - Reduces plant health until pests are eliminated\n" +
-                                "  - Triggers automatic pest spray defense\n\n" +
-
-                                "• Perfect Growth\n" +
-                                "  - Optimal conditions for all plants\n" +
-                                "  - Doubles water effectiveness\n" +
-                                "  - Restores ideal temperature\n\n" +
-
-                                "• Gardener Visit\n" +
-                                "  - Removes all pests\n" +
-                                "  - Waters all plants\n" +
-                                "  - Improves plant health"),
+                        """
+                                The garden simulation includes various weather events that affect your plants:
+                                
+                                • Sunny Day
+                                  - Increases temperature above 75°F
+                                  - Accelerates moisture loss in plants
+                                  - Can cause heat stress (-8 health per cycle) if too hot
+                                
+                                • Rainy Day
+                                  - Waters all plants automatically
+                                  - Increases plant health
+                                  - Restores optimal moisture levels
+                                
+                                • Chilly Day
+                                  - Drops temperature below 65°F
+                                  - Causes cold damage (-2 health per cycle)
+                                  - Activates insulation cover to gradually restore temperature
+                                
+                                • Pest Infestation
+                                  - Adds pests to random plants
+                                  - Reduces plant health until pests are eliminated
+                                  - Triggers automatic pest spray defense
+                                
+                                • Perfect Growth
+                                  - Optimal conditions for all plants
+                                  - Doubles water effectiveness
+                                  - Restores ideal temperature
+                                
+                                • Gardener Visit
+                                  - Removes all pests
+                                  - Waters all plants
+                                  - Improves plant health"""),
 
                 // User Interface Elements
                 createSection("User Interface Guide",
-                        "• Top Panel\n" +
-                                "  - Application title\n" +
-                                "  - Status message showing latest activity\n" +
-                                "  - Game time display (top-right corner)\n\n" +
-
-                                "• Garden Grid (Center)\n" +
-                                "  - 5x5 grid of plant cells\n" +
-                                "  - Each cell shows plant image, health, and moisture level\n" +
-                                "  - Selected cells have blue borders\n" +
-                                "  - Plants with pests display a bug icon and pest health\n\n" +
-
-                                "• Control Panel (Bottom)\n" +
-                                "  - Plant selection dropdown and button\n" +
-                                "  - Event trigger controls\n" +
-                                "  - Update Garden, Water All, Pest management buttons\n" +
-                                "  - Help button\n" +
-                                "  - Automation toggle\n\n" +
-
-                                "• Statistics Panel (Right)\n" +
-                                "  - Plant counts (living, dead, empty)\n" +
-                                "  - Water level average\n" +
-                                "  - Health level average\n" +
-                                "  - Current garden temperature\n\n" +
-
-                                "• Activity Log (Right, Below Stats)\n" +
-                                "  - Real-time updates of all garden activities\n" +
-                                "  - Color-coded messages (green for info, yellow for warnings, red for errors)\n" +
-                                "  - Chronological record of all garden events"),
+                        """
+                                • Top Panel
+                                  - Application title
+                                  - Status message showing latest activity
+                                  - Game time display (top-right corner)
+                                
+                                • Garden Grid (Center)
+                                  - 5x5 grid of plant cells
+                                  - Each cell shows plant image, health, and moisture level
+                                  - Selected cells have blue borders
+                                  - Plants with pests display a bug icon and pest health
+                                
+                                • Control Panel (Bottom)
+                                  - Plant selection dropdown and button
+                                  - Event trigger controls
+                                  - Update Garden, Water All, Pest management buttons
+                                  - Help button
+                                  - Automation toggle
+                                
+                                • Statistics Panel (Right)
+                                  - Plant counts (living, dead, empty)
+                                  - Water level average
+                                  - Health level average
+                                  - Current garden temperature
+                                
+                                • Activity Log (Right, Below Stats)
+                                  - Real-time updates of all garden activities
+                                  - Color-coded messages (green for info, yellow for warnings, red for errors)
+                                  - Chronological record of all garden events"""),
 
                 // Weather & Events
                 createSection("Weather and Events",
-                        "The garden simulation includes various weather events that affect your plants:\n\n" +
-                                "• Sunny Day\n" +
-                                "  - Increases temperature above 75°F\n" +
-                                "  - Accelerates moisture loss in plants\n" +
-                                "  - Can cause heat stress (-8 health per cycle) if too hot\n\n" +
-
-                                "• Rainy Day\n" +
-                                "  - Waters all plants automatically\n" +
-                                "  - Increases plant health\n" +
-                                "  - Restores optimal moisture levels\n\n" +
-
-                                "• Chilly Day\n" +
-                                "  - Drops temperature below 65°F\n" +
-                                "  - Causes cold damage (-2 health per cycle)\n" +
-                                "  - Activates insulation cover to gradually restore temperature\n\n" +
-
-                                "• Pest Infestation\n" +
-                                "  - Adds pests to random plants\n" +
-                                "  - Reduces plant health until pests are eliminated\n" +
-                                "  - Triggers automatic pest spray defense\n\n" +
-
-                                "• Perfect Growth\n" +
-                                "  - Optimal conditions for all plants\n" +
-                                "  - Doubles water effectiveness\n" +
-                                "  - Restores ideal temperature\n\n" +
-
-                                "• Gardener Visit\n" +
-                                "  - Removes all pests\n" +
-                                "  - Waters all plants\n" +
-                                "  - Improves plant health"));
+                        """
+                                The garden simulation includes various weather events that affect your plants:
+                                
+                                • Sunny Day
+                                  - Increases temperature above 75°F
+                                  - Accelerates moisture loss in plants
+                                  - Can cause heat stress (-8 health per cycle) if too hot
+                                
+                                • Rainy Day
+                                  - Waters all plants automatically
+                                  - Increases plant health
+                                  - Restores optimal moisture levels
+                                
+                                • Chilly Day
+                                  - Drops temperature below 65°F
+                                  - Causes cold damage (-2 health per cycle)
+                                  - Activates insulation cover to gradually restore temperature
+                                
+                                • Pest Infestation
+                                  - Adds pests to random plants
+                                  - Reduces plant health until pests are eliminated
+                                  - Triggers automatic pest spray defense
+                                
+                                • Perfect Growth
+                                  - Optimal conditions for all plants
+                                  - Doubles water effectiveness
+                                  - Restores ideal temperature
+                                
+                                • Gardener Visit
+                                  - Removes all pests
+                                  - Waters all plants
+                                  - Improves plant health"""));
 
         scrollPane.setContent(content);
         tab.setContent(scrollPane);
@@ -313,58 +315,59 @@ public class GardenDocumentation {
                 // Carrot
                 createPlantSection(
                         "🥕 Carrot (Root Vegetable)",
-                        "Growth Rate: Fast\n" +
-                                "Water Needs: Moderate\n" +
-                                "Temperature Tolerance: High\n" +
-                                "Pest Vulnerability: Medium",
+                        """
+                                Growth Rate: Fast
+                                Water Needs: Moderate
+                                Temperature Tolerance: High
+                                Pest Vulnerability: Medium""",
 
-                        "Carrots are fast-growing root vegetables that mature quickly in your garden. They require " +
-                                "moderate amounts of water and can tolerate both warm and cool temperatures relatively well. "
-                                +
-                                "Their highest vulnerability is to root-eating pests.\n\n" +
-
-                                "Care Tips:\n" +
-                                "• Water when moisture drops below 50%\n" +
-                                "• Perform best in temperatures between 60-75°F\n" +
-                                "• Monitor for pests regularly"),
+                        """
+                                Carrots are fast-growing root vegetables that mature quickly in your garden. They require \
+                                moderate amounts of water and can tolerate both warm and cool temperatures relatively well. \
+                                Their highest vulnerability is to root-eating pests.
+                                
+                                Care Tips:
+                                • Water when moisture drops below 50%
+                                • Perform best in temperatures between 60-75°F
+                                • Monitor for pests regularly"""),
 
                 // Sunflower
                 createPlantSection(
                         "🌻 Sunflower (Ornamental)",
-                        "Growth Rate: Medium\n" +
-                                "Water Needs: High\n" +
-                                "Temperature Tolerance: Medium-High\n" +
-                                "Pest Vulnerability: Medium",
+                        """
+                                Growth Rate: Medium
+                                Water Needs: High
+                                Temperature Tolerance: Medium-High
+                                Pest Vulnerability: Medium""",
 
-                        "Sunflowers are beautiful ornamental plants that add visual appeal to your garden. They require "
-                                +
-                                "significant amounts of water and prefer warm temperatures. They're moderately vulnerable to certain pests.\n\n"
-                                +
-
-                                "Care Tips:\n" +
-                                "• Keep moisture levels above 60% for optimal growth\n" +
-                                "• Thrive in temperatures between 65-85°F\n" +
-                                "• May need more frequent watering during Sunny Day events"),
+                        """
+                                Sunflowers are beautiful ornamental plants that add visual appeal to your garden. They require \
+                                significant amounts of water and prefer warm temperatures. They're moderately vulnerable to certain pests.
+                                
+                                Care Tips:
+                                • Keep moisture levels above 60% for optimal growth
+                                • Thrive in temperatures between 65-85°F
+                                • May need more frequent watering during Sunny Day events"""),
 
                 // Cherry
                 createPlantSection(
                         "🍒 Cherry (Fruit Tree)",
-                        "Growth Rate: Slow\n" +
-                                "Water Needs: Medium\n" +
-                                "Temperature Tolerance: Medium\n" +
-                                "Pest Vulnerability: High",
+                        """
+                                Growth Rate: Slow
+                                Water Needs: Medium
+                                Temperature Tolerance: Medium
+                                Pest Vulnerability: High""",
 
-                        "Cherry trees are slow-growing fruit trees that take time to mature but provide valuable fruit. "
-                                +
-                                "They have moderate water requirements and are somewhat sensitive to temperature extremes. They are "
-                                +
-                                "highly attractive to pests.\n\n" +
-
-                                "Care Tips:\n" +
-                                "• Maintain consistent moisture levels around 50-60%\n" +
-                                "• Prefer temperatures between 60-75°F\n" +
-                                "• Watch closely for pest infestations and treat promptly\n" +
-                                "• Most rewarding when fully grown"),
+                        """
+                                Cherry trees are slow-growing fruit trees that take time to mature but provide valuable fruit. \
+                                They have moderate water requirements and are somewhat sensitive to temperature extremes. They are \
+                                highly attractive to pests.
+                                
+                                Care Tips:
+                                • Maintain consistent moisture levels around 50-60%
+                                • Prefer temperatures between 60-75°F
+                                • Watch closely for pest infestations and treat promptly
+                                • Most rewarding when fully grown"""),
 
                 // Corn
                 createPlantSection(
@@ -576,7 +579,7 @@ public class GardenDocumentation {
         javafx.scene.control.ComboBox<String> fileCombo = new javafx.scene.control.ComboBox<>();
         fileCombo.getItems().addAll(logFiles);
         if (!logFiles.isEmpty()) {
-            fileCombo.setValue(logFiles.get(0));
+            fileCombo.setValue(logFiles.getFirst());
         }
         fileCombo.setPrefWidth(300);
 

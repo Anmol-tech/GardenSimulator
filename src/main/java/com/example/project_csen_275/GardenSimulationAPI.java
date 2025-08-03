@@ -30,9 +30,9 @@ public class GardenSimulationAPI {
     static {
         DEFAULT_PARASITES.put("Carrot", Arrays.asList("aphid","caterpillar"));
         DEFAULT_PARASITES.put("Cherry", Arrays.asList("bird","weevil"));
-        DEFAULT_PARASITES.put("Corn", Arrays.asList("locust"));
-        DEFAULT_PARASITES.put("Pumpkin", Arrays.asList("squashBug"));
-        DEFAULT_PARASITES.put("Sunflower", Arrays.asList("aphid"));
+        DEFAULT_PARASITES.put("Corn", List.of("locust"));
+        DEFAULT_PARASITES.put("Pumpkin", List.of("squashBug"));
+        DEFAULT_PARASITES.put("Sunflower", List.of("aphid"));
         DEFAULT_PARASITES.put("Empty", Collections.emptyList());
     }
     // Lists to record initialization details
@@ -48,10 +48,6 @@ public class GardenSimulationAPI {
     public GardenSimulationAPI(int rows, int cols) {
         this.garden = new Garden(rows, cols);
         this.plantSelector = new PlantSelector();
-        // clear metadata lists
-        plantNames.clear();
-        waterRequirements.clear();
-        parasiteVulnerabilities.clear();
     }
 
     /**
@@ -114,8 +110,8 @@ public class GardenSimulationAPI {
      * @param amount the water amount (ignored in this model)
      * @return number of plants watered
      */
-    public int rain(int amount) {
-        return garden.rain(amount);
+    public int rain() {
+        return garden.rain();
     }
 
     /**
@@ -126,11 +122,6 @@ public class GardenSimulationAPI {
         garden.temperature(temp);
     }
 
-    /**
-     * Triggers a parasite infestation by pest name across all vulnerable plants.
-     * @param pestName the name of the parasite to infest
-     * @return number of plants infested
-     */
     /**
      * Helper to format pest names (camelCase to Title Case).
      */
@@ -188,7 +179,7 @@ public class GardenSimulationAPI {
         Map<String, Integer> typeStats = garden.getPlantTypeStats();
         StringBuilder sb = new StringBuilder("Plant counts by type: ");
         typeStats.forEach((type, count) -> sb.append(type).append("=").append(count).append(", "));
-        if (sb.length() > 0) sb.setLength(sb.length() - 2);
+        if (!sb.isEmpty()) sb.setLength(sb.length() - 2);
         GardenLogger.info(sb.toString());
     }
 

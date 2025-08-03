@@ -75,7 +75,7 @@ public class RainAnimation extends AnimationBase {
             }
 
             // Add elements to cell
-            cell.getChildren().add(0, background);
+            cell.getChildren().addFirst(background);
             cell.getChildren().add(cloudView);
 
         } catch (Exception ex) {
@@ -131,19 +131,19 @@ public class RainAnimation extends AnimationBase {
 
             // Rain falling animation
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(400), _ -> {
-                for (int i = 0; i < rainDrops.length; i++) {
+                for (Line rainDrop : rainDrops) {
                     // Extend the rain drops downward
-                    rainDrops[i].setEndY(0);
+                    rainDrop.setEndY(0);
                 }
             }));
 
             // More rain falling
             timeline.getKeyFrames().add(new KeyFrame(Duration.millis(500), _ -> {
-                for (int i = 0; i < rainDrops.length; i++) {
+                for (Line rainDrop : rainDrops) {
                     // Extend the rain drops further
-                    rainDrops[i].setEndY(5);
+                    rainDrop.setEndY(5);
                     // Slightly move start point down
-                    rainDrops[i].setStartY(-5);
+                    rainDrop.setStartY(-5);
                 }
             }));
 

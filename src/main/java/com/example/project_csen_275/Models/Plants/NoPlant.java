@@ -25,8 +25,7 @@ public class NoPlant extends Plant {
     }
     
     @Override
-    public int applyColdDamage(int temperature) {
+    public void applyColdDamage(int temperature) {
         // Empty soil doesn't take cold damage
-        return 0;
     }
 }
